@@ -1,0 +1,153 @@
+.holidays .firstcol {
+    padding-right: 50px;
+}
+
+.holidays .textone {
+    list-style-type: square;
+    font-size:30px;
+    padding-bottom: 10px;
+}
+
+.holidays .texttwo {
+    margin-bottom: 20px;
+    padding-top: 0;
+}
+.holidays .texttwo span {
+    font-size: 0.8em;
+    cursor: pointer;
+}
+.holidays .texttwo span.left {
+    float: left;
+}
+.holidays .texttwo span.right {
+    float: right;
+}
+.holidays .textthree {
+    padding-top: 20px;
+    padding-bottom: 39px;
+}
+
+.holidays .firstcol {
+    border-right: 1px solid #eee
+}
+
+.holidays .glyphicon-triangle-left {
+    cursor: pointer;
+}
+
+.holidays .glyphicon-triangle-right {
+    cursor: pointer;
+}
+
+.holidays .dropdown {
+    padding-top: 20px;
+}
+
+.holidays .dropdown-toggle {
+    width: 100%;
+    text-align: left;
+}
+
+.holidays .input-group {
+    padding-top: 20px;
+}
+
+.holidays .description {
+    padding-top: 10px;
+}
+
+@media only screen and (max-width: 991px) {
+    .holidays .secondcol {
+        border-left: 0px;
+    }
+}
+
+/*group of buttons*/
+
+.holidays .edit {
+    display: block;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 4px;
+
+ }
+
+.holidays .delete {
+    display: block;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 0px;
+    border-top: none;
+}
+
+.holidays .adminholidaydatepicker {
+    margin-bottom: 20px
+}
+
+.holidays .dropdowns {
+    margin-bottom: 20px
+}
+
+.holidays .outer-div {
+    margin-bottom: 30px;
+    border: 1px solid #ccc;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    height: 100%;
+    width:100%;
+    position: relative;
+    float:left;
+}
+
+.holidays .inner-div {
+    border: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    position: absolute;
+    top: -1px;
+    right: -40px;
+}
+
+.holidays .outer-div .holiday-info p {
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    margin: 0;
+}
+
+.holidays .formargin {
+    margin-bottom: 10px;
+}
+.special-holiday {
+    color: #fff;
+    background: #8855b7;
+    border-color: #762eb9;
+}
+.regular-holiday {
+    color: #fff;
+    background: #ab4cab;
+    border-color: #732573;
+}
+.holidays .outer-div .holiday-info p span,
+#delete_form .holiday-info p span {
+    display: block;
+}
+.holidays .outer-div .holiday-info p span.holiday-title,
+#delete_form .holiday-info p span.holiday-title {
+    font-size: 1.2em;
+    padding-top: 4px;
+}
+.holidays .outer-div .holiday-info p span.holiday-type {
+    margin-bottom: 10px;
+    padding-bottom: 4px;
+}
+.holidays .outer-div .holiday-info p span.holiday-description {
+
+}

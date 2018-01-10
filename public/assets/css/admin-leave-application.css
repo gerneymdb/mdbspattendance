@@ -1,0 +1,146 @@
+.leave-app .box{
+    position: relative;
+    border: 2px solid powderblue;
+    width: 100%;
+    padding: 5px;
+    margin-top: 43px;
+
+}
+.leave-app .color{
+    position: absolute;
+    padding-right: 10px;
+    display: block;
+    right: 0;
+    z-index: 999;
+}
+.leave-app .text{
+    position: relative;
+    padding-left:10px;
+    font-weight: bold;
+    float: left;
+    width: 100%;
+}
+.leave-app .attach{
+    position: absolute;
+    bottom: 0;
+    float: left;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+
+    padding-left: 10px;
+    left: 0;
+}
+.leave-app .comment{
+    position: absolute;
+    float: right;
+    padding-right: 15px;
+    bottom: 0;
+    right: 0;
+}
+.leave-app .son{
+    position: relative;
+    float: left;
+    padding-left: 10px;
+    display: block;
+    width: 100%;
+    margin-bottom: 35px;
+}
+.leave-app .rand{
+    position: relative;
+    padding-left: 10px;
+    float: left;
+}
+.leave-app .five{
+    font-weight: bold;
+}
+.leave-app .t-bold{
+    font-weight: bold;
+    margin-left: 10px;
+}
+.leave-app .filed{
+    font-weight: bold;
+    margin-left: 10px;
+}
+.leave-app .rea{
+    font-weight: bold;
+}
+.leave-app .frm-form{
+    font-weight: bold;
+    margin-left: 10px;
+}
+.leave-app .glyphicon-paperclip{
+    cursor: pointer;
+}
+.leave-app .fa-commenting-o{
+    cursor:pointer;
+}
+.leave-app .status-holder {
+    width: 100%;
+}
+.leave-app .status-holder p {
+    text-align: right;
+}
+.leave-app .action-approve button,
+.leave-app .action-reject button {
+    background: #b0e0e6;
+    border: 1px solid #b0e0e6;
+    color: #544f4f;
+}
+.leave-app .action-reject button {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+.leave-app .action-approve button {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.leave-app .action-reject,
+.leave-app .action-approve {
+    background: transparent;
+    float: right;
+    position: relative;
+    top: -71px;
+}
+.leave-app .action-reject {
+    position: relative;
+    right: -11px;
+}
+.leave-app .action-approve {
+    position: relative;
+    right: -12px;
+}
+
+.status {
+    padding: 3px 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    background: #fff;
+}
+.status-pending {
+    color: #924b00;
+    border: 1px solid #c77032;
+    background: #f7a66c;
+}
+.status-rejected {
+    color: #381616;
+    border: 1px solid #9a0101;
+    background: #ff4d4d;
+}
+.status-approved {
+    color: #f7fff2;
+    border: 1px solid #3ea003;
+    background: #71cc3a;
+}
+
+
+@media only screen and (max-width: 461px) {
+    .leave-app .groups {
+        margin-top: 35px;
+    }
+}
+.leave-app .pix{
+    padding-bottom: 15px;
+}

@@ -1,0 +1,107 @@
+/* SIDE MENU */
+.admin-side-menu {
+    display: block;
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    left: -183px;
+    z-index: 999;
+    border-top: 0;
+    border-right: 1px solid #e6e4e4;
+    border-bottom: 0;
+    border-left: 0;
+
+    transition: left 0.2s ease-in-out;
+    -webkit-transition: left 0.2s ease-in-out;
+    -moz-transition: left 0.2s ease-in-out;
+    -ms-transition: left 0.2s ease-in-out;
+    -o-transition: left 0.2s ease-in-out;
+}
+.admin-side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.admin-side-menu ul li {
+    position: relative;
+
+    padding: 7px 10px 7px 10px;
+    font-size: 1.2em;
+
+    cursor: pointer;
+}
+.admin-side-menu ul li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    background: rgba(130, 178, 197, 0.5);
+    left: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    z-index: -1;
+    border: 0;
+    top: 0;
+
+    transition: width 0.3s ease-in-out;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -ms-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+}
+.admin-side-menu ul li.active:before {
+    width: 100%;
+}
+.admin-side-menu ul li a {
+    color: #3381a0;
+    text-decoration: none;
+}
+.admin-side-menu ul li:not(:last-child) {
+    border-bottom: 1px solid #e6e4e4;
+}
+.admin-side-menu ul li a i {
+    line-height: 1.5em;
+}
+.admin-side-menu ul li:hover:before {
+    width: 100%;
+}
+
+/*<!-- hover effects -->*/
+.admin-side-menu:hover {
+    left: 0;
+}
+.admin-side-menu:hover + .admin-content {
+    padding: 0 0 0 220px;
+}
+
+
+/* TOP MENU */
+.admin-top-menu {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    background: #b9d5e0;
+    border-bottom: 2px solid #4d9ebd;
+}
+.admin-top-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.admin-top-menu ul li {
+    padding: 7px 10px 7px 10px;
+    font-size: 1.2em;
+    display: inline-block;
+    float: right;
+
+    cursor: pointer;
+}
+.admin-top-menu ul li a {
+    color: #233240;
+    text-decoration: none;
+}

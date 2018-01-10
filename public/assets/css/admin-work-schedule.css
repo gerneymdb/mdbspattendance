@@ -1,0 +1,229 @@
+.work-schedule label,
+#edit_shift_modal label {
+    font-weight: 500;
+}
+.work-schedule .shift-title,
+#edit_shift_modal .title {
+    font-weight: 700;
+}
+.work-schedule .working-days,
+.work-schedule .dayoff-days {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+.work-schedule .working-days,
+.work-schedule .dayoff-days {
+    margin-bottom: 20px;
+}
+.work-schedule .working-days .title,
+.work-schedule .dayoff-days .title,
+.work-schedule .shifts-schedule .title {
+    position: relative;
+    float: left;
+    width: 100%;
+    display: block;
+
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.work-schedule .working-days .days-tile,
+.work-schedule .dayoff-days .days-tile {
+    position: relative;
+    float: left;
+    display: block;
+
+    width: 100%;
+    max-width: 50px;
+    height: 50px;
+
+    border: 1px solid #b5b5b5;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+
+    margin-bottom: 5px;
+}
+.work-schedule .working-days .days-tile:not(:last-child),
+.work-schedule .dayoff-days .days-tile:not(:last-child) {
+    margin-right: 6px;
+}
+.work-schedule .working-days .days-tile input[type='checkbox'],
+.work-schedule .dayoff-days .days-tile input[type='checkbox'] {
+    visibility: hidden;
+}
+
+.work-schedule .working-days .days-tile label,
+.work-schedule .dayoff-days .days-tile label {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: 0;
+    text-align: center;
+    cursor: pointer;
+
+    color: #5a5959;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -o-border-radius: 4px;
+    -ms-border-radius: 4px;
+}
+.work-schedule .working-days .days-tile label:after,
+.work-schedule .dayoff-days .days-tile label:after {
+    content: '';
+    display: block;
+
+    height: 15px;
+    width: 10px;
+
+    border: solid #a6a9a6;
+    border-width: 0 2px 2px 0;
+
+    position: relative;
+    left: 50%;
+    transform: rotate(45deg) translateX(-50%);
+    bottom: -5px;
+
+    opacity: 0;
+}
+.work-schedule .working-days .days-tile input[type='checkbox']:checked + label,
+.work-schedule .dayoff-days .days-tile input[type='checkbox']:checked + label {
+    background: #e2e2e2;
+}
+.work-schedule .working-days .days-tile input[type='checkbox']:checked + label:after,
+.work-schedule .dayoff-days .days-tile input[type='checkbox']:checked + label:after {
+    opacity: 1;
+}
+
+.work-schedule .shifts-schedule,
+#edit_shift_modal .shifts-schedule {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.work-schedule .shifts-schedule .form-group,
+#edit_shift_modal .shifts-schedule .form-group {
+    float: left;
+}
+.work-schedule .shifts-schedule .form-group:not(:last-child),
+#edit_shift_modal .shifts-schedule .form-group:not(:last-child){
+    margin-right: 5px;
+}
+/*.work_schedule label {*/
+    /*display: inline-block;*/
+    /*padding: 6px 12px;*/
+    /*margin-bottom: 0;*/
+    /*font-size: 14px;*/
+    /*font-weight: 400;*/
+    /*line-height: 1.42857143;*/
+    /*text-align: center;*/
+    /*white-space: nowrap;*/
+    /*vertical-align: middle;*/
+    /*background-color: #5cb85c;*/
+    /*border-color: #4cae4c;*/
+    /*touch-action: manipulation;*/
+    /*cursor: pointer;*/
+    /*user-select: none;*/
+    /*background-image: none;*/
+    /*border: 1px solid transparent;*/
+    /*border-radius: 4px;*/
+    /*color:#fff*/
+/*}*/
+
+/*.work_schedule .doff label {*/
+    /*display: inline-block;*/
+    /*padding: 6px 12px;*/
+    /*margin-bottom: 0;*/
+    /*font-size: 14px;*/
+    /*font-weight: 400;*/
+    /*line-height: 1.42857143;*/
+    /*text-align: center;*/
+    /*white-space: nowrap;*/
+    /*vertical-align: middle;*/
+    /*background-color:red;*/
+    /*border-color: #4cae4c;*/
+    /*touch-action: manipulation;*/
+    /*cursor: pointer;*/
+    /*user-select: none;*/
+    /*background-image: none;*/
+    /*border: 1px solid transparent;*/
+    /*border-radius: 4px;*/
+    /*color:#fff*/
+/*}*/
+/*.work_schedule .shiftname {*/
+    /*position:relative;*/
+    /*float:left;*/
+    /*left:80px;*/
+/*}*/
+/*.work_schedule .select input{*/
+    /*display: none;*/
+
+/*}*/
+
+/*#number {*/
+    /*width: 3em;*/
+/*}*/
+
+/*.work_schedule p {*/
+    /*font-size: 18px;*/
+/*}*/
+/*.work_schedule .select-days1 {*/
+    /*position: relative;*/
+    /*left:105px;*/
+    /*bottom:33px;*/
+/*}*/
+/*.work_schedule #s1{*/
+    /*width:45px;*/
+/*}*/
+/*.work_schedule .saved{*/
+    /*position:relative;*/
+    /*left: 200px;*/
+    /*float:right;*/
+/*}*/
+/*.work_schedule hr {*/
+    /*border-width:1px;*/
+    /*width:1600px;*/
+    /*position:relative;*/
+    /*top:50px;*/
+    /*border-color: #eee;*/
+/*}*/
+/*.work_schedule .shiftlist{*/
+    /*float:left;*/
+    /*display:block;*/
+/*}*/
+/*.work_schedule .table {*/
+    /*position:relative;*/
+    /*top:30px;*/
+    /*float:left;*/
+/*}*/
+/*.work_schedule .input-group{*/
+    /*bottom:35px;*/
+    /*left:30px;*/
+/*}*/
+/*.work_schedule .week{*/
+    /*float:left;*/
+    /*display:block;*/
+    /*margin-bottom: 15px;*/
+/*}*/
+/*.work_schedule .form-group{*/
+    /*float:right;*/
+    /*display:block;*/
+/*}*/
+/*.work_schedule #saved{*/
+    /*float: right;*/
+/*}*/
+/*.work_schedule .weeks {*/
+    /*float: left;*/
+    /*display: block;*/
+    /*margin-bottom: 15px;*/
+/*}*/
+/*.work_schedule .selector {*/
+    /*margin-bottom: 15px;*/
+/*}*/

@@ -1,0 +1,93 @@
+#manage-attendance {
+    padding-top: 0;
+}
+
+.manage-attendance .attendance-table{
+    position: relative;
+    overflow: hidden;
+    display: block;
+    float: left;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 22px;
+}
+.manage-attendance .attendance-table .attendance-heading {
+    position: relative;
+    display: block;
+    overflow: visible;
+}
+.manage-attendance .attendance-table .attendance-heading tr {
+    background: #658794;
+
+}
+.manage-attendance .attendance-table .attendance-heading tr:nth-child(1) th:nth-child(1) {
+    background: transparent;
+}
+.manage-attendance .attendance-table .attendance-heading th {
+    min-width: 47px;
+    border-bottom: 0;
+    border-right: 1px;
+    border-top: 1px;
+    border-style: solid;
+    border-color: #80a4b9;
+}
+/*.manage-attendance .attendance-table .attendance-body {*/
+    /*position: relative;*/
+    /*display: block;*/
+    /*overflow: scroll;*/
+/*}*/
+/*.manage-attendance .attendance-table .attendance-body tr {*/
+    /*border: 0;*/
+/*}*/
+/*.manage-attendance .attendance-table .attendance-body td{*/
+    /*position: relative;*/
+    /*min-width: 3.169251517194875%;*/
+    /*border: 1px solid #dae9f1;*/
+/*}*/
+.manage-attendance .attendance-table .attendance-body td a .a_date,
+#attendance_count_modal .a_date {
+    display: block;
+}
+.manage-attendance .attendance-table .attendance-body td a {
+    margin-bottom: 5px;
+}
+.manage-attendance .attendance-table .attendance-body td:nth-child(1) {
+    position: relative;
+    display: block;
+    min-width: 200px;
+    z-index: 99;
+    min-height: 50px;
+    background: #87a4b5;
+    border-color: #80a4b9;
+}
+.manage-attendance .attendance-table .attendance-heading th:nth-child(1){
+    position: relative;
+    display: block;
+    min-width: 200px;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+    border-color: #80a4b9;
+    z-index: 99;
+
+    background: #658794;
+}
+.manage-attendance .form-row {
+    margin-bottom: 0;
+}
+#edt_present .present_edit .form-inline,
+#edt_absent .absent_edit .form-inline {
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #c1b5b5;
+}
+#edt_present .present_edit label,
+#edt_absent .absent_edit label {
+    width: 100%;
+    max-width: 70px;
+}
+
+.manage-attendance .alert-info {
+    margin-top: 10px;
+}

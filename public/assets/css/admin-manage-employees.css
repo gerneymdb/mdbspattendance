@@ -1,0 +1,175 @@
+.employees .add-employee .employee-fullname,
+.employees .add-employee .emp-company-detail {
+    width: 50%;
+    float: left;
+}
+.employees .add-employee .employee-fullname {
+    padding-right: 5px;
+}
+.employees .add-employee .emp-company-detail {
+    padding-left: 5px;
+}
+
+.employees .add{
+    border: 1px solid #ccc;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.employees .names {
+    float: left;
+    width: 50%;
+    display: block;
+    padding: 5px;
+    position: relative;
+}
+.employees .shift{
+    float: left;
+    display: block;
+    padding: 10px 0px 0px 5px;
+    width: 50%;
+}
+
+.employees .shift .form-control{
+    padding: 10px;
+}
+
+.employees #plus{
+    float: right;
+}
+
+.employees .employee-info{
+    width: 90%;
+    border: 1px solid #ccc;
+    position: relative;
+    padding: 10px;
+
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    margin-bottom: 10px;
+}
+
+.employees .buttons{
+    position: absolute;
+    top: -1px;
+    right: -40px;
+    border: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.employees .emp_edit{
+    display: block;
+    border-top-right-radius: 4px;
+}
+
+.employees .emp_delete{
+    display: block;
+    border-bottom-right-radius: 4px;
+}
+
+.employees .info{
+    float: left;
+    width: 50%;
+    display: block;
+    padding: 5px;
+    position: relative;
+}
+.employees .info p:first-child {
+    font-size: 1.3em;
+}
+.employees .work-schedule{
+    float: left;
+    display: block;
+    padding: 10px 0px 0px 5px;
+    width: 50%;
+}
+
+.employees .activity{
+    float: left;
+    position: relative;
+    width: 100%;
+    border-top: 1px solid #ccc;
+}
+
+.employees .additions{
+    float: left;
+    width: 50%;
+    display: block;
+    padding: 5px;
+    position: relative;
+}
+
+.employees .changes{
+    float: left;
+    display: block;
+    padding: 10px 0px 0px 5px;
+    width: 50%;
+}
+
+.employees .work-schedule #pass{
+    font-size: 1em;
+}
+
+.employees .buttons .btn{
+    border-radius: 0;
+}
+.employees .new_pwd_container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255, 0.9);
+    z-index: 9;
+    top: 0;
+    left: 0;
+
+    padding: 5px;
+}
+.employees .new_pwd_container .hide_new_pwd {
+    position: absolute;
+    display: block;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+}
+.employees .new_pwd_container .new_pwd_title {
+    color: #de413e;
+
+    top: 40%;
+    position: relative;
+
+    transform: translateY(-40%);
+    -webkit-transform: translateY(-40%);
+    -moz-transform: translateY(-40%);
+    -ms-transform: translateY(-40%);
+    -o-transform: translateY(-40%);
+}
+.employees .new_pwd_container .new_pwd {
+    font-size: 1.5em;
+
+    top: 35%;
+    position: relative;
+
+    transform: translateY(-35%);
+    -webkit-transform: translateY(-35%);
+    -moz-transform: translateY(-35%);
+    -ms-transform: translateY(-35%);
+    -o-transform: translateY(-35%);
+}
+.employees_error_msg {
+    margin-top: 20px;
+}
+.employees_error_msg .alert-danger {
+    margin-bottom: 0;
+}
+#delete_modal .delete_emp_name span.name {
+    font-size: 1.2em;
+}
+
+.employees .btn_rst_pwd{
+    white-space: normal;
+}

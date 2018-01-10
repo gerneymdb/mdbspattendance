@@ -1,0 +1,21 @@
+html, body{
+    height: 100%;
+}
+
+.msg-container {
+    display: block;
+    position: relative;
+    height: 100%;
+}
+.msg-container .row {
+    display: inherit;
+    position: inherit;
+
+    top: 30%;
+
+    transform: translateY(-30%);
+    -webkit-transform: translateY(-30%);
+    -moz-transform: translateY(-30%);
+    -ms-transform: translateY(-30%);
+    -o-transform: translateY(-30%);
+}

@@ -1,0 +1,653 @@
+body{
+    background:#f1f9f9;
+}
+
+.main-nav {
+    padding: 0;
+}
+
+.navbar {
+    border-radius: 0;
+}
+
+.navbar-toggle{
+    position: relative;
+    float: left;
+}
+
+.cog{
+    color: white;
+    float: right;
+    position: relative;
+    left: 950px;
+    top:20px;
+
+}
+
+.user{
+    color: white;
+    position: relative;
+    left: 1000px;
+
+}
+
+.grid{
+    margin: 5px;
+    padding: 5px;
+}
+
+/*.container .navbar-collapse{
+    margin-left: 0px;
+}*/
+
+.row{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.started{
+    position: relative;
+    width: 100%;
+    height:300px;
+    border: 1px solid lightgrey;
+    padding: 10px;
+    background-color: white;
+}
+
+.started .date {
+    float: left;
+    width: 30%;
+    min-height: 160px;
+    margin-bottom: 15px;
+    text-align: center;
+
+    position: relative;
+
+}
+
+.holiday {
+      color: #fff;
+    border: 1px solid #9e0a0a;
+    background: #fb5050;
+}
+.not-holiday {
+    border: 1px solid #57b4e0;
+    background: #b5e3f9;
+}
+
+.started .date p {
+    margin: 0;
+    padding: 0;
+}
+.started .date p.day {
+    font-size: 5em;
+    line-height: 1em;
+    position: absolute;
+    width: 100%;
+    display: block;
+    top: 42%;
+    transform: translateY(-43%);
+    -webkit-transform: translateY(-43%);
+    -moz-transform: translateY(-43%);
+    -ms-transform: translateY(-43%);
+    -o-transform: translateY(-43%);
+}
+.started .date.holiday p.day {
+    background: #860d0d;
+}
+.started .date.not-holiday p.day {
+    background: #53a2d2;
+}
+.started .date p.day_name {
+    font-size: 1em;
+    position: absolute;
+    bottom: 31px;
+    width: 100%;
+}
+.started .date p.month {
+    top: 0;
+    width: 100%;
+    font-size: 1.2em;
+    position: absolute;
+}
+.started .date p.year {
+    font-size: 1.3em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+}
+
+.started .employee {
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #dedada;
+}
+
+.started .employee p {
+    font-size: 18px;
+}
+
+.started .time-attendance {
+    float: left;
+    width: 70%;
+    min-height: 160px;
+    padding-left: 10px;
+    position: relative;
+    display: block;
+}
+.started .time-attendance div.timein {
+    height: 50%;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0;
+    top: 0;
+}
+.started .time-attendance div.timeout {
+    height: 50%;
+    position: absolute;
+    display: block;
+    width: 100%;
+    margin: 0;
+    bottom: 0;
+}
+.started .time-attendance .timein p,
+.started .time-attendance .timeout p{
+    font-size: 1.6em;
+    margin: 0;
+}
+
+.started .digital-clock {
+
+    display: block;
+    float: left;
+    width: 100%;
+    position: relative;
+
+    text-align: center;
+    margin: 0 auto;
+    padding: 10px 0 0 0;
+    border-top: 1px solid #dedada;
+}
+.started .digital-clock p {
+    text-align: center;
+    font-size: 2.2em;
+    letter-spacing: 10px;
+    margin: 0;
+}
+
+.early {
+    color: green;
+}
+.late {
+    color: red;
+}
+
+.clock{
+    width: 100%;
+    height:300px;
+    margin-top: 20px;
+    background-color: white;
+}
+#attendance .time-form {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+#attendance .time-btn {
+    height: 100%;
+    width: 100%;
+    display: block;
+
+    font-size: 3em;
+
+    border:1px solid #d1dcdf; -webkit-border-radius: 3px; -moz-border-radius: 3px;border-radius: 3px;font-family:arial, helvetica, sans-serif; padding: 10px 10px 10px 10px; text-decoration:none; text-shadow: -1px -1px 0 rgba(0,0,0,0.3);font-weight:bold; color: #c9dbe6;
+    background-color: #f2f5f6; background-image: -webkit-gradient(linear, left top, left bottom, from(#f2f5f6), to(#c8d7dc));
+    background-image: -webkit-linear-gradient(top, #f2f5f6, #c8d7dc);
+    background-image: -moz-linear-gradient(top, #f2f5f6, #c8d7dc);
+    background-image: -ms-linear-gradient(top, #f2f5f6, #c8d7dc);
+    background-image: -o-linear-gradient(top, #f2f5f6, #c8d7dc);
+    background-image: linear-gradient(to bottom, #f2f5f6, #c8d7dc);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f2f5f6, endColorstr=#c8d7dc);
+
+}
+
+#attendance .time-btn:hover {
+
+    border:1px solid #b6c7cc;
+    background-color: #d4dee1; background-image: -webkit-gradient(linear, left top, left bottom, from(#d4dee1), to(#a9c0c8));
+    background-image: -webkit-linear-gradient(top, #d4dee1, #a9c0c8);
+    background-image: -moz-linear-gradient(top, #d4dee1, #a9c0c8);
+    background-image: -ms-linear-gradient(top, #d4dee1, #a9c0c8);
+    background-image: -o-linear-gradient(top, #d4dee1, #a9c0c8);
+    background-image: linear-gradient(to bottom, #d4dee1, #a9c0c8);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#d4dee1, endColorstr=#a9c0c8);
+
+}
+
+#attendance .attendance-table th {
+    width: 32%;
+}
+
+.total{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+     border: 1px solid lightgrey;
+    padding: 0;
+    background-color: whitesmoke;
+}
+
+.record{
+    width: 100%;
+    height: 500px;
+    padding: 20px;
+    position: relative;
+    top: 50px;
+}
+
+#activities{
+    float: right;
+}
+
+.remove{
+    float: right;
+    position: relative;
+    top: -55px;
+}
+
+.ok{
+    float: right;
+    position: relative;
+    top: -25px;
+    left: 14px;
+}
+
+.In{
+    float: left;
+}
+
+#id .btn-success{
+    width: 100%;
+    height: 298px;
+}
+
+.started-at{
+    float: left;
+    position: relative;
+    margin: 0 10px 10px 0;
+}
+
+.btns{
+    position: relative;
+    top: 50px;
+}
+
+.btn-default{
+    /*width: 185px;*/
+    /*margin: 5px;*/
+    /*padding: 5px;*/
+}
+
+.activities{
+    float: left;
+    height:500px;
+}
+
+.meal{
+    width: 80%;
+    height:50px;
+    position: relative;
+    margin: 30px;
+    float: left;
+    padding: 10px 5px 0px 5px;
+    border-top: 1px solid black;
+    top: -80px;
+
+}
+
+.sum{
+    width: 80%;
+    height:50px;
+    position: relative;
+    margin: 30px;
+    float: left;
+    padding: 10px 5px 0px 5px;
+    border-top: 1px solid black;
+    top: -130px;
+
+}
+
+.sum-total{
+    position: relative;
+    left: 70px;
+}
+
+.sum-hr{
+    position: relative;
+    left: 250px;
+    float: left;
+    top: -30px;
+}
+
+.lunch{
+    float: left;
+    margin: 20px 7px 20px 5px;
+}
+
+.overtime{
+    float: left;
+    margin: 20px 7px 20px 5px;
+}
+
+.conference{
+    margin:20px 5px;
+    position: relative;
+
+}
+.act{
+    position:relative;
+    float: left;
+    left: 50px;
+}
+
+.HR{
+    position: relative;
+    left: 200px;
+    float: left;
+}
+
+.activity{
+    width: 80%;
+    height:50px;
+    border-bottom: 1px solid black ;
+    float: left;
+    position: relative;
+    margin: 30px;
+    top: 50px;
+    padding: 10px 5px 0px 5px;
+}
+
+.work{
+    width: 80%;
+    height:50px;
+    position: relative;
+    margin: 30px;
+    top: 40px;
+    padding: 10px 5px 0px 5px;
+
+}
+
+.hr{
+    position: relative;
+    left: 250px;
+    float: left;
+}
+
+.over{
+    width: 80%;
+    height:50px;
+    position: relative;
+    margin: 30px;
+    top: 20px;
+    padding: 10px 5px 0px 5px;
+    border-top: 1px solid black;
+    float: left;
+
+}
+
+.conf{
+    width: 80%;
+    height:50px;
+    position: relative;
+    margin: 30px;
+    float: left;
+    padding: 10px 5px 0px 5px;
+    border-top: 1px solid black;
+    top: -30px;
+
+}
+
+.month-day {
+    margin: 0 5px;
+}
+
+/**
+    Attendance History
+ */
+.btn-days {
+    margin-bottom: 6px;
+    position: relative;
+    padding: 4px 8px;;
+}
+.btn-days .in_no,
+.btn-days .in_name {
+    width: 100%;
+    display: block;
+}
+.btn-off{
+    background: #e2e2e2;
+}
+.btn-rh {
+    color: #fff;
+    background-color: #ab4cab;
+    border-color: #732573;
+}
+.btn-sh {
+    color: #fff;
+    background-color: #8855b7;
+    border-color: #762eb9;
+}
+.btn-l {
+    color: #fff;
+    background-color: #47a5f3;
+    border-color: #166db5;
+}
+
+.attendance-history {
+    margin-bottom: 25px;
+}
+.legend-title {
+    font-weight: bold;
+}
+.legend{
+    width: 100%;
+    list-style-type: none;
+    padding: 0;
+}
+.legend li {
+    float: left;
+    display: inline-block;
+    width: 14.28571428571429%;
+}
+.legend li i {
+    font-size: 1.3em;
+    border: 1px solid;
+    border-radius: 2px;
+    width: 25px;
+    height: 25px;
+
+    display: inline-block;
+}
+.legend li.present i {
+    color: #5cb85c;
+    background: #5cb85c;
+    border-color: #4cae4c;
+}
+.legend li.absent i {
+    color: #d9534f;
+    background: #d9534f;
+    border-color:#d43f3a;
+}
+.legend li.regular-holiday i {
+    color: #ab4cab;
+    background: #ab4cab;
+    border-color:#732573;
+}
+.legend li.special-holiday i {
+    color: #8855b7;
+    background: #8855b7;
+    border-color: #762eb9;
+}
+.legend li.leave i {
+    color: #47a5f3;
+    background: #47a5f3;
+    border-color: #166db5;
+}
+.legend li.dayoff i {
+    color: #e2e2e2;
+    background: #e2e2e2;
+    border-color: #b6b9bb;
+}
+.legend li.future i {
+    color: #fff;
+    background: #fff;
+    border-color: #ccc;
+}
+
+#leave-app-form .input-group-btn {
+    padding-bottom: 1px;
+    vertical-align: bottom;
+}
+#leave-app-form .startdate {
+    width: 50%;
+    float: left;
+    padding-right: 5px;
+}
+#startdate {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+#leave-app-form .enddate {
+    width: 50%;
+    float: left;
+    padding-left: 5px;
+}
+#enddate {
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+}
+#leave-app-form .attachments,
+#leave-app-form .reason,
+#leave-app-form .submit {
+    width: 100%;
+    float: left;
+}
+
+.leave-app-form .alert-msg {
+    padding: 6px;
+    margin-bottom: 5px;
+}
+
+/*pending leave*/
+.leave-app-form .leave {
+    position: relative;
+    display: block;
+
+    padding: 10px;
+    background: #d2e1ea;
+    border: 1px solid #839cab;
+    border-radius: 2px;
+}
+.leave-app-form .leave .divider {
+    display: block;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #b2d1e4;
+
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.leave-app-form .leave .leave-title,
+.leave-app-form .leave .leave-status {
+    float: left;
+    width: 50%;
+}
+.leave-app-form .leave .leave-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.leave-app-form .leave .leave-title .sub-title {
+    font-size: 0.8em;
+}
+.leave-app-form .leave .leave-date {
+    float: left;
+    width: 100%;
+}
+.leave-app-form .leave .leave-reason {
+    float: left;
+    width: 100%;
+
+    margin-top: 10px;
+}
+.leave-app-form .leave .reason-content {
+    padding-left: 1.5em;
+}
+.leave-app-form .leave .leave-comment-title,
+.leave-app-form .leave .leave-comments {
+    float: left;
+    display: block;
+    width: 100%;
+}
+.leave-app-form .leave .seperate {
+    float: left;
+    display: block;
+    width: 100%;
+
+    height: 1px;
+    border-bottom: 1px solid #b2d1e4;
+    margin-top: 50px;
+    margin-bottom: 4px;
+}
+.leave-app-form .leave .leave-comments {
+    font-style: italic;
+    text-indent: 1em;
+    color: #9c5313;
+}
+.leave-app-form .leave-info {
+    margin-top: 25px;
+}
+.status {
+    padding: 3px 10px;
+    border: 1px solid #eaeaea;
+    border-radius: 2px;
+    background: #fff;
+}
+.status-pending {
+    color: #924b00;
+    border: 1px solid #c77032;
+    background: #f7a66c;
+}
+.status-rejected {
+    color: #381616;
+    border: 1px solid #9a0101;
+    background: #ff4d4d;
+}
+.status-approved {
+    color: #f7fff2;
+    border: 1px solid #3ea003;
+    background: #71cc3a;
+}
+.cancel-leave {
+    padding: 1px 7px;
+    color: #fff;
+    border: 1px solid #9a0101;
+    background: #ff4d4d;
+    float: right;
+}
+.cancel-leave:hover {
+    border: 1px solid #c50f0f;
+    background: #e66d6d;
+}
+
+#leave_history .thead {
+    background: #d5ecec;
+}
+
+
+
+
+

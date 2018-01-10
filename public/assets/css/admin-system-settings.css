@@ -1,0 +1,62 @@
+.system_settings #save{
+    float: right;
+}
+
+.system_settings .leaves{
+    margin: 20px 5px 0px 5px;
+}
+
+.system_settings .on{
+    margin: 5px 5px 5px 10px;
+}
+
+.system_settings .before{
+    margin: 5px 5px 5px 10px;
+}
+
+.system_settings .after{
+    margin: 5px 5px 5px 10px;
+}
+.system_settings .days{
+    margin: 5px 5px 5px 10px;
+    width: 50px;
+}
+
+.system_settings #add{
+    float: right;
+    position: relative;
+    top: 15px;
+}
+
+.system_settings .selectors{
+}
+
+.system_settings .list{
+    text-align: center;
+}
+
+.system_settings .table-list{
+    margin: 20px 5px 0px 5px;
+}
+
+.system_settings .head{
+    text-align: center;
+}
+
+.system_settings .form_system_setting .input-group {
+    margin-bottom: 15px;
+}
+.system_settings .form_system_setting .input-label {
+    font-weight: 700;
+}
+
+.system_settings .col-md-6:nth-child(2) {
+    border-left: 1px solid #eee;
+}
+.system_settings .row {
+    margin-top: 20px;
+}
+.system_settings .add-new-category {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}

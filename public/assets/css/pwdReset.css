@@ -1,0 +1,29 @@
+.you{
+    position:relative;
+    float:left;
+    left:530px;
+    top:320px;
+    border:1px solid gray;
+    width:450px;
+    margin:10px 0 10px 0;
+    padding:10px;
+    background-color:#9d9d9d;
+    color:white;
+
+}
+
+h2.pwd-heading{
+    position:relative;
+    float:left;
+    left:870px;
+    top:220px;
+    font-size:280%;
+    font-weight:bold;
+    color:#31708f;
+}
+.alerts {
+    display:none;
+}
+.alerts1 {
+    display:none;
+}
