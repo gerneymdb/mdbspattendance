@@ -39,6 +39,6 @@
     </div>
 <?php
 
-//    \Auth\Auth::create_user("admin", "mdbmdbsys", "admin@gmail.com", $group = 2, $profile_fields = array("fullname" => "Admin I. Strator"));
+
 ?>
 </div>
