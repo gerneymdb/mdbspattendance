@@ -51,7 +51,7 @@
                                 </p>
                             </div>
                             <div class="son">
-                                <p><span class="rea">Reason:</span> I will go to mindanao with my family and visit my relative also.</p>
+                                <p><span class="rea">Reason:</span> <?php echo $info->reason ?></p>
                             </div>
                             <div class="attach">
                                 <p>
