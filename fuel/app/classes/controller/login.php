@@ -524,7 +524,7 @@ class Controller_Login extends \Fuel\Core\Controller_Template {
      */
     private function throttle_failed_login($userid){
         //login attemp limit
-        $limit = 2;
+        $limit = 20;
         // minutes of delay before login again
         $delay = 10;
         // delay in convert into seconds

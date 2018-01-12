@@ -4,7 +4,12 @@
 <section class="container-fluid" id="leave_history">
     <div class="row">
         <div class="col-md-12">
-
+            <h3 class="text-center">
+                <?php
+                    $yr = (empty($year) || $year == null || $year == 0 || (!is_numeric($year)))? "" : $year;
+                    echo  $yr . " Leave Records";
+                ?>
+            </h3>
             <table class="table table-responsive">
                 <?php if(count($leave_history) > 0):?>
                     <thead>
@@ -44,17 +49,13 @@
                             </tr>
                         <?php endforeach;?>
                     </tbody>
+                </table>
                 <?php else:?>
-                    <thead>
-                        <tr>
-                            <th colspan="1"><p class="text-center"><?php echo $year . " Leave Records" ?></p></th>
-                        </tr>
-                        <tr>
-                            <td>No Leave Records Found.!</td>
-                        </tr>
-                    </thead>
+                    <div class="alert alert-info">
+                        <p class="text-center"><i class='glyphicon glyphicon-exclamation-sign'></i> <strong>No Record Found</strong></p>
+                    </div>
                 <?php endif;?>
-            </table>
+
 
         </div>
     </div>

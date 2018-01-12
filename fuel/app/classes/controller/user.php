@@ -835,11 +835,11 @@ class Controller_User extends \Fuel\Core\Controller_Template {
      */
     private function fetch_leave_history ($year = null) {
         try {
-
+            $userid = Session::get("username");
             if($year != null){
                 $result = Model_Leave::find("all", array(
                     "where" => array(
-                        array("userid", "=", "gerneynalda"),
+                        array("userid", "=", "{$userid}"),
                         array("start_leave", ">=", "{$year}-01-01 00:00:00"),
                         array("start_leave", "<=", "{$year}-12-30 23:59:59")
                     ),

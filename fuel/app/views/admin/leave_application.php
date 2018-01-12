@@ -2,7 +2,7 @@
 <section class="container-fluid leave-app">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 pix">
-            <h2>leave applications</h2>
+            <h3>Employee Leave Applications</h3>
             <?php if(count($leaves) > 0):?>
 
                 <?php foreach ($leaves as $info):?>
@@ -76,6 +76,10 @@
 
                 <?php endforeach;?>
 
+            <?php else:?>
+                <div class="alert alert-info">
+                    <p class="text-center"><i class='glyphicon glyphicon-exclamation-sign'></i> <strong>No Record Found</strong></p>
+                </div>
             <?php endif;?>
 
 
