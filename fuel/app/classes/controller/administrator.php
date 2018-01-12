@@ -267,12 +267,12 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
                 // successfull
                 $msg[] = "New holiday is set";
                 Session::set_flash("smsg", $msg);
-                \Fuel\Core\Response::redirect("administrator/holidays", "refresh");
+                \Fuel\Core\Response::redirect("administrator/holidays/".strftime("%Y", time()), "refresh");
             }else {
                 // failed
                 $msg[] = "Failed to set new holiday";
                 Session::set_flash("msg", $msg);
-                \Fuel\Core\Response::redirect("administrator/holidays", "refresh");
+                \Fuel\Core\Response::redirect("administrator/holidays/".strftime("%Y", time()), "refresh");
             }
 
         }catch(Exception $e){
@@ -922,7 +922,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
                     array("start_day", ">=", $start_of_year),
                     array("start_day", "<=", $end_of_year)
                 ),
-                "order_by" => array("start_day" => "desc")
+                "order_by" => array("start_day" => "ASC")
             ));
 
 

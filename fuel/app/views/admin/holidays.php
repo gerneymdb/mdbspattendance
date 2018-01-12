@@ -92,6 +92,10 @@
                         </div>
                     </div>
                 <?php endforeach; ?>
+            <?php else:?>
+                <div class="alert alert-info">
+                    <p class="text-center"><i class='glyphicon glyphicon-exclamation-sign'></i> <strong>No Record Found</strong></p>
+                </div>
             <?php endif;?>
         </div>
         <!--end first column-->
