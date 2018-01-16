@@ -20,13 +20,13 @@
                                 <p>Status: <span class="status <?php echo $status[$info->status];?>"><?php echo $info->status?></span></p>
                             </div>
                             <div class="btn-group action-approve">
-                                <button type="button" class="btn btn-danger status-btn-approve" data-leave="<?php echo $info->leave_id ?>">Approved</button>
+                                <button type="button" class="btn btn-danger <?php echo ($info->status != "approved")? 'status-btn-approve' : '' ?>" data-leave="<?php echo $info->leave_id ?>">Approved</button>
                             </div>
                             <div class="btn-group action-reject">
-                                <button type="button" class="btn btn-success status-btn-reject" data-leave="<?php echo $info->leave_id ?>" >Reject</button>
+                                <button type="button" class="btn btn-success <?php echo ($info->status != "rejected")? 'status-btn-reject' : '' ?>" data-leave="<?php echo $info->leave_id ?>" >Reject</button>
                             </div>
                         </div>
-                        <div class = "groups">
+                        <div class = "groups clearfix">
                             <div class="text">
                                 <p><?php echo $employees[$info->userid] ?></p>
                                 <p><?php echo $info->type ?></p>
@@ -63,12 +63,15 @@
                                 </p>
                             </div>
                             <div class="comment">
-                                <p id="<?php echo $info->leave_id ?>">
+                                <p id="<?php echo $info->leave_id ?>" class="comment-icon">
                                     <?php
                                         if(!empty($info->comments)){
                                             echo "Comments:<i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i>";
                                         }
                                     ?>
+                                </p>
+                                <p class="comments-<?php echo $info->leave_id?> hide">
+                                    <?php echo $info->comments ?>
                                 </p>
                             </div>
                         </div>

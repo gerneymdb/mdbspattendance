@@ -61,7 +61,7 @@ $(document).ready(function(){
                         loader.addClass("hide");
 
                         $("#reject_modal").modal("hide");
-                    }, 3000);
+                    });
                 }
             },
             error: function(){
@@ -137,7 +137,7 @@ $(document).ready(function(){
 
                        // hide modal
                        $("#approve_modal").modal("hide");
-                   }, 3000);
+                   });
 
 
                 }
@@ -147,5 +147,17 @@ $(document).ready(function(){
             }
         });
     });
+
+
+    if($(".leave-app").length === 1){
+        var comments = $(".leave-app").find(".comment-icon");
+
+        comments.on("click", function(){
+            var $this = $(this);
+            var id = $this.attr("id");
+
+            $(".comments-"+id).toggleClass("hide");
+        });
+    }
 
 });// document.ready
