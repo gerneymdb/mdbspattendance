@@ -571,9 +571,9 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             $val = Validation::forge("add_employee");
 
             // validation rules
-            $val->add_field("default_pwd", "Default password", "required");
-            $val->add_field("reset_pwd_after", "Reset password after", "required|valid_string[numeric]");
-            $val->add_field("session_timeout_after", "Session timeout after", "required|valid_string[numeric]");
+            $val->add_field("default_pwd", "Default password", "required|valid_string[lowercase,uppercase,numeric]");
+            $val->add_field("reset_pwd_after", "Reset password after", "required|valid_string[numeric]|numeric_min[86400]");
+            $val->add_field("session_timeout_after", "Session timeout after", "required|valid_string[numeric]|numeric_min[3600]");
 
             if(!$val->run()){
                 $msg = $val->error_message();
