@@ -438,6 +438,31 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             $userid    = \Fuel\Core\Input::post("userid");
             $email     = \Fuel\Core\Input::post("email");
 
+            // check if user already exist
+            $exist_in_user = Model_Login::find("all", array(
+                "where" => array(
+                    array("username", "=", $userid)
+                )
+            ));
+
+            if(count($exist_in_user) > 0){
+                $msg[] = "User ID already exist";
+                Session::set_flash("msg", $msg);
+                \Fuel\Core\Response::redirect("administrator/manage_employees", "refresh");
+            }
+
+            $exist_in_user = Model_Employee::find("all", array(
+                "where" => array(
+                    array("userid", "=", $userid)
+                )
+            ));
+
+            if(count($exist_in_user) > 0){
+                $msg[] = "User ID already exist";
+                Session::set_flash("msg", $msg);
+                \Fuel\Core\Response::redirect("administrator/manage_employees", "refresh");
+            }
+
             // get the default password
             $settings = Model_Settings::find("all");
             $default_pwd = "";
