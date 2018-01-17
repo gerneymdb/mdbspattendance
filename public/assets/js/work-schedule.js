@@ -141,8 +141,6 @@ $(document).ready(function(){
                 },
                 success: function (response) {
 
-                    console.log(response);
-
                     if(typeof response === "object"){
 
                         // row id

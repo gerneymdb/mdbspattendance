@@ -55,13 +55,19 @@
                             <p class="text-center">
                                 <span class="holiday-title <?php echo $holiday_type ?>" data-holiday-name="<?php echo $holiday->holiday_name ?>"><?php echo $holiday->holiday_name ?></span>
                                 <span class="<?php echo $holiday_type ?>">
-                                    <i class="holiday-start" data-holiday-start="<?php echo $holiday->start_day ?>">From:
+                                    <i class="holiday-start" data-holiday-start="<?php
+                                        $s = strtotime($holiday->start_day);
+                                        echo strftime("%Y-%m-%d", $s)
+                                    ?>">From:
                                         <?php
                                             $stime = strtotime($holiday->start_day);
                                             echo strftime("%B-%d-%Y", $stime);
                                         ?>
                                     </i>
-                                    <i class="holiday-end" data-holiday-end="<?php echo $holiday->end_day ?>">To:
+                                    <i class="holiday-end" data-holiday-end="<?php
+                                        $e = strtotime($holiday->end_day);
+                                        echo strftime("%Y-%m-%d", $e);
+                                    ?>">To:
                                         <?php
                                             $etime = strtotime($holiday->end_day);
                                             echo strftime("%B-%d-%Y", $etime);
@@ -123,8 +129,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="type">Type of Holiday</label>
-                    <select name="type" id="type" class="form-control">
+                    <label for="types">Type of Holiday</label>
+                    <select name="type" id="types" class="form-control">
                         <option value="Regular Holiday">Regular Holiday</option>
                         <option value="Special Holiday">Special Holiday</option>
                     </select>
@@ -167,8 +173,8 @@
                     <input type="hidden" value="" name="holiday_id" />
 
                     <div class="form-group">
-                        <label for="holiday_name">Holiday Name</label>
-                        <input type="text" class="form-control" id="holiday_name" placeholder="Holiday Name" name="holiday_name" value="" />
+                        <label for="holiday_names">Holiday Name</label>
+                        <input type="text" class="form-control" id="holiday_names" placeholder="Holiday Name" name="holiday_name" value="" />
                     </div>
 
                     <div class="form-group">
@@ -190,8 +196,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="description">Description</label>
-                        <textarea name="description" id="Hdescription" rows="5" class="form-control"></textarea>
+                        <label for="Edescription">Description</label>
+                        <textarea name="description" id="Edescription" rows="5" class="form-control"></textarea>
                     </div>
 
                     <div class="form-group">

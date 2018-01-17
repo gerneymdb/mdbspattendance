@@ -138,8 +138,15 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
 
             $result = $record->save();
             if($result){
-                echo 1;
+
+                $data = array("holiday_id"=>$holiday_id, "holiday_name"=>$holiday_name, "start_day"=>$start_day, "end_day"=>$end_day,
+                    "type"=>$type, "description"=>$description, "with_work"=>$with_work);
+
+                $data = json_encode($data);
+
+                return $data;
             }else {
+
                 echo 0;
             }
 

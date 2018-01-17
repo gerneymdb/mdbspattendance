@@ -914,7 +914,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             $year = is_numeric($year) && ($year != null) ? $year : strftime("%Y", time());
 
             // set start of the year
-            $start_of_year = $year . "-01-31 00:00:00";
+            $start_of_year = $year . "-01-01 00:00:00";
             $end_of_year   = $year . "-12-30 23:59:59";
 
             $result = Model_Holidays::find("all", array(
@@ -924,7 +924,6 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
                 ),
                 "order_by" => array("start_day" => "ASC")
             ));
-
 
             return $result;
         }catch(Exception $e) {
