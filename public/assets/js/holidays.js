@@ -75,6 +75,11 @@ $(document).ready(function(){
 
             var formdata = $("#edit_form").serialize();
 
+            var modal_content = $("#edit").find(".modal-content");
+            var loader = modal_content.find(".loader");
+
+            var notification = $("#edit").find(".notification_msg");
+
             $.ajax({
                 type: "post",
                 url: url,
@@ -88,42 +93,54 @@ $(document).ready(function(){
                 },
                 success: function (response) {
 
-                    // locate div element with this id
-                    var row = $("#"+response['holiday_id']);
-                    // inside that div element find the elements that has info of the holiday
-                    row.find(".holiday-title").text(response['holiday_name']);
-                    row.find(".holiday-start").text("From: "+format_date(response['start_day']));
-                    row.find(".holiday-end").text("To: "+format_date(response['end_day']));
-                    row.find(".holiday-type").text(response['type']);
-                    row.find(".holiday-description").text(response['description']);
-                    console.log(response['with_work']);
-                    var classes   = response['with_work'] == 1 ? "fa fa-hourglass" : "fa fa-hourglass-o";
-                    var work      = response['with_work'] == 1 ? "With Work" : "No Work";
-                    var with_work = "<i class='"+classes+"'> "+work+"</i>";
-                    // replace the info of that element
-                    row.find(".holiday-with-work").html(with_work);
+                    if(typeof response === "object"){
+                        // locate div element with this id
+                        var row = $("#"+response['holiday_id']);
+                        // inside that div element find the elements that has info of the holiday
+                        row.find(".holiday-title").text(response['holiday_name']);
+                        row.find(".holiday-start").text("From: "+format_date(response['start_day']));
+                        row.find(".holiday-end").text("To: "+format_date(response['end_day']));
+                        row.find(".holiday-type").text(response['type']);
+                        row.find(".holiday-description").text(response['description']);
+                        console.log(response['with_work']);
+                        var classes   = response['with_work'] == 1 ? "fa fa-hourglass" : "fa fa-hourglass-o";
+                        var work      = response['with_work'] == 1 ? "With Work" : "No Work";
+                        var with_work = "<i class='"+classes+"'> "+work+"</i>";
+                        // replace the info of that element
+                        row.find(".holiday-with-work").html(with_work);
 
-                    // replace the data
-                    row.find(".holiday-title").attr("data-holiday-name", response['holiday_name']);
-                    row.find(".holiday-start").attr("data-holiday-start", response['start_day']);
-                    row.find(".holiday-end").attr("data-holiday-end", response['end_day']);
-                    row.find(".holiday-type").attr("data-holiday-type", response['type']);
-                    row.find(".holiday-with-work").attr("data-holiday-with-work", response['with_work']);
-                    
-                    var loader = $(".loader");
-                    loader.addClass("hide");
-                    $("#edit").modal("hide");
+                        // replace the data
+                        row.find(".holiday-title").attr("data-holiday-name", response['holiday_name']);
+                        row.find(".holiday-start").attr("data-holiday-start", response['start_day']);
+                        row.find(".holiday-end").attr("data-holiday-end", response['end_day']);
+                        row.find(".holiday-type").attr("data-holiday-type", response['type']);
+                        row.find(".holiday-with-work").attr("data-holiday-with-work", response['with_work']);
+
+                        var loader = $(".loader");
+                        loader.addClass("hide");
+                        $("#edit").modal("hide");
+                    }
 
                 },
                 error: function(response){
+
+                    loader.addClass("hide");
+                    notification.find("p.message_title").addClass("text-danger").text("error");
+                    notification.find("p.message_content").text(response.responseText);
+                    notification.removeClass("hide");
 
                 }
             });
         });
 
-
     }
 
+    // close notification
+    var cls_mdl_btn_edit = $("#edit").find(".close_info");
+    cls_mdl_btn_edit.on("click", function(){
+        var $this = $(this);
+        $this.parent().addClass("hide");
+    });
 
     // delete
     if($(".outer-div .inner-div .delete").length > 0){
@@ -170,15 +187,12 @@ $(document).ready(function(){
                 success: function (response) {
                     if(response !== "0"){
 
-                        setTimeout(function(){
+                        var loader = $(".loader");
+                        loader.addClass("hide");
 
-                            var loader = $(".loader");
-                            loader.addClass("hide");
+                        $("#"+holiday_id).remove();
 
-                            $("#"+holiday_id).remove();
-
-                            $("#delete").modal("hide");
-                        }, 1000);
+                        $("#delete").modal("hide");
                     }
                 },
                 error: function(){

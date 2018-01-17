@@ -120,35 +120,69 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
     public function post_update_holiday(){
         try{
 
-            $holiday_id = \Fuel\Core\Input::post("holiday_id");
-            $holiday_name = \Fuel\Core\Input::post("holiday_name");
-            $start_day = \Fuel\Core\Input::post("start_day");
-            $end_day = \Fuel\Core\Input::post("end_day");
-            $type = \Fuel\Core\Input::post("type");
-            $description = \Fuel\Core\Input::post('description');
-            $with_work = \Fuel\Core\Input::post("with_work");
+            if(!\Fuel\Core\Security::check_token()){
 
-            $record = Model_Holidays::find($holiday_id);
-            $record->holiday_name = $holiday_name;
-            $record->start_day = $start_day . " 00:00:00";
-            $record->end_day = $end_day . " 23:59:59";
-            $record->type = $type;
-            $record->description = $description;
-            $record->with_work = $with_work;
+                return "Illegal Operation. Missing token. Hit refresh";
 
-            $result = $record->save();
-            if($result){
+            }else{
 
-                $data = array("holiday_id"=>$holiday_id, "holiday_name"=>$holiday_name, "start_day"=>$start_day, "end_day"=>$end_day,
-                    "type"=>$type, "description"=>$description, "with_work"=>$with_work);
+                // validate form input
+                $val = \Fuel\Core\Validation::forge("edit_holiday");
 
-                $data = json_encode($data);
+                $val->add_field("holiday_name", "Holiday Name", "required");
+                $val->add_field("holiday_id", "Holiday ID", "required");
+                $val->add_field("start_day", "Start of Holiday", "required");
+                $val->add_field("end_day", "End of Holiday", "required");
+                $val->add_field("type", "Holiday Type", "required");
+                $val->add_field("description", "Holiday Description", "required|max_length[500]");
+                $val->add_field("with_work", "Holiday with work", "required");
 
-                return $data;
-            }else {
+                if(!$val->run()){
 
-                echo 0;
-            }
+                    $errors = $val->error_message();
+
+                    $msg = "";
+                    foreach ($errors as $key => $error){
+                        $msg .= "{$error}. ";
+                    }
+
+                    return $msg;
+
+                }else{
+
+                    $holiday_id = \Fuel\Core\Input::post("holiday_id");
+                    $holiday_name = \Fuel\Core\Input::post("holiday_name");
+                    $start_day = \Fuel\Core\Input::post("start_day");
+                    $end_day = \Fuel\Core\Input::post("end_day");
+                    $type = \Fuel\Core\Input::post("type");
+                    $description = \Fuel\Core\Input::post('description');
+                    $with_work = \Fuel\Core\Input::post("with_work");
+
+                    $record = Model_Holidays::find($holiday_id);
+                    $record->holiday_name = $holiday_name;
+                    $record->start_day = $start_day . " 00:00:00";
+                    $record->end_day = $end_day . " 23:59:59";
+                    $record->type = $type;
+                    $record->description = $description;
+                    $record->with_work = $with_work;
+
+                    $result = $record->save();
+                    if($result){
+
+                        $data = array("holiday_id"=>$holiday_id, "holiday_name"=>$holiday_name, "start_day"=>$start_day, "end_day"=>$end_day,
+                            "type"=>$type, "description"=>$description, "with_work"=>$with_work);
+
+                        $data = json_encode($data);
+
+                        return $data;
+                    }else {
+
+                        return "Unable to save changes";
+                    }
+
+                }// validate Input
+
+            }// token check
 
         }catch (Exception $e) {
             die($e->getMessage());
