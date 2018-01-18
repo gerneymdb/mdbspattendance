@@ -1,6 +1,8 @@
 <?php
 $msg = \Fuel\Core\Session::get_flash("msg");
 $smsg = \Fuel\Core\Session::get_flash("smsg");
+
+$base_url = \Fuel\Core\Config::get("base_url");
 ?>
 
 <?php if(is_array($msg) && count($msg) > 0 ):?>
@@ -102,9 +104,30 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                                 <button type="submit" class="status cancel-leave"><i class="fa fa-remove"></i> cancel</button>
                             <?php echo \Fuel\Core\Form::close() ?>
                         <?php endif;?>
+
                         <p class="leave-date"><span><i class="fa fa-calendar-o"></i> From:</span> <?php echo $leave->start_leave?></p>
+
                         <p class="leave-date"><span><i class="fa fa-calendar-o"></i> To:</span> <?php echo $leave->end_leave?></p>
-                        <?php echo "<p class='leave-reason'><span>Reason</span><span class='divider'></span><span class='reason-content'>{$leave->reason}</span></p>"; ?>
+
+                        <!-- reason -->
+                        <?php if(!empty($leave->reason)):?>
+                            <p class='leave-reason'><span>Reason</span><span class='divider'></span><span class='reason-content'><?php echo $leave->reason ?></span></p>
+                        <?php endif;?>
+<!--                        --><?php
+//                            echo DOCROOT."files\\leave\\".$leave->attachments ."<br />";
+//                            echo $leave->attachments."<br />";
+//                            $testpath = DOCROOT."files\\leave\\".$leave->attachments;
+//                            $testpath = str_replace("\\", "/", $testpath);
+//                            echo $testpath."<br />";
+//                            echo DS."<br />";
+//                            $true = \Fuel\Core\File::exists($testpath);
+//                            var_dump($true);
+//                        ?>
+                        <!-- attachments -->
+                        <?php if(!empty($leave->attachments)):?>
+                            <p class='leave-attachments'><a href="<?php echo $base_url."files/leave/".$leave->attachments?>" target="_blank"><span>Attachments: </span><i class='fa fa-file'></i></a></p>
+                        <?php endif;?>
+
                         <?php if(!empty($leave->comments) && $leave->comments != ""):?>
                             <div class="seperate"></div>
                             <p class="leave-comment-title"><strong>Management Comments</strong></p>

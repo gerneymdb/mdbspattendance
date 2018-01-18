@@ -591,17 +591,36 @@ class Controller_User extends \Fuel\Core\Controller_Template {
                 $leave_id = Input::post("leave_id");
 
                 $result = Model_Leave::find($leave_id);
-                if($result->delete()){
 
-                    // successfull cancel of leave
-                    $msg[] = "Leave request has been <strong>cancelled</strong>.!!";
-                    Session::set_flash("smsg", $msg);
-                    \Fuel\Core\Response::redirect("user/leave_application", "refresh");
+                if(count($result) > 0){
 
-                }else{
-                    $msg[] = "Unable to cancel leave.";
+                    // delete attachments if any
+                    $with_attachment = $result->attachments;
+
+                    $path = DOCROOT."files\\leave\\".$with_attachment;
+                    $path = str_replace("\\", "/", $path);
+
+                    \Fuel\Core\File::delete($path);
+
+                    if($result->delete()){
+
+                        // successfull cancel of leave
+                        $msg[] = "Leave request has been <strong>cancelled</strong>.!!";
+                        Session::set_flash("smsg", $msg);
+                        \Fuel\Core\Response::redirect("user/leave_application", "refresh");
+
+                    }else{
+                        $msg[] = "Unable to cancel leave. Something went wrong pls contact your system administrator";
+                        Session::set_flash("msg", $msg);
+                        \Fuel\Core\Response::redirect("user/leave_application");
+                    }
+
+                }else {// if it it in the database
+
+                    $msg[] = "This leave records cannot be found in the database, please check leave ID if correct or contact your system administrator";
                     Session::set_flash("msg", $msg);
                     \Fuel\Core\Response::redirect("user/leave_application");
+
                 }
 
             }else {

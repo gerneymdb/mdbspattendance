@@ -57,7 +57,7 @@
                                 <p>
                                     <?php
                                         if(!empty($info->attachments)){
-                                            echo "Attachments: <a href='".$base_url."files/leave/".$info->attachments."'><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span></a>";
+                                            echo "Attachments: <a href='".$base_url."files/leave/".$info->attachments."' target='_blank'><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span></a>";
                                         }
                                     ?>
                                 </p>
