@@ -404,62 +404,139 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
     public function post_update_present(){
         try{
 
-            // get all post variables
+            if(!\Fuel\Core\Security::check_token()) {
 
-            $attendance_id = \Fuel\Core\Input::post("attendance_id");
-
-            // time in && time out values
-            $datetimein    = \Fuel\Core\Input::post("datetimein");
-            $hrtimein      = \Fuel\Core\Input::post("hrtimein");
-            $mintimein     = \Fuel\Core\Input::post("mintimein");
-            $sectimein     = \Fuel\Core\Input::post("sectimein");
-            $datetimeout   = \Fuel\Core\Input::post("datetimeout");
-            $hrtimeout     = \Fuel\Core\Input::post("hrtimeout");
-            $mintimeout    = \Fuel\Core\Input::post("mintimeout");
-            $sectimeout    = \Fuel\Core\Input::post("sectimeout");
-
-            $status        = \Fuel\Core\Input::post("status");
-
-            // timein value
-            $timein = $datetimein." ".$hrtimein.":".$mintimein.":".$sectimein;
-            // timeout value
-            $timeout = $datetimeout." ".$hrtimeout.":".$mintimeout.":".$sectimeout;
-
-            // update record
-            if($status == "Present"){
-                // means admin did change the present to absent
-                $record = Model_Attendance::find($attendance_id);
-
-                $record->timein  = $timein;
-                $record->timeout = $timeout;
-                $record->status  = $status;
-
-                $result = $record->save();
-
-                if($result){
-                    echo true;
-                }else {
-                    echo false;
-                }
-
-            }elseif($status == "Absent"){
-                // means admin decide to make this employee absent this day
-                $record = Model_Attendance::find($attendance_id);
-                $result = $record->delete();
-
-                if($result){
-                    echo true;
-                }else{
-                    echo false;
-                }
+                echo "Illegal Operation. Missing token. Hit refresh";
 
             }else{
 
-                die("Status is not Present nor Absent");
-            }
+                // validate form input
+                $val = \Fuel\Core\Validation::forge("update_present");
+
+                // validation rules
+                $val->add_field("datetimein", "Time In", "required|trim|valid_date");
+                $val->add_field("datetimeout", "Time Out", "required|trim|valid_date");
+
+                $val->add_field("hrtimein", "Time in hour", "required|trim|valid_string[numeric]");
+                $val->add_field("mintimein", "Time in minute", "required|trim|valid_string[numeric]");
+                $val->add_field("sectimein", "Time in seconds", "required|trim|valid_string[numeric]");
+
+                $val->add_field("hrtimeout", "Time out hour", "required|trim|valid_string[numeric]");
+                $val->add_field("mintimeout", "Time out minute", "required|trim|valid_string[numeric]");
+                $val->add_field("sectimeout", "Time out seconds", "required|trim|valid_string[numeric]");
+
+                if(!$val->run()){
+
+                    $errors = $val->error_message();
+
+                    $msg = "";
+                    foreach ($errors as $key => $error){
+                        $msg .= "{$error}. ";
+                    }
+
+                    echo $msg;
+
+                }else{
+
+
+                    // get all post variables
+                    $attendance_id = \Fuel\Core\Input::post("attendance_id");
+
+                    // time in && time out values
+                    $date          = \Fuel\Core\Input::post("date_of_attendance");
+                    $datetimein    = \Fuel\Core\Input::post("datetimein");
+                    $hrtimein      = \Fuel\Core\Input::post("hrtimein");
+                    $mintimein     = \Fuel\Core\Input::post("mintimein");
+                    $sectimein     = \Fuel\Core\Input::post("sectimein");
+                    $datetimeout   = \Fuel\Core\Input::post("datetimeout");
+                    $hrtimeout     = \Fuel\Core\Input::post("hrtimeout");
+                    $mintimeout    = \Fuel\Core\Input::post("mintimeout");
+                    $sectimeout    = \Fuel\Core\Input::post("sectimeout");
+
+                    $status        = \Fuel\Core\Input::post("status");
+
+                    // timein value
+                    $timein = $datetimein." ".$hrtimein.":".$mintimein.":".$sectimein;
+                    // timeout value
+                    $timeout = $datetimeout." ".$hrtimeout.":".$mintimeout.":".$sectimeout;
+
+                    // update record
+                    if($status == "Present"){
+
+                        $record = Model_Attendance::find($attendance_id);
+
+                        $record->timein  = $timein;
+                        $record->timeout = $timeout;
+                        $record->status  = $status;
+
+                        $result = $record->save();
+
+                        if($result){
+
+                            $date = substr($date, 0, -2);
+                            $date = $date."pr";
+
+                            $new_token = \Fuel\Core\Form::csrf();
+
+                            $info = array(
+                                "id" => $date,
+                                "timein"  => $timein,
+                                "timeout" => $timeout,
+                                "status"  => $status,
+                                "token"   => $new_token
+                            );
+
+                            return json_encode($info);
+
+                        }
+
+                    }elseif($status == "Absent"){
+
+                        $record = Model_Attendance::find($attendance_id);
+                        $result = $record->delete();
+
+                        $date = substr($date, 0, -2);
+                        $date = $date."ab";
+
+                        return json_encode(["id"=>$date]);
+                    }else{
+
+
+                        $record = Model_Attendance::find($attendance_id);
+
+                        $record->timein  = $timein;
+                        $record->timeout = $timeout;
+                        $record->status  = $status;
+
+                        $result = $record->save();
+
+                        if($result){
+
+                            $date = substr($date, 0, -2);
+                            $date = $date."pr";
+
+                            $new_token = \Fuel\Core\Form::csrf();
+
+                            $info = array(
+                                "id" => $date,
+                                "timein"  => $timein,
+                                "timeout" => $timeout,
+                                "status"  => $status,
+                                "token"   => $new_token
+                            );
+
+                            return json_encode($info);
+
+                        }
+
+                    }
+
+                }// validate input
+
+            }// token check
 
         }catch(Exception $e){
-            die($e->getMessage());
+           die($e->getMessage());
         }
     }
 

@@ -157,7 +157,7 @@
                                         <?php if(array_key_exists($employee, $attendance) && array_key_exists($attendance_date, $record)):?>
                                             <!-- employee userid exist in attendance record --><!-- this attendance date, the employee has a record on the database -->
                                             <!-- means this employee is present -->
-                                            <a href="#" class="btn btn-success btn-attdnc-present" id="<?php echo $employee."_".$attendance_date?>"
+                                            <a href="#" class="btn btn-success btn-attdnc-present" id="<?php echo $employee."_".$attendance_date."pr"?>"
                                                data-name="<?php echo $employee_names[$employee] ?>"
                                                data-att-id="<?php echo $record[$attendance_date]['attendance_id']?>"
                                                data-timein="<?php echo $record[$attendance_date]['timein']?>"
@@ -209,7 +209,7 @@
                                             <!-- maybe it the employees dayoff -->
                                             <?php if(in_array($today, $day_offs)):?>
 
-                                                <a href="#" class="btn btn-off" id="<?php echo $employee."_".$attendance_date?>">
+                                                <a href="#" class="btn btn-off" id="<?php echo $employee."_".$attendance_date."do"?>">
                                                     <?php
                                                         echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>Day off</small></span>";
                                                     ?>
@@ -217,7 +217,7 @@
 
                                             <?php elseif($is_regular_holiday):?>
 
-                                                <a href="#" class="btn btn-rh" id="<?php echo $employee."_".$attendance_date?>">
+                                                <a href="#" class="btn btn-rh" id="<?php echo $employee."_".$attendance_date."rh"?>">
                                                     <?php
                                                         echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>Regular Holiday</small></span>";
                                                     ?>
@@ -225,7 +225,7 @@
 
                                             <?php elseif($is_special_holiday):?>
 
-                                                <a href="#" class="btn btn-sh" id="<?php echo $employee."_".$attendance_date?>">
+                                                <a href="#" class="btn btn-sh" id="<?php echo $employee."_".$attendance_date."sh" ?>">
                                                     <?php
                                                     echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>Special Holiday</small></span>";
                                                     ?>
@@ -233,7 +233,7 @@
 
                                             <?php elseif($now < $time): ?>
 
-                                                <a href="#" class="btn btn-default" id="<?php echo $employee."_".$attendance_date?>">
+                                                <a href="#" class="btn btn-default" id="<?php echo $employee."_".$attendance_date."df"?>">
                                                     <?php
                                                     echo $date;
                                                     ?>
@@ -242,7 +242,7 @@
                                             <?php else:?>
 
                                                 <!-- else employee is absent -->
-                                                <a href="#" class="btn btn-danger btn-attendance-absent" id="<?php echo $employee."_".$attendance_date?>"
+                                                <a href="#" class="btn btn-danger btn-attendance-absent" id="<?php echo $employee."_".$attendance_date."ab"?>"
                                                    data-name="<?php echo $employee_names[$employee] ?>"
                                                    data-userid="<?php echo $employee?>"
                                                    data-date="<?php echo $attendance_date?>">
@@ -300,6 +300,10 @@
                 <form action="" class="present_edit" id="present_edit">
                     <input type="hidden" id="attendance_id" name="attendance_id" value="" />
                     <input type="hidden" id="present_url" value="<?php echo $base_url . 'ajaxcall/update_present'?>" />
+                    <input type="hidden" id="date_of_attendance" name="date_of_attendance" value="" />
+                    <div id="atteditcsrftoken">
+                        <?php echo \Fuel\Core\Form::csrf() ?>
+                    </div>
                     <div class="form-group">
                         <label for="fullname">Fullname</label>
                         <input type="text" id="fullname_timein" value="" class="form-inline"/>
@@ -959,6 +963,7 @@
                     <div class="form-group">
                         <label for="a_timeinstatus">Status</label>
                         <select name="status" id="a_timeinstatus" class="form-inline">
+                            <option value=""></option>
                             <option value="Absent">Absent</option>
                             <option value="Present">Present</option>
                         </select>
