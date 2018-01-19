@@ -31,7 +31,7 @@ CREATE TABLE `attendance` (
   `timeout` datetime DEFAULT NULL,
   `status` varchar(50) NOT NULL,
   PRIMARY KEY (`attendance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=58 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -57,9 +57,12 @@ CREATE TABLE `employee` (
   `mname` varchar(50) NOT NULL,
   `lname` varchar(50) NOT NULL,
   `shift_id` int(1) NOT NULL,
+  `co_position` varchar(150) NOT NULL,
+  `birthdate` varchar(45) NOT NULL,
+  `civil_status` varchar(45) NOT NULL,
   PRIMARY KEY (`employee_id`),
   UNIQUE KEY `userid_UNIQUE` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +90,7 @@ CREATE TABLE `holidays` (
   `type` varchar(50) NOT NULL,
   `with_work` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`holiday_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,7 +122,7 @@ CREATE TABLE `leave` (
   `date_filed` datetime NOT NULL,
   `comments` varchar(3000) NOT NULL,
   PRIMARY KEY (`leave_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -143,7 +146,7 @@ CREATE TABLE `leave_settings` (
   `leave_name` varchar(100) NOT NULL,
   `days_alloted` int(11) NOT NULL,
   PRIMARY KEY (`leave_settings_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -152,32 +155,8 @@ CREATE TABLE `leave_settings` (
 
 LOCK TABLES `leave_settings` WRITE;
 /*!40000 ALTER TABLE `leave_settings` DISABLE KEYS */;
-INSERT INTO `leave_settings` VALUES (1,'Sick Leave',15),(2,'Vacation Leave',15),(3,'Maternity Leave',60),(4,'Paternity Leave',7);
+INSERT INTO `leave_settings` VALUES (1,'Sick Leave',16),(2,'Vacation Leave',15),(3,'Maternity Leave',60),(4,'Paternity Leave',7);
 /*!40000 ALTER TABLE `leave_settings` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `migration`
---
-
-DROP TABLE IF EXISTS `migration`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `migration` (
-  `type` varchar(25) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `migration` varchar(100) NOT NULL DEFAULT ''
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `migration`
---
-
-LOCK TABLES `migration` WRITE;
-/*!40000 ALTER TABLE `migration` DISABLE KEYS */;
-INSERT INTO `migration` VALUES ('package','auth','001_auth_create_usertables'),('package','auth','002_auth_create_grouptables'),('package','auth','003_auth_create_roletables'),('package','auth','004_auth_create_permissiontables'),('package','auth','005_auth_create_authdefaults'),('package','auth','006_auth_add_authactions'),('package','auth','007_auth_add_permissionsfilter'),('package','auth','008_auth_create_providers'),('package','auth','009_auth_create_oauth2tables'),('package','auth','010_auth_fix_jointables'),('package','auth','011_auth_group_optional');
-/*!40000 ALTER TABLE `migration` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -203,7 +182,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,'admin_settings','mdbmdbsys',2538000,7200);
+INSERT INTO `settings` VALUES (1,'admin_settings','mdbmdbsys',2592000,7200);
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,7 +209,7 @@ CREATE TABLE `users` (
   `time_last_pwd_change` int(25) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`,`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -239,7 +218,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (9,'administrator','8sJQtvVXxpE/g8pOfi/7o33rl+wcJ04OFurIIwx3osQ=',2,'administrator@gmail.com','1513920109','6e0f03cfb64613f385fadabed88c26393e383e2c','a:4:{s:5:\"fname\";s:6:\"Gerney\";s:5:\"mname\";s:6:\"Cangas\";s:5:\"lname\";s:5:\"Nalda\";s:9:\"poisition\";s:13:\"Administrator\";}',1513919812,1513920122,0,0,1513920122);
+INSERT INTO `users` VALUES (9,'administrator','8sJQtvVXxpE/g8pOfi/7o33rl+wcJ04OFurIIwx3osQ=',2,'administrator@gmail.com','1516349132','173d42cd98f5e2bdd18885cd93f37f7da82ad152','a:4:{s:5:\"fname\";s:6:\"Gerney\";s:5:\"mname\";s:6:\"Cangas\";s:5:\"lname\";s:5:\"Nalda\";s:9:\"poisition\";s:13:\"Administrator\";}',1513919812,1513920122,0,0,1513920122);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,7 +246,7 @@ CREATE TABLE `work_schedule` (
 
 LOCK TABLES `work_schedule` WRITE;
 /*!40000 ALTER TABLE `work_schedule` DISABLE KEYS */;
-INSERT INTO `work_schedule` VALUES (1,'Morning Shift','MON,TUE,WED,THU,FRI','SAT,SUN','09:00:00','18:00:00'),(2,'Night Shift','MON,TUE,WED,THU,FRI','SUN,SAT','18:00:00','06:00:00');
+INSERT INTO `work_schedule` VALUES (1,'Morning Shifts','MON,TUE,WED,THU,FRI','SAT,SUN','09:00:00','18:00:00'),(2,'Night Shift','MON,TUE,WED,THU,FRI','SUN,SAT','18:00:00','06:00:00');
 /*!40000 ALTER TABLE `work_schedule` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -280,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-22 13:30:07
+-- Dump completed on 2018-01-19 16:05:50
