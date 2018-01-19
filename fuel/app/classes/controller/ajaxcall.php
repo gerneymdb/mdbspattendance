@@ -231,47 +231,115 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
     public function post_save_employee_info(){
         try{
 
-            // validate form input
-            $val = \Fuel\Core\Validation::forge("add_employee");
+            if(!\Fuel\Core\Security::check_token()){
 
-            // validation rules
-            $val->add_field("fname", "First Name", "required");
-            $val->add_field("lname", "Last Name", "required");
-            $val->add_field("shift_id", "Shift", "required");
-            $val->add_field("userid", "User ID", "required");
-            $val->add_field("email", "Email Address", "required|valid_email");
+                return "Illegal Operation. Missing token. Hit refresh";
 
-            if(!$val->run()){
+            }else{
+                // validate form input
+                $val = \Fuel\Core\Validation::forge("add_employee");
 
-                echo "Please review edit information form";
+                // validation rules
+                $val->add_field("fname", "First Name", "required|trim|valid_string[alpha,spaces]");
+                $val->add_field("lname", "Last Name", "required|trim|valid_string[alpha,spaces]");
+                $val->add_field("shift_id", "Shift", "required");
+                $val->add_field("userid", "User ID", "required");
+                $val->add_field("email", "Email Address", "required|valid_email");
+                $val->add_field("co_position", "Company Position", "required|trim|valid_string[alpha,spaces]");
+                $val->add_field("civil_status", "Civil Status", "required|trim|valid_string[alpha]");
+                $val->add_field("birthdate", "Birthdate", "required|trim|valid_date");
 
-            }else {
+                if(!$val->run()){
+
+                    $errors = $val->error_message();
+
+                    $msg = "";
+                    foreach ($errors as $key => $error){
+                        $msg .= "{$error}. ";
+                    }
+
+                    return $msg;
+
+                }else {
 
 
-                $userid      = \Fuel\Core\Input::post("userid");
-                $employee_id = \Fuel\Core\Input::post("employee_id");
-                $fname       = \Fuel\Core\Input::post("fname");
-                $mname       = \Fuel\Core\Input::post("mname");
-                $lname       = \Fuel\Core\Input::post("lname");
-                $shift_id    = \Fuel\Core\Input::post("shift_id");
-                $email       = \Fuel\Core\Input::post("email");
+                    $userid      = \Fuel\Core\Input::post("userid");
+                    $employee_id = \Fuel\Core\Input::post("employee_id");
+                    $fname       = \Fuel\Core\Input::post("fname");
+                    $mname       = \Fuel\Core\Input::post("mname");
+                    $lname       = \Fuel\Core\Input::post("lname");
+                    $shift_id    = \Fuel\Core\Input::post("shift_id");
+                    $email       = \Fuel\Core\Input::post("email");
+                    $birthdate = \Fuel\Core\Input::post("birthdate");
+                    $civil_status = \Fuel\Core\Input::post("civil_status");
+                    $co_position  = \Fuel\Core\Input::post("co_position");
 
-                $emp_record = Model_Employee::find($employee_id);
+                    $emp_record = Model_Employee::find($employee_id);
 
-                $emp_record->fname    = $fname;
-                $emp_record->mname    = $mname;
-                $emp_record->lname    = $lname;
-                $emp_record->shift_id = $shift_id;
-                $result = $emp_record->save();
+                    $emp_record->fname    = $fname;
+                    $emp_record->mname    = $mname;
+                    $emp_record->lname    = $lname;
+                    $emp_record->shift_id = $shift_id;
+                    $emp_record->co_position = $co_position;
+                    $emp_record->birthdate = $birthdate;
+                    $emp_record->civil_status = $civil_status;
+                    $result = $emp_record->save();
 
-                $result2 = Auth\Auth::update_user(array(
-                    "email" => $email
-                ), $userid);
+                    $p_fields = array(
+                        "fname" => $fname,
+                        "mname" => $mname,
+                        "lname" => $lname,
+                        "co_position" => $co_position,
+                        "birthdate" => $birthdate,
+                        "civil_status" => $civil_status
+                    );
 
-                echo ($result && $result2) ? true : false;
+                    $result2 = Auth\Auth::update_user(array(
+                        "email" => $email,
+                        "profile_fields"=> $p_fields
 
-            }
+                    ), $userid);
 
+                    $record = Model_Login::find("all", array(
+                        "where" => array(
+                            array("username", "=", "mdbsp20170502")
+                        )
+                    ));
+
+                    $userinfo = (count($record) > 0)? array_shift($record) : null;
+
+                    $new_token = \Fuel\Core\Form::csrf();
+
+                    $shifts = [];
+
+                    $result = Model_Workschedule::find("all");
+
+                    foreach ($result as $info){
+                        $shifts[$info->shift_id] = $info;
+                    }
+
+                    $new_info = array(
+                        "userid" => $userid,
+                        "fname"  => $fname,
+                        "mname"  => $mname,
+                        "lname"  => $lname,
+                        "shift"  => $shifts[$shift_id]->shift_name,
+                        "co_position"  => $co_position,
+                        "birthdate"    => $birthdate,
+                        "civil_status" => $civil_status,
+                        "email"        => $email,
+                        "create_at"       => ($userinfo->created_at > 0)? strftime("%B %d, %Y %H:%M:%S",  $userinfo->created_at): "not yet",
+                        "last_update"     => ($userinfo->updated_at > 0)? strftime("%B %d, %Y %H:%M:%S",  $userinfo->updated_at): "not yet",
+                        "last_pwd_change" => ($userinfo->time_last_pwd_change > 0)? strftime("%B %d, %Y %H:%M:%S", $userinfo->time_last_pwd_change) : "not yet",
+                        "last_login"      => ($userinfo->last_login > 0)? strftime("%B %d, %Y %H:%M:%S", $userinfo->last_login): "not yet",
+                        "token"           => $new_token
+                    );
+
+                    return json_encode($new_info);
+
+                }// validate input
+
+            }// token check
 
         }catch (Exception $e){
             die($e->getMessage());

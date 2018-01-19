@@ -418,11 +418,14 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             $val = Validation::forge("add_employee");
 
             // validation rules
-            $val->add_field("fname", "First Name", "required");
-            $val->add_field("lname", "Last Name", "required");
+            $val->add_field("fname", "First Name", "required|trim|valid_string[alpha,spaces]'");
+            $val->add_field("lname", "Last Name", "required|trim|valid_string[alpha,spaces]'");
             $val->add_field("shift_id", "Shift", "required");
-            $val->add_field("userid", "User ID", "required");
+            $val->add_field("userid", "User ID", "required|trim|valid_string[alpha,numeric]'");
             $val->add_field("email", "Email Address", "required|valid_email");
+            $val->add_field("co_position", "Company Position", "required|trim|valid_string[alpha,spaces]");
+            $val->add_field("civil_status", "Civil Status", "required|trim|valid_string[alpha]");
+            $val->add_field("birthdate", "Birthdate", "required|trim|valid_date");
 
             if(!$val->run()){
                 $msg = $val->error_message();
@@ -437,6 +440,9 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             $shift_id  = \Fuel\Core\Input::post("shift_id");
             $userid    = \Fuel\Core\Input::post("userid");
             $email     = \Fuel\Core\Input::post("email");
+            $birthdate = \Fuel\Core\Input::post("birthdate");
+            $civil_status = \Fuel\Core\Input::post("civil_status");
+            $co_position  = \Fuel\Core\Input::post("co_position");
 
             // check if user already exist
             $exist_in_user = Model_Login::find("all", array(
@@ -476,13 +482,18 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             $new_emp->mname    = $mname;
             $new_emp->lname    = $lname;
             $new_emp->shift_id = $shift_id;
+            $new_emp->co_position = $co_position;
+            $new_emp->birthdate = $birthdate;
+            $new_emp->civil_status = $civil_status;
             $result1 = $new_emp->save();
 
             $p_fields = array(
                 "fname" => $fname,
                 "mname" => $mname,
                 "lname" => $lname,
-                "poisition" => "Employee"
+                "co_position" => $co_position,
+                "birthdate" => $birthdate,
+                "civil_status" => $civil_status
             );
 
             $result2 = Auth::create_user($userid, $default_pwd, $email, $group = 1, $profile_fields = $p_fields);
@@ -593,7 +604,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             }
 
             // validate form input
-            $val = Validation::forge("add_employee");
+            $val = Validation::forge("edit_data_settings");
 
             // validation rules
             $val->add_field("default_pwd", "Default password", "required|valid_string[lowercase,uppercase,numeric]");
@@ -673,7 +684,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             }
 
             // validate form input
-            $val = Validation::forge("add_employee");
+            $val = Validation::forge("add_leave_category");
 
             // validation rules
             $val->add_field("leave_name", "Leave Name", "required");

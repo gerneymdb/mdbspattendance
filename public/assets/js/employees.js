@@ -78,8 +78,18 @@ $(document).ready(function(){
             var mname = fullname.find(".mname");
             var lname = fullname.find(".lname");
 
+            //info
+            var info = $this_container.find(".record .info");
+            // birthdate and civil status
+            var civil_status = info.find(".civil_status .cstatus");
+            var birthdate = info.find(".birthdate .birth_date");
+
+            var info_position = $this_container.find(".record .work-schedule");
+            // company position
+            var co_position = info_position.find(".co_position .position");
+
             // the email address of the employee
-            var email = $this_container.find(".record .info");
+            var email = $this_container.find(".record .work-schedule");
             var e_address = email.find(".emp_email .email");
 
             // the shift id and shift name of the employess
@@ -96,7 +106,17 @@ $(document).ready(function(){
             $("#last_name").val(lname.text());
             $("#email_address").val(e_address.text());
             $("#user_id").val($this.attr("data-userid"));
-            $("#employeeid").val($this.attr("data-employeeid"))
+            $("#employeeid").val($this.attr("data-employeeid"));
+            $("#bday").val(birthdate.text());
+            $("#c_position").val(co_position.text());
+
+            var civil = "<option value='"+civil_status.text().toLowerCase()+"' selected>"+civil_status.text()+"</option>"
+
+            var cv_status = $("#cstatus");
+            // remove prepended element
+            cv_status.find("option[selected]").remove();
+            // prepend new civil status
+            cv_status.prepend(civil);
 
             var shift_select = $("#shift");
             // remove any custom shift if there is any
@@ -128,28 +148,49 @@ $(document).ready(function(){
                 type: "post",
                 url: url,
                 data:formdata,
+                dataType: "JSON",
                 async: true,
                 beforeSend: function(){
                     // display loader
                     loader.removeClass("hide")
                 },
                 success: function (response) {
-                    if(response === "Please review edit information form"){
-                        loader.addClass("hide");
-                        notification.find("p.message_title").addClass("text-danger").text("error");
-                        notification.find("p.message_content").text(response);
-                        notification.removeClass("hide");
-                    }
-                    if(response === "1"){
+                    if(typeof response === "object"){
+                        // replace token
+                        $('#csrftoken').html(response["token"]);
+
+                        // update info
+                        // the record
+                        var $record = $("#"+response["userid"]);
+
+                        $record.find(".fname").text(response["fname"]);
+                        $record.find(".mname").text(response["mname"]);
+                        $record.find(".lname").text(response["lname"]);
+
+                        $record.find(".cstatus").text(response["civil_status"]);
+                        $record.find(".birth_date").text(response["birthdate"]);
+                        $record.find(".shift-name").text(response["shift"]);
+
+                        $record.find(".created_at").text(response["created_at"]);
+                        $record.find(".last_update").text(response["last_update"]);
+                        $record.find(".last_pwd_change").text(response["last_pwd_change"]);
+                        $record.find(".last_login").text(response["last_login"]);
+
                         loader.addClass("hide");
                         notification.find("p.message_title").addClass("text-success").text("Success");
                         notification.find("p.message_content").text("Employee information updated");
                         notification.removeClass("hide");
+                    }else{
+                        console.log(response);
                     }
-                    console.log(response);
                 },
-                error: function(){
+                error: function(response){
+                    loader.addClass("hide");
+                    notification.find("p.message_title").addClass("text-danger").text("error");
+                    notification.find("p.message_content").text(response);
+                    notification.removeClass("hide");
 
+                    console.log(response);
                 }
             });
 
@@ -247,6 +288,15 @@ $(document).ready(function(){
             $this.parent().addClass("hide");
             $("#delete_modal").modal("hide");
         });
+
+        if($("#bdate").length === 1){
+            $( "#bdate" ).datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:2100"
+            });
+        }
 
     }
 
