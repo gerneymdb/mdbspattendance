@@ -35,20 +35,20 @@ return array(
 	'max_size'			=> 2097152,
 
 	// list of file extensions that a user is allowed to upload
-	'ext_whitelist'		=> array("jpeg", "jpg", "png"),
+	'ext_whitelist'		=> array("jpeg", "jpg", "png", "pdf"),
 
 	// list of file extensions that a user is NOT allowed to upload
 	'ext_blacklist'		=> array(),
 
 	// list of file types that a user is allowed to upload
 	// ( type is the part of the mime-type, before the slash )
-	'type_whitelist'	=> array("image"),
+	'type_whitelist'	=> array("image", "application"),
 
 	// list of file types that a user is NOT allowed to upload
 	'type_blacklist'	=> array(),
 
 	// list of file mime-types that a user is allowed to upload
-	'mime_whitelist'	=> array('image/png', 'image/jpeg', 'image/jpg'),
+	'mime_whitelist'	=> array('image/png', 'image/jpeg', 'image/jpg', 'application/pdf'),
 
 	// list of file mime-types that a user is NOT allowed to upload
 	'mime_blacklist'	=> array(),
@@ -76,7 +76,7 @@ return array(
 	'path_chmod'		=> 0777,
 
 	// permissions to be set on the uploaded file after being saved
-	'file_chmod'		=> 0666,
+	'file_chmod'		=> 0755,
 
 	// if true, add a number suffix to the file if the file already exists
 	'auto_rename'		=> true,

@@ -163,6 +163,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> processing</span></div>
+            <div class="notification_msg hide" id="notification_msg"><span id="close_info" class="close_info"><i class="fa fa-close"></i></span><p class="message_title text-center"></p><p class="message_content text-center"></p></div>
+
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">Edit Holiday</h4>
@@ -170,7 +172,9 @@
             <div class="modal-body">
                 <form action="" id="edit_form">
                     <input type="hidden" id="holiday_update_url" value="<?php echo $base_url.'ajaxcall/update_holiday'?>" />
+
                     <input type="hidden" value="" name="holiday_id" />
+                    <?php echo \Fuel\Core\Form::csrf() ?>
 
                     <div class="form-group">
                         <label for="holiday_names">Holiday Name</label>

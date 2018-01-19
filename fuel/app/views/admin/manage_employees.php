@@ -55,6 +55,18 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                             <label for="lastname">Last Name</label>
                             <input type="text" class="form-control" id="lastname" placeholder="Last Name" name="lname" />
                         </div>
+                        <div class="form-group">
+                            <label for="c_status">Civil Status</label>
+                            <select class="form-control" name="civil_status" id="c_status">
+                                <option value="single">Single</option>
+                                <option value="married">Married</option>
+                                <option value="widow">Widow</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="bdate">Birthday</label>
+                            <input type="text" name="birthdate" id="bdate" placeholder="Birth date"  class="form-control"/>
+                        </div>
                         <!-- /fullname -->
                     </div>
 
@@ -75,8 +87,12 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                            <input type="text" class="form-control" id="userid" placeholder="User ID" name="userid" />
                         </div>
                         <div class="form-group">
-                           <label for="emailaddress">Email address</label>
-                           <input type="email" class="form-control" id="emailaddress" placeholder="Email address" name="email" />
+                           <label for="co_position">Company Position</label>
+                           <input type="text" class="form-control" id="co_position" placeholder="his/her position in the company" name="co_position" />
+                        </div>
+                        <div class="form-group">
+                            <label for="emailaddress">Email address</label>
+                            <input type="email" class="form-control" id="emailaddress" placeholder="Email address" name="email" />
                         </div>
                         <div class="form-group">
                            <button class="btn btn-default pull-right" type="submit"><i class="fa fa-save"></i> Add</button>
@@ -114,18 +130,21 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
                             </button>
                         </div>
-                        <div class="record">
+                        <div class="record clearfix">
                             <div class="info">
                                 <p class="emp_fullname">
                                     <span class="fname"><?php echo ucwords($employee->fname)?></span>
                                     <span class="mname"><?php echo ucwords($employee->mname)?></span>
                                     <span class="lname"><?php echo ucwords($employee->lname)?></span>
                                 </p>
-                                <p>ID: <?php echo $employee->userid?></p>
-                                <p class="emp_email">EMAIL: <span class="email"><?php echo $this_emp->email?></span></p>
+                                <p class="userid">User ID: <?php echo $employee->userid?></p>
+                                <p class="civil_status">Civil Status: <span class="cstatus"><?php echo $employee->civil_status?></span></p>
+                                <p class="birthdate">Birthdate: <span class="birth_date"><?php echo $employee->birthdate?></span></p>
                             </div>
                             <div class="work-schedule">
                                 <p class="sched" data-shift-id="<?php echo $employee->shift_id ?>">Shift: <span class="shift-name"><?php echo $shifts[$employee->shift_id]->shift_name ?></span></p>
+                                <p class="co_position">Company Position: <span class="position"><?php echo $employee->co_position?></span></p>
+                                <p class="emp_email">Email Address: <span class="email"><?php echo $this_emp->email?></span></p>
                                 <form action="#" class="reset_pwd">
                                     <input type="hidden" name="username" value="<?php echo $employee->userid ?>">
                                     <button type="button" class="btn btn-default btn_rst_pwd" data-url="<?php echo $base_url .'ajaxcall/reset_password'?>">
@@ -137,13 +156,21 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
 
                         <div class="activity">
                             <div class="additions">
-                                <p>Created: <?php  echo ($this_emp->created_at > 0)? strftime("%B %d, %Y %H:%M:%S",  $this_emp->created_at): "not yet" ?></p>
-                                <p>Last Update: <?php echo ($this_emp->updated_at > 0)? strftime("%B %d, %Y %H:%M:%S",  $this_emp->updated_at): "not yet" ?></p>
+                                <p>Created: <span class="created_at"><?php  echo ($this_emp->created_at > 0)? strftime("%B %d, %Y %H:%M:%S",  $this_emp->created_at): "not yet" ?></span></p>
+                                <p>Last Update: <span class="last_update"><?php echo ($this_emp->updated_at > 0)? strftime("%B %d, %Y %H:%M:%S",  $this_emp->updated_at): "not yet" ?></span></p>
                             </div>
 
                             <div class="changes">
-                                <p>Last password change: <?php echo ($this_emp->time_last_pwd_change > 0)? strftime("%B %d, %Y %H:%M:%S", $this_emp->time_last_pwd_change) : "not yet" ?></p>
-                                <p>Last log-in: <?php echo ($this_emp->last_login > 0)? strftime("%B %d, %Y %H:%M:%S", $this_emp->last_login): "not yet" ?></p>
+                                <p>Last password change:
+                                    <span class="last_pwd_change">
+                                        <?php echo ($this_emp->time_last_pwd_change > 0)? strftime("%B %d, %Y %H:%M:%S", $this_emp->time_last_pwd_change) : "not yet" ?>
+                                    </span>
+                                </p>
+                                <p>Last log-in:
+                                    <span class="last_login">
+                                        <?php echo ($this_emp->last_login > 0)? strftime("%B %d, %Y %H:%M:%S", $this_emp->last_login): "not yet" ?>
+                                    </span>
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -153,7 +180,6 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
         </div>
     </div>
 </section>
-
 <!-- Edit -->
 <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -166,10 +192,12 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
             </div>
             <div class="modal-body">
                 <form action="#" id="edit_employee">
-                    <?php echo \Fuel\Core\Form::csrf() ?>
                     <input type="hidden" value="<?php echo $base_url .'ajaxcall/save_employee_info'?>" id="emp_edit_url" />
                     <input type="hidden" value="" name="userid" id="user_id" />
                     <input type="hidden" value="" name="employee_id" id="employeeid" />
+                    <div id="csrftoken">
+                        <?php echo \Fuel\Core\Form::csrf();?>
+                    </div>
                     <div class="form-group">
                         <label for="first_name">First Name</label>
                         <input type="text" class="form-control" id="first_name" placeholder="First Name" name="fname" value="" />
@@ -187,6 +215,18 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                         <input type="email" class="form-control" id="email_address" placeholder="Email" name="email" value="" />
                     </div>
                     <div class="form-group">
+                        <label for="bday">Birthdate</label>
+                        <input type="text" class="form-control" id="bday" placeholder="Birthdate" name="birthdate" value="" />
+                    </div>
+                    <div class="form-group">
+                        <label for="cstatus">Civil Status</label>
+                        <select name="civil_status" id="cstatus" class="form-control">
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                            <option value="widow">Widow</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
                         <label for="shift">Shift</label>
                         <select name="shift_id" id="shift" class="form-control">
                             <?php if(count($shifts) > 0):?>
@@ -195,6 +235,10 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                                 <?php endforeach;?>
                             <?php endif;?>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="c_position">Company Position</label>
+                        <input type="text" class="form-control" id="c_position" placeholder="Company Position" name="co_position" value="" />
                     </div>
                 </form>
             </div>

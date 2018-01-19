@@ -14,7 +14,10 @@ class Model_Employee extends OrmModel {
         "fname",
         "mname",
         "lname",
-        "shift_id"
+        "shift_id",
+        "co_position",
+        "birthdate",
+        "civil_status"
     );
 
     public static function is_day_off(){
