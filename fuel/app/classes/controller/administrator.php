@@ -320,13 +320,13 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
                 )
             ));
 
-            $attendance = [
-                "genreynalda" => array(
-                    "2017-12-01" => array("timein"=>"09:00", "timeout" => "18:00", "status" => "Present"),
-                    "2017-12-02" => array("timein"=>"09:00", "timeout" => "18:00", "status" => "Present"),
-                    "2017-12-03" => array("timein"=>"09:00", "timeout" => "18:00", "status" => "Present")
-                ),
-            ];
+//            $attendance = [
+//                "genreynalda" => array(
+//                    "2017-12-01" => array("timein"=>"09:00", "timeout" => "18:00", "status" => "Present"),
+//                    "2017-12-02" => array("timein"=>"09:00", "timeout" => "18:00", "status" => "Present"),
+//                    "2017-12-03" => array("timein"=>"09:00", "timeout" => "18:00", "status" => "Present")
+//                ),
+//            ];
 
             $attendance = []; // attendance[userid][date]
 

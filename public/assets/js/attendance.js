@@ -23,6 +23,8 @@ $(document).ready(function(){
             var $this = $(this);
 
             // input field on the edit present modal
+                //date of attendance
+                var dateofattendance = $("#date_of_attendance");
                 // fullname
                 var fullname = $("#fullname_timein");
                 // the the date of when user timed in
@@ -62,17 +64,18 @@ $(document).ready(function(){
             status.find("option.select").remove();
 
             // populate the fields
+                dateofattendance.val($this.attr("id"));
                 fullname.val($this.attr("data-name"));
                 attendance_id.val($this.attr("data-att-id"));
 
                 // split the data-timein to get the datetime, hrtimein, mintimein, and sectimein
                 var timein = $this.attr("data-timein");
-                timein = timein.split(" "); // output =  ['2017-12-18', '09:00:00'];
+                timein = timein.split(" "); // output =  ['2017-12-18', '09:00:00']; ex.
                 // the date
                 var date = timein[0];
                 datetimein.val(date);
                 // time of timein
-                var intime = timein[1].split(":"); // output = ['09', '00', '00']
+                var intime = timein[1].split(":"); // output = ['09', '00', '00'] ex.
                 var timeinhr  = intime[0];
                 var timeinmin = intime[1];
                 var timeinsec = intime[2];
@@ -90,12 +93,12 @@ $(document).ready(function(){
 
                 if(timeout.length !== 0) {
 
-                    timeout = timeout.split(" "); // output =  ['2017-12-18', '09:00:00'];
+                    timeout = timeout.split(" "); // output =  ['2017-12-18', '18:00:00']; ex.
                     // the date
                     var dateout = timeout[0];
                     datetimeout.val(dateout);
                     // time of timein
-                    var outtime = timeout[1].split(":"); // output = ['09', '00', '00']
+                    var outtime = timeout[1].split(":"); // output = ['09', '00', '00'] ex.
                     var timeouthr = outtime[0];
                     var timeoutmin = outtime[1];
                     var timeoutsec = outtime[2];
@@ -110,6 +113,7 @@ $(document).ready(function(){
             });
 
         });
+
         // save edit present changes
         var btn_edit_present = $("#edit_present_btn");
         btn_edit_present.on("click", function(){
@@ -119,7 +123,7 @@ $(document).ready(function(){
             var url = $("#present_url").val();
             var formdata = $("#present_edit").serialize();
 
-            var modal_content = $("#edt_present").find(".modal-content");
+            var modal_content = $this.closest(".modal-content");
             var loader = modal_content.find(".loader");
 
             var notification = $("#edt_present").find(".notification_msg");
@@ -128,6 +132,7 @@ $(document).ready(function(){
                 type: "post",
                 url: url,
                 data:formdata,
+                dataType: "JSON",
                 async: true,
                 beforeSend: function(){
                     // display loader
@@ -135,27 +140,46 @@ $(document).ready(function(){
                 },
                 success: function (response) {
 
-                    console.log(response);
+                    if(typeof response === "object"){
+                        // replace token
+                        $("#atteditcsrftoken").html(response['token']);
+                        var row = $("#"+response['id']);
+                        console.log(row);
+                        if(Object.keys(response).length > 1){
+                            // turn into absent
+                            row.removeClass("btn-success");
+                            row.removeClass("btn-attdnc-present");
+                            row.addClass("btn-danger");
+                            row.addClass("btn-attendance-absent");
+                            row.removeAttr("data-timein");
+                            row.removeAttr("data-timeout");
+                            row.removeAttr("data-status");
 
-                    if(response === "0" || response === "" || response === null || response === undefined){
-                        loader.addClass("hide");
-                        notification.find("p.message_title").addClass("text-danger").text("error");
-                        notification.find("p.message_content").text("Failed to update attendance information.");
-                        notification.removeClass("hide");
-                    }
-                    if(response === "1"){
+                            //change the id
+                            var current_id = response['id'];
+                            var new_id = current_id.substr(0,-2);
+                            row.attr('id', new_id);
+                        }else {
+                            // edit present
+                            row.attr("data-timein", response['timein']);
+                            row.attr("data-timeout", response['timeout']);
+                            row.attr("data-status", response['status']);
+                        }
+
                         loader.addClass("hide");
                         notification.find("p.message_title").addClass("text-success").text("Success");
                         notification.find("p.message_content").text("Attendance information updated");
                         notification.removeClass("hide");
-
-                        setTimeout(function(){
-                            $("#search_attendance").submit();
-                        }, 1000);
                     }
                 },
-                error: function(){
+                error: function(response){
 
+                    loader.addClass("hide");
+                    notification.find("p.message_title").addClass("text-danger").text("error");
+                    notification.find("p.message_content").text(response.responseText);
+                    notification.removeClass("hide");
+
+                    console.log(response);
                 }
             });
 
@@ -165,7 +189,7 @@ $(document).ready(function(){
         cls_mdl_btn_prsnt.on("click", function(){
             var $this = $(this);
             $this.parent().addClass("hide");
-            $("#edt_present").modal("hide");
+            // $("#edt_present").modal("hide");
         });
 
 
@@ -278,6 +302,24 @@ $(document).ready(function(){
                 keyboard: false
             });
         });
+
+        if($("#datetimeout").length === 1){
+            $( "#datetimeout" ).datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:2100"
+            });
+        }
+        if($("#datetimein").length === 1){
+            $( "#datetimein" ).datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:2100"
+            });
+        }
+
     }
 
 });

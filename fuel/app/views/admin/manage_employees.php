@@ -175,11 +175,20 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                         </div>
                     </div>
                <?php endforeach;?>
-            <?php endif; ?>
+
+            <?php else:?>
+
+                <div class="alert alert-info">
+                    <p class="text-center"><i class='glyphicon glyphicon-exclamation-sign'></i> <strong>No Record Found</strong></p>
+                </div>
+
+            <?php endif;?>
 
         </div>
     </div>
 </section>
+
+
 <!-- Edit -->
 <div class="modal fade" id="edit_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -249,7 +258,6 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
         </div>
     </div>
 </div>
-
 
 <!-- Delete Modal -->
 <div class="modal fade" id="delete_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
