@@ -94,18 +94,23 @@ $(document).ready(function(){
                 if(timeout.length !== 0) {
 
                     timeout = timeout.split(" "); // output =  ['2017-12-18', '18:00:00']; ex.
+
                     // the date
                     var dateout = timeout[0];
                     datetimeout.val(dateout);
-                    // time of timein
-                    var outtime = timeout[1].split(":"); // output = ['09', '00', '00'] ex.
-                    var timeouthr = outtime[0];
-                    var timeoutmin = outtime[1];
-                    var timeoutsec = outtime[2];
 
-                    hrtimeout.prepend("<option value='" + timeouthr + "' selected class='select'>" + timeouthr + "</option>");
-                    mintimeout.prepend("<option value='" + timeoutmin + "' selected class='select'>" + timeoutmin + "</option>");
-                    sectimeout.prepend("<option value='" + timeoutsec + "' selected class='select'>" + timeoutsec + "</option>");
+                    if(timeout.length === 2){
+
+                        // time of timeout
+                        var outtime = timeout[1].split(":"); // output = ['09', '00', '00'] ex.
+                        var timeouthr = outtime[0];
+                        var timeoutmin = outtime[1];
+                        var timeoutsec = outtime[2];
+
+                        hrtimeout.prepend("<option value='" + timeouthr + "' selected class='select'>" + timeouthr + "</option>");
+                        mintimeout.prepend("<option value='" + timeoutmin + "' selected class='select'>" + timeoutmin + "</option>");
+                        sectimeout.prepend("<option value='" + timeoutsec + "' selected class='select'>" + timeoutsec + "</option>");
+                    }
                 }
 
             $("#edt_present").modal({
@@ -171,6 +176,8 @@ $(document).ready(function(){
                         notification.find("p.message_content").text("Attendance information updated");
                         notification.removeClass("hide");
                     }
+
+
                 },
                 error: function(response){
 
