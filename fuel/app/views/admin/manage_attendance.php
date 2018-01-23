@@ -160,8 +160,8 @@
                                             <a href="#" class="btn btn-success btn-attdnc-present" id="<?php echo $employee."_".$attendance_date."pr"?>"
                                                data-name="<?php echo $employee_names[$employee] ?>"
                                                data-att-id="<?php echo $record[$attendance_date]['attendance_id']?>"
-                                               data-timein="<?php echo $record[$attendance_date]['timein']?>"
-                                               data-timeout="<?php echo $record[$attendance_date]['timeout']?>"
+                                               data-timein="<?php echo (empty($record[$attendance_date]['timein']))? $attendance_date : $record[$attendance_date]['timein'] ?>"
+                                               data-timeout="<?php echo (empty($record[$attendance_date]['timeout']))? $attendance_date : $record[$attendance_date]['timeout']?>"
                                                data-status="<?php echo $record[$attendance_date]['status']?>">
                                                 <?php echo $date; ?>
                                             </a>
