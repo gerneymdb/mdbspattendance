@@ -1,5 +1,21 @@
 <?php
+    use Fuel\Core\Lang as lang;
+    use Fuel\Core\Cookie as cookie;
+
     $base_url = \Fuel\Core\Config::get("base_url");
+
+    // check if there are lang cookies set
+    $language = cookie::get("lang");
+    if(empty(trim($language))){
+        // lang cookie is not set, set to default
+        lang::set_lang("en", true);
+
+    }else{
+        // lang cookie is set, use it to change the language
+        lang::set_lang($language, true);
+    }
+
+    lang::load("menu");
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,11 +49,11 @@
 
                 <div class="collapse navbar-collapse" id="navbar-container">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="<?php echo $base_url ."user/attendance"?>">attendance</a></li>
-                        <li><a href="<?php echo $base_url ."user/history/" . strftime("%Y", time())?>">attendance history</a></li>
-                        <li><a href="<?php echo $base_url ."user/leave_application"?>">leave application</a></li>
-                        <li><a href="<?php echo $base_url ."user/leave_history/" . strftime("%Y", time()) ?>">leave history</a></li>
-                        <li><a href="<?php echo $base_url ."login/logout"?>">logout</a></li>
+                        <li><a href="<?php echo $base_url ."user/attendance"?>"><?php echo lang::get("attendance")?></a></li>
+                        <li><a href="<?php echo $base_url ."user/history/" . strftime("%Y", time())?>"><?php echo lang::get("attendance_history")?></a></li>
+                        <li><a href="<?php echo $base_url ."user/leave_application"?>"><?php echo lang::get("leave_application")?></a></li>
+                        <li><a href="<?php echo $base_url ."user/leave_history/" . strftime("%Y", time()) ?>"><?php echo lang::get("leave_history") ?></a></li>
+                        <li><a href="<?php echo $base_url ."login/logout"?>"><?php echo lang::get("logout") ?></a></li>
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
                         </li>
                     </ul>

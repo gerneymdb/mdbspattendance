@@ -48,7 +48,7 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                     $holiday = array_shift($sph);
                 ?>
                 <div class="alert alert-danger">
-                    <p>Today is regular holiday.</p>
+                    <p><?php echo $lang["regular_holiday"]?></p>
                     <p><?php echo $holiday->holiday_name?></p>
                     <p><?php echo $holiday->description?></p>
                 </div>
@@ -65,7 +65,7 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                     $holiday = array_shift($rhd);
                 ?>
                 <div class="alert alert-danger">
-                    <p class="text-center">Today is special holiday called <strong><?php echo $holiday->holiday_name?></strong>. <?php echo $holiday->description?></p>
+                    <p class="text-center"><?php echo $lang["special_holiday"]?> <strong><?php echo $holiday->holiday_name?></strong>. <?php echo $holiday->description?></p>
                 </div>
             </div>
         </div>
@@ -109,7 +109,7 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                 </div>
                 <div class="time-attendance">
                     <div class="timein">
-                        <p>Time In:
+                        <p><?php echo $lang["timein"]?>:
                         <?php
                            if($timein == ""){
                                echo $timein;
@@ -124,7 +124,7 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                         </p>
                     </div>
                     <div class="timeout">
-                        <p>Time Out:
+                        <p><?php echo $lang["timeout"] ?>:
                         <?php
                             if($timeout == ""){
                                 echo $timeout;
@@ -154,7 +154,7 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                             <!--user will time in-->
                             <?php echo Form::open(array('action'=>'user/timein', 'class'=>'time-form', 'method'=>'post', 'id'=>'timein_form'))?>
                                 <?php echo Form::csrf(); ?>
-                                <button type="submit" class="btn btn-default btn-lg time-btn" name="timein"><i class="fa fa-clock-o"></i> TIME IN</button>
+                                <button type="submit" class="btn btn-default btn-lg time-btn" name="timein"><i class="fa fa-clock-o"></i> <?php echo $lang["timein"] ?></button>
                             <?php echo Form::close()?>
 
                         <?php else:?>
@@ -162,7 +162,7 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                             <!--user will time out-->
                             <?php echo Form::open(array('action'=>'user/timeout', 'class'=>'time-form', 'method'=>'post', 'id'=>'timeout_form'))?>
                             <?php echo Form::csrf(); ?>
-                                <button type="submit" class="btn btn-default btn-lg time-btn"><i class="fa fa-clock-o"></i> TIME OUT</button>
+                                <button type="submit" class="btn btn-default btn-lg time-btn"><i class="fa fa-clock-o"></i> <?php echo $lang["timeout"] ?></button>
                             <?php echo Form::close()?>
 
                         <?php endif;?>
@@ -178,22 +178,22 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                         <div class="alert alert-info">
                             <!-- leave -->
                             <?php if($l != false):?>
-                                <p class="text-info text-center">You are on <strong><?php echo $l->type?></strong></p>
+                                <p class="text-info text-center"><?php echo $lang["on_leave"]?> <strong><?php echo $l->type?></strong></p>
                             <?php endif; ?>
 
                             <!-- day off -->
                             <?php if($do != false):?>
-                                <p class="text-info text-center">Today is your <strong>Day Off</strong></p>
+                                <p class="text-info text-center"><?php echo $lang["your_day_off"]?> <strong><?php echo $lang["day_off"]?></strong></p>
                             <?php endif; ?>
 
                             <!-- special holiday -->
                             <?php if($sh != false):?>
-                                <p class="text-info text-center">Today is special holiday. <strong><?php echo $sh->holiday_name?></strong></p>
+                                <p class="text-info text-center"><?php echo $lang["special_holiday"]?> <strong><?php echo $sh->holiday_name?></strong></p>
                             <?php endif; ?>
 
                             <!-- regular holiday -->
                             <?php if($rh != false):?>
-                                <p class="text-info text-center">Today is regular holiday. <strong><?php echo $rh->holiday_name; ?></strong></p>
+                                <p class="text-info text-center"><?php echo $lang["regular_holiday"]?> <strong><?php echo $rh->holiday_name; ?></strong></p>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
@@ -201,7 +201,7 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
                 <?php else: ?>
 
                     <div class="alert">
-                        <h3>Work's done for today.!</h3>
+                        <h3><?php echo $lang["work_done"] ?></h3>
                     </div>
 
                 <?php endif;?>
@@ -212,39 +212,36 @@ $smsg = \Fuel\Core\Session::get_flash("smsg");
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-calendar"></i> Shift schedule</h3>
+                    <h3 class="panel-title"><i class="fa fa-calendar"></i> <?php echo $lang["schedule_heading"]?></h3>
                 </div>
                 <div class="panel-body">
                 </div>
                 <table class="table table-responsive attendance-table">
                     <tbody>
                     <tr>
-                        <th>Work Days</th><td><?php echo $shift_sched->work_days ?></td>
+                        <th><?php echo $lang["work_days"]?></th><td><?php echo $shift_sched->work_days ?></td>
                     </tr>
                     <tr>
-                        <th>Day Off</th><td><?php echo $shift_sched->day_off ?></td>
+                        <th><?php echo $lang["day_off"]?></th><td><?php echo $shift_sched->day_off ?></td>
                     </tr>
                     <tr>
-                        <th>Starts at</th><td><?php echo $shift_sched->start_shift ?></td>
+                        <th><?php echo $lang["starts_at"] ?></th><td><?php echo $shift_sched->start_shift ?></td>
                     </tr>
                     <tr>
-                        <th>Ends at</th><td><?php echo $shift_sched->end_shift ?></td>
+                        <th><?php echo $lang["ends_at"] ?></th><td><?php echo $shift_sched->end_shift ?></td>
                     </tr>
                     </tbody>
                 </table>
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-tasks"></i> Activity</h3>
+                    <h3 class="panel-title"><i class="fa fa-tasks"></i> <?php echo $lang["activity_heading"]?></h3>
                     <input type="hidden" value="<?php echo $base_url . 'ajaxcall/getTotalTime'?>" id="total_time_url">
                 </div>
                 <table class="table table-responsive attendance-table">
                     <tbody>
                         <tr>
-                            <th>Today's Total Work Time</th><td id="total_time"><?php echo $total_time; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Lunch</th><td id="total_time">12:00:00 - 13:00:00</td>
+                            <th><?php echo $lang["total_work"]?></th><td id="total_time"><?php echo $total_time; ?></td>
                         </tr>
                     </tbody>
                 </table>
