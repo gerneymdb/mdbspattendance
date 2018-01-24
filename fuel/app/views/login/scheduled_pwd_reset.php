@@ -7,7 +7,7 @@
             <div class="firstLogin-form">
 
                 <?php echo \Fuel\Core\Form::open(array("action"=>"login/changePassword", "method"=>"post", "class"=>"form-signin", "id"=>"login-form"))?>
-                <h2 class="form-signin-heading">Your current password has already expired. Change your password</h2>
+                <h2 class="form-signin-heading"><?php echo $lang["form_heading"]?></h2>
                 <hr />
                 <?php
 
@@ -38,25 +38,25 @@
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-lock"></span>
                         </span>
-                    <input type="password" class="form-control" name="old_password" placeholder="old password" required />
+                    <input type="password" class="form-control" name="old_password" placeholder="<?php echo $lang["old_pwd"]?>" required />
                 </div>
                 <div class="form-group input-group">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-lock"></span>
                         </span>
-                    <input type="password" class="form-control" name="new_password" placeholder="new password" required />
+                    <input type="password" class="form-control" name="new_password" placeholder="<?php echo $lang["new_pwd"]?>" required />
                 </div>
 
                 <div class="form-group input-group">
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-lock"></span>
                         </span>
-                    <input type="password" class="form-control" name="confirm_password" placeholder="confirm password" required />
+                    <input type="password" class="form-control" name="confirm_password" placeholder="<?php echo $lang["confirm_pwd"]?>" required />
                 </div>
                 <hr />
                 <div class="form-group">
                     <button type="submit" name="btn-signin" class="btn btn-default" value="submit" id="firstLogin-btn">
-                        <i class="glyphicon glyphicon-floppy-disk"></i> Save
+                        <i class="glyphicon glyphicon-floppy-disk"></i> <?php echo $lang["save_btn"]?>
                     </button>
                 </div>
 
