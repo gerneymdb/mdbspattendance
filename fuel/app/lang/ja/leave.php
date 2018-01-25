@@ -1,7 +1,7 @@
 <?php
 return array(
     "title"         => "従業員",
-    "token"         => "トークンが見つからないか、有効でない.",
+    "token"         => "トークンが見つからない、または無効です.",
 
     "add_leave_form" => array(
         "leave_input"   => "カテゴリを出る",
@@ -14,47 +14,47 @@ return array(
     ),
 
     "form_error" => array(
-        "pending_leave"     => "あなたは現在保留中の休暇申請をしています.",
+        "pending_leave"     => "現在、保留中の休暇申請があります.",
         "on_leave"          => "あなたは現在休暇中です.",
         "consumed_leave"    => "あなたはすでに与えられた日数を消費しています",
         "unable_to_process" => "休暇申請を処理できません",
-        "submitted_for_evaluation"  => "リクエストが提出され、評価の対象となります.",
-        "end_date_error"    => "\"あなたが選択した日付 <strong>終了日</strong> 過去の日付です。将来の日付を選択してください.\"",
+        "submitted_for_evaluation"  => "申請が提出され、評価の対象となります。",
+        "end_date_error"    => "\"<strong> 終了日 </strong> に選択した日付は過去の日付です。将来の日付を選択してください。\"",
         "days_exceed"       => "選択した日数は、残りの日数を超えます。",
     ),
 
     "recent_leave" => array(
-        "recent"    => "最近の離職",
+        "recent"    => "最近の休暇",
         "cancel"    => "キャンセル",
         "from"      => "から",
         "to"        => "に",
         "reason"    => "理由",
-        "attachment_label"  => "添付ファイル",
+        "attachment_label"  => "添付ラベル",
         "manage_comments"   => "管理コメント"
     ),
 
     "delete_leave" => array(
-        "leave_not_found"   => "This leave records cannot be found in the database, please check leave ID if correct or contact your system administrator",
-        "unable_to_cancel"  => "Unable to cancel leave. Something went wrong pls contact your system administrator",
-        "leave_cancel"      => "\"Leave request has been <strong>cancelled</strong>.!!\"",
+        "leave_not_found"   => "この休暇記録はデータベースには見つかりません。正しい場合はIDを残しておいてください。またはシステム管理者に連絡してください",
+        "unable_to_cancel"  => "休暇をキャンセルできません。何か問題が発生した場合は、システム管理者にお問い合わせください",
+        "leave_cancel"      => "\"退室要求が <strong> キャンセル </strong> されました。!!\"",
     ),
 
     "leave_list" => array(
-        "leave_label"   => "Leave Category",
-        "days_allot"    => "Days Allotted",
-        "days_remain"   => "Days Remaining",
+        "leave_label"   => "カテゴリを出る",
+        "days_allot"    => "割り当てられた日数",
+        "days_remain"   => "残存日数",
 
     ),
 
     "leave_history" => array(
-        "leave_label"   => "Leave",
-        "request_date"  => "Request on",
-        "from"          => "From",
-        "to"            => "To",
-        "reason"        => "Reason",
-        "status"        => "Status",
-        "attachment"    => "Attachment",
-        "approved_by"   => "Approved by",
-        "comments"      => "Comments"
+        "leave_label"   => "離れる",
+        "request_date"  => "リクエスト",
+        "from"          => "から",
+        "to"            => "に",
+        "reason"        => "理由",
+        "status"        => "地位",
+        "attachment"    => "添付ファイル",
+        "approved_by"   => "によって承認された",
+        "comments"      => "コメント"
     )
 );
