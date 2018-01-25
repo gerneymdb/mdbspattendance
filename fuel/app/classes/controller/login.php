@@ -52,6 +52,7 @@ class Controller_Login extends \Fuel\Core\Controller_Template {
         lang::load("login");
 
         $data["lang"] = lang::get("login_form");
+        $data["lang_form"] = lang::get("lang_form");
 
         $this->template->title = lang::get("title");
         $this->template->content = View::forge('login/index', $data);
@@ -451,6 +452,41 @@ class Controller_Login extends \Fuel\Core\Controller_Template {
             Session::set_flash("msg", $msg);
             \Fuel\Core\Response::redirect("login/schedulePwdReset","refresh");
         }
+    }
+
+    public function post_changeLanguage(){
+        $val = Validation::forge("change_language");
+
+//        if(Security::check_token()){
+
+            // set validation rules
+            $val->add_field("lang", "Language Dropdown", "required");
+
+            if($val->run()){
+
+                $language = \Fuel\Core\Input::post("lang");
+
+                \Fuel\Core\Cookie::delete("lang");
+                \Fuel\Core\Cookie::set("lang", $language, 60*60*24);
+                \Fuel\Core\Response::redirect("login/index", "refresh");
+
+            }else{
+
+                // fields are empty or has errors
+                // base on the validation errors by the
+                // validation class
+                $msg = $val->error_message();
+                Session::set_flash("msg", $msg);
+                \Fuel\Core\Response::redirect("login/index", "refresh");
+            }
+
+//        }else {
+//
+//            // csrf token is missing
+//            $msg[] = lang::get("token");
+//            Session::set_flash("msg", $msg);
+//            \Fuel\Core\Response::redirect("login/index","refresh");
+//        }
     }
 
     /**

@@ -4,6 +4,12 @@
 
         "token" => "Token missing or not valid.",
 
+        "lang_form" => array(
+
+            "select_lang"   => "Select Language",
+            "translate"     => "Translate",
+        ),
+
         "login_form" => array(
             "id_placeholder"        => "ID",
             "password_placeholder"  => "password",
