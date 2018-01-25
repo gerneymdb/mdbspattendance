@@ -1,36 +1,36 @@
 <?php
 return array(
-    "title"         => "Employees",
-    "token"         => "Token missing or not valid.",
+    "title"         => "従業員",
+    "token"         => "トークンが見つからないか、有効でない.",
 
     "add_leave_form" => array(
-        "leave_input"   => "Leave Category",
-        "date_start"    => "Start date",
-        "date_end"      => "End date",
-        "attach_file"   => "Attachments",
-        "attach_description" => "Medical certificates for sick leave and etc...",
-        "leave_reason"  => "Reason",
-        "submit_btn"    => "Submit"
+        "leave_input"   => "カテゴリを出る",
+        "date_start"    => "開始日",
+        "date_end"      => "終了日",
+        "attach_file"   => "添付ファイル",
+        "attach_description" => "病気休暇等の医療証明書...",
+        "leave_reason"  => "理由",
+        "submit_btn"    => "提出する"
     ),
 
     "form_error" => array(
-        "pending_leave"     => "You currently have a pending leave request.",
-        "on_leave"          => "You're currently on leave.",
-        "consumed_leave"    => "You have already consume the number of days given for",
-        "unable_to_process" => "Unable to process leave request",
-        "submitted_for_evaluation"  => "request was submitted and is subject for evaluation.",
-        "end_date_error"    => "\"The date you choose for the <strong>End Date</strong> is a date of the past. Please choose a future date.\"",
-        "days_exceed"       => "The number of days you chose exceeds the number of days remaining for",
+        "pending_leave"     => "あなたは現在保留中の休暇申請をしています.",
+        "on_leave"          => "あなたは現在休暇中です.",
+        "consumed_leave"    => "あなたはすでに与えられた日数を消費しています",
+        "unable_to_process" => "休暇申請を処理できません",
+        "submitted_for_evaluation"  => "リクエストが提出され、評価の対象となります.",
+        "end_date_error"    => "\"あなたが選択した日付 <strong>終了日</strong> 過去の日付です。将来の日付を選択してください.\"",
+        "days_exceed"       => "選択した日数は、残りの日数を超えます。",
     ),
 
     "recent_leave" => array(
-        "recent"    => "most recent leave",
-        "cancel"    => "cancel",
-        "from"      => "from",
-        "to"        => "to",
-        "reason"    => "Reason",
-        "attachment_label"  => "Attachments",
-        "manage_comments"   => "Management Comments"
+        "recent"    => "最近の離職",
+        "cancel"    => "キャンセル",
+        "from"      => "から",
+        "to"        => "に",
+        "reason"    => "理由",
+        "attachment_label"  => "添付ファイル",
+        "manage_comments"   => "管理コメント"
     ),
 
     "delete_leave" => array(
