@@ -1,6 +1,6 @@
 <?php
     return array(
-        "title" => "Magsulod",
+        "title" => "Mag-sulod",
 
         "token" => "Nadula ang Token ukon sala.",
 
@@ -14,7 +14,7 @@
             "id_placeholder"        => "ID",
             "password_placeholder"  => "password",
             "submit_btn"            => "Pag-hatag",
-            "form_heading"          => "Mag Log in",
+            "form_heading"          => "MDB Solution Philippines INC.",
 
             "form_error" => array(
                 "empty_field"   => "palihog butangi ang wala unod nga lugar ",
