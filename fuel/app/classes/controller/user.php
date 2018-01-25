@@ -28,7 +28,7 @@ class Controller_User extends \Fuel\Core\Controller_Template {
         $lang = cookie::get("lang");
         if(empty(trim($lang))){
             // lang cookie is not set, set to default
-            lang::set_lang("en", true);
+            lang::set_lang("ja", true);
 
         }else{
 
