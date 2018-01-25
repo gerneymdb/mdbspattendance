@@ -13,19 +13,19 @@
             <table class="table table-responsive">
                 <?php if(count($leave_history) > 0):?>
                     <thead>
-                        <tr>
-                            <th colspan="9"><p class="text-center"><?php echo $year . " Leave Records" ?></p></th>
-                        </tr>
+<!--                        <tr>-->
+<!--                            <th colspan="9"><p class="text-center">--><?php //echo $year . " Leave Records" ?><!--</p></th>-->
+<!--                        </tr>-->
                         <tr class="thead">
-                            <th>Leave</th>
-                            <th>Requested On</th>
-                            <th>From</th>
-                            <th>To</th>
-                            <th>Reason</th>
-                            <th>Status</th>
-                            <th>Attachment</th>
-                            <th>Approved By</th>
-                            <th>Comments</th>
+                            <th><?php echo $lang["leave_label"] ?></th>
+                            <th><?php echo $lang["request_date"]?></th>
+                            <th><?php echo $lang["from"] ?></th>
+                            <th><?php echo $lang["to"] ?></th>
+                            <th><?php echo $lang["reason"] ?></th>
+                            <th><?php echo $lang["status"] ?></th>
+                            <th><?php echo $lang["attachment"] ?></th>
+                            <th><?php echo $lang["approved_by"]?></th>
+                            <th><?php echo $lang["comments"] ?></th>
                         </tr>
                     </thead>
                     <tbody>

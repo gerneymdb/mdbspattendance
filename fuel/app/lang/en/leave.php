@@ -47,6 +47,14 @@ return array(
     ),
 
     "leave_history" => array(
-        
+        "leave_label"   => "Leave",
+        "request_date"  => "Request on",
+        "from"          => "From",
+        "to"            => "To",
+        "reason"        => "Reason",
+        "status"        => "Status",
+        "attachment"    => "Attachment",
+        "approved_by"   => "Approved by",
+        "comments"      => "Comments"
     )
 );

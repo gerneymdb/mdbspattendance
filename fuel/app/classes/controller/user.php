@@ -284,11 +284,14 @@ class Controller_User extends \Fuel\Core\Controller_Template {
             \Fuel\Core\Response::redirect("messages");
         }
 
+        lang::load("leave");
+
         // get year set it to current year if year is null
         $data['year'] = $year = ($year == null || !is_numeric($year)) ? strftime("%Y", time()) : $year;
 
-
         $data['leave_history'] = $this->fetch_leave_history($year);
+
+        $data["lang"] = lang::get("leave_history");
 
         $this->template->title = "Employee";
         $this->template->content = \Fuel\Core\View::forge("users/leave_history", $data);
