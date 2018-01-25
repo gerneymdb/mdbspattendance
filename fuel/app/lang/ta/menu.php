@@ -1,8 +1,8 @@
 <?php
 return array(
-    "attendance"            => "attendance",
-    "attendance_history"    => "attendance history",
-    "leave_application"      => "leave application",
-    "leave_history"         => "leave history",
+    "attendance"            => "pagdalo",
+    "attendance_history"    => "kasaysayan ng pagdalo",
+    "leave_application"      => "mag-iwan ng application",
+    "leave_history"         => "iwan ang kasaysayan",
     "logout"                => "logout"
 );
