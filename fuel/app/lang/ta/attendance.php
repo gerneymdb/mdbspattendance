@@ -7,8 +7,8 @@ return array(
     "timein_successfull" => "tama at wasto ang pag time in",
 
     "attendance_info" => array(
-        "timein"    => "Oras sa In",
-        "timeout"   => "Oras sa Out",
+        "timein"    => "Oras sa pag-pasuk",
+        "timeout"   => "Oras sa pag-labas",
         "schedule_heading"  => "Iskedyul ng Shift",
         "activity_heading"  => "Aktibidad",
         "total_work"        => "Kabuuang Oras ng Trabaho sa Ngayon",
@@ -19,17 +19,17 @@ return array(
         "work_done"         => "Tapos na ang trabaho para sa ngayon.!",
         "regular_holiday"   => "Ngayon ay isang regular na bakasyon.",
         "special_holiday"   => "Ngayon ay isang espesyal na bakasyon.",
-        "on_leave"          => "Ikaw ay nasa",
-        "your_day_off"      => "Ngayon ay ang iyong",
+        "on_leave"          => "Ikaw ay nasa bakasyon",
+        "your_day_off"      => "Ngayon ay ang iyong pahinga",
     ),
 
     "attendance_history" => array(
         "legend"                => "Legend",
         "present"               => "Kasalukuyan",
-        "absent"                => "Wala",
+        "absent"                => "absent",
         "regular_holiday"       => "Regular Holiday",
-        "special_holiday"       => "Espesyal na Holiday",
-        "leave"                 => "Mag-iwan",
+        "special_holiday"       => "Espesyal na holiday",
+        "leave"                 => "Pag-liban",
         "day_off"               => "Araw ng pahinga",
         "future_date"           => "Petsa ng Kinabukasan",
         "attendance_heading"    => "Pagdalo"
