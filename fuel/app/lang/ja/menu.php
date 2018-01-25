@@ -1,8 +1,8 @@
 <?php
 return array(
-    "attendance"            => "attendance",
-    "attendance_history"    => "attendance history",
-    "leave_application"      => "leave application",
-    "leave_history"         => "leave history",
-    "logout"                => "logout"
+    "attendance"            => "出席",
+    "attendance_history"    => "出席履歴",
+    "leave_application"      => "去る",
+    "leave_history"         => "残る履歴",
+    "logout"                => "ログアウト"
 );
