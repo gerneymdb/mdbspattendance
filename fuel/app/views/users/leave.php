@@ -68,7 +68,7 @@ $base_url = \Fuel\Core\Config::get("base_url");
                 </div>
 
                 <div class="form-group reason">
-                    <label for="reason">Reason</label>
+                    <label for="reason"><?php echo $lang["leave_reason"]?></label>
                     <textarea name="reason" id="reason" cols="30" rows="10" class="form-control"></textarea>
                 </div>
 

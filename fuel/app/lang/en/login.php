@@ -14,7 +14,7 @@
             "id_placeholder"        => "ID",
             "password_placeholder"  => "password",
             "submit_btn"            => "Submit",
-            "form_heading"          => "Login",
+            "form_heading"          => "MDB Solution Philippines",
 
             "form_error" => array(
                 "empty_field"   => "Please fill out the fields.",
