@@ -1,52 +1,52 @@
 <?php
     return array(
-        "title" => "Login",
+        "title" => "Magsulod",
 
-        "token" => "Token missing or not valid.",
+        "token" => "Nadula ang Token ukon sala.",
 
         "lang_form" => array(
 
-            "select_lang"   => "Select Language",
-            "translate"     => "Translate",
+            "select_lang"   => "Pili Lengwahe",
+            "translate"     => "Pagsaylo",
         ),
 
         "login_form" => array(
             "id_placeholder"        => "ID",
             "password_placeholder"  => "password",
-            "submit_btn"            => "Submit",
-            "form_heading"          => "Login",
+            "submit_btn"            => "Pag-hatag",
+            "form_heading"          => "Mag Log in",
 
             "form_error" => array(
-                "empty_field"   => "Please fill out the fields.",
-                "incorrect"     => "Incorrect userid or password",
-                "many_attempt"  => "Too many login attempt. Try again later after."
+                "empty_field"   => "palihog butangi ang wala unod nga lugar ",
+                "incorrect"     => "sala ang User ID ukon ang Password",
+                "many_attempt"  => "damu na nga pagtilaw sulod. Liwata karon.",
             )
 
         ),
 
         "first_login_form" => array(
-            "old_pwd"       => "old Password",
-            "new_pwd"       => "new password",
-            "confirm_pwd"   => "confirm password",
-            "save_btn"      => "save",
-            "form_heading"  => "First time login",
-            "success"       => "New password saved",
+            "old_pwd"       => "daan nga Password",
+            "new_pwd"       => "bag-o nga password",
+            "confirm_pwd"   => "kompermaha ang password",
+            "save_btn"      => "pagtago",
+            "form_heading"  => "Una nga Log in",
+            "success"       => "bag-o ilis nga password",
 
             "form_error" => array(
-                "incorrect_old_pwd" => "Old password is incorrect"
+                "incorrect_old_pwd" => "Sala ang daan nga password"
             )
         ),
 
         "scheduled_pwd_reset" => array(
-            "old_pwd"       => "old Password",
-            "new_pwd"       => "new password",
-            "confirm_pwd"   => "confirm password",
-            "save_btn"      => "save",
-            "form_heading"  => "Your current password has already expired. Change your password",
-            "success"       => "New password saved",
+            "old_pwd"       => "daan nga Password",
+            "new_pwd"       => "bag-o nga password",
+            "confirm_pwd"   => "kompermaha ang password",
+            "save_btn"      => "pagtago",
+            "form_heading"  => "ekspayrd ang daan nga password. isli imu password",
+            "success"       => "natago na ang bag.o nga password",
 
             "form_error" => array(
-                "incorrect_old_pwd" => "Old password is incorrect"
+                "incorrect_old_pwd" => "sala ang daan nga password"
             )
         )
 
