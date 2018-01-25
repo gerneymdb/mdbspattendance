@@ -4,7 +4,7 @@ return array(
     "token"         => "Nawawala o hindi wasto ang token.",
 
     "add_leave_form" => array(
-        "leave_input"   => "Iwanan ang Kategorya",
+        "leave_input"   => "Kategorya ng pagliban",
         "date_start"    => "Petsa ng pagsisimula",
         "date_end"      => "Petsa ng pagtatapos",
         "attach_file"   => "Mga Attachment",
