@@ -1,37 +1,37 @@
 <?php
 return array(
 
-    "title"     => "Employees",
-    "token"     => "Token missing or not valid.",
-    "timein_failed" => "Time in failed",
-    "timein_successfull" => "Time in successfull",
+    "title"     => "mga empleyado",
+    "token"     => "Nawawala o hindi wasto ang token.",
+    "timein_failed" => "na huli sa pag time in",
+    "timein_successfull" => "tama at wasto ang pag time in",
 
     "attendance_info" => array(
-        "timein"    => "Time In",
-        "timeout"   => "Time Out",
-        "schedule_heading"  => "Shift Schedule",
-        "activity_heading"  => "Activity",
-        "total_work"        => "Today's Total Work Time",
-        "work_days"         => "Work Days",
-        "day_off"           => "Day Off",
-        "starts_at"         => "Starts at",
-        "ends_at"           => "Ends at",
-        "work_done"         => "Work's done for today.!",
-        "regular_holiday"   => "Today is a regular holiday.",
-        "special_holiday"   => "Today is a special holiday.",
-        "on_leave"          => "You are on",
-        "your_day_off"      => "Today is your",
+        "timein"    => "Oras sa In",
+        "timeout"   => "Oras sa Out",
+        "schedule_heading"  => "Iskedyul ng Shift",
+        "activity_heading"  => "Aktibidad",
+        "total_work"        => "Kabuuang Oras ng Trabaho sa Ngayon",
+        "work_days"         => "Mga Araw ng Trabaho",
+        "day_off"           => "Araw ng pahinga",
+        "starts_at"         => "Nagsisimula sa",
+        "ends_at"           => "Nagtatapos sa",
+        "work_done"         => "Tapos na ang trabaho para sa ngayon.!",
+        "regular_holiday"   => "Ngayon ay isang regular na bakasyon.",
+        "special_holiday"   => "Ngayon ay isang espesyal na bakasyon.",
+        "on_leave"          => "Ikaw ay nasa",
+        "your_day_off"      => "Ngayon ay ang iyong",
     ),
 
     "attendance_history" => array(
         "legend"                => "Legend",
-        "present"               => "Present",
-        "absent"                => "Absent",
+        "present"               => "Kasalukuyan",
+        "absent"                => "Wala",
         "regular_holiday"       => "Regular Holiday",
-        "special_holiday"       => "Special Holiday",
-        "leave"                 => "Leave",
-        "day_off"               => "Day Off",
-        "future_date"           => "Future Date",
-        "attendance_heading"    => "Attendance"
+        "special_holiday"       => "Espesyal na Holiday",
+        "leave"                 => "Mag-iwan",
+        "day_off"               => "Araw ng pahinga",
+        "future_date"           => "Petsa ng Kinabukasan",
+        "attendance_heading"    => "Pagdalo"
     )
 );

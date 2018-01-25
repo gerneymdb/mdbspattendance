@@ -1,60 +1,60 @@
 <?php
 return array(
-    "title"         => "Employees",
-    "token"         => "Token missing or not valid.",
+    "title"         => "Mga Empleyado",
+    "token"         => "Nawawala o hindi wasto ang token.",
 
     "add_leave_form" => array(
-        "leave_input"   => "Leave Category",
-        "date_start"    => "Start date",
-        "date_end"      => "End date",
-        "attach_file"   => "Attachments",
-        "attach_description" => "Medical certificates for sick leave and etc...",
-        "leave_reason"  => "Reason",
-        "submit_btn"    => "Submit"
+        "leave_input"   => "Iwanan ang Kategorya",
+        "date_start"    => "Petsa ng pagsisimula",
+        "date_end"      => "Petsa ng pagtatapos",
+        "attach_file"   => "Mga Attachment",
+        "attach_description" => "Mga medikal na sertipiko para sa sakit na bakasyon at iba pa...",
+        "leave_reason"  => "Dahilan",
+        "submit_btn"    => "Ipasa"
     ),
 
     "form_error" => array(
-        "pending_leave"     => "You currently have a pending leave request.",
-        "on_leave"          => "You're currently on leave.",
-        "consumed_leave"    => "You have already consume the number of days given for",
-        "unable_to_process" => "Unable to process leave request",
-        "submitted_for_evaluation"  => "request was submitted and is subject for evaluation.",
-        "end_date_error"    => "\"The date you choose for the <strong>End Date</strong> is a date of the past. Please choose a future date.\"",
-        "days_exceed"       => "The number of days you chose exceeds the number of days remaining for",
+        "pending_leave"     => "Kasalukuyan kang may nakabinbing kahilingan sa pag-iwan.",
+        "on_leave"          => "Kasalukuyan kang umalis.",
+        "consumed_leave"    => "Naubos na mo ang bilang ng mga araw na ibinigay",
+        "unable_to_process" => "Hindi maproseso ang kahilingan sa pag-iwan",
+        "submitted_for_evaluation"  => "Ang kahilingan ay isinumite at napapailalim sa pagsusuri.",
+        "end_date_error"    => "\"Ang petsa na pinili mo para sa <strong>Petsa ng Pagtatapos</strong> ay isang petsa ng nakaraan. Mangyaring pumili ng petsa sa hinaharap.\"",
+        "days_exceed"       => "Ang bilang ng mga araw na iyong pinili ay lumampas sa bilang ng mga araw na natitira para sa",
     ),
 
     "recent_leave" => array(
-        "recent"    => "most recent leave",
-        "cancel"    => "cancel",
-        "from"      => "from",
-        "to"        => "to",
-        "reason"    => "Reason",
-        "attachment_label"  => "Attachments",
-        "manage_comments"   => "Management Comments"
+        "recent"    => "pinakabagong pag-alis",
+        "cancel"    => "kanselahin",
+        "from"      => "mula sa",
+        "to"        => "sa",
+        "reason"    => "Dahilan",
+        "attachment_label"  => "Mga Attachment",
+        "manage_comments"   => "Mga Puna sa Pamamahala"
     ),
 
     "delete_leave" => array(
-        "leave_not_found"   => "This leave records cannot be found in the database, please check leave ID if correct or contact your system administrator",
-        "unable_to_cancel"  => "Unable to cancel leave. Something went wrong pls contact your system administrator",
-        "leave_cancel"      => "\"Leave request has been <strong>cancelled</strong>.!!\"",
+        "leave_not_found"   => "Ang leave records na ito ay hindi maaaring matagpuan sa database, mangyaring suriin ang leave ID kung tama o kontakin ang iyong administrator ng system",
+        "unable_to_cancel"  => "Hindi ma-kanselahin ang leave. May mali ang pls makipag-ugnay sa iyong system administrator",
+        "leave_cancel"      => "\"Mag-iwan ng kahilingan <strong>kinansela</strong>.!!\"",
     ),
 
     "leave_list" => array(
-        "leave_label"   => "Leave Category",
-        "days_allot"    => "Days Allotted",
-        "days_remain"   => "Days Remaining",
+        "leave_label"   => "Iwanan ang Kategorya",
+        "days_allot"    => "Mga Araw na inilaan",
+        "days_remain"   => "Natitirang mga Araw",
 
     ),
 
     "leave_history" => array(
-        "leave_label"   => "Leave",
-        "request_date"  => "Request on",
-        "from"          => "From",
-        "to"            => "To",
-        "reason"        => "Reason",
-        "status"        => "Status",
+        "leave_label"   => "Mag-iwan",
+        "request_date"  => "Humiling sa",
+        "from"          => "mula sa",
+        "to"            => "sa",
+        "reason"        => "Dahilan",
+        "status"        => "Katayuan",
         "attachment"    => "Attachment",
-        "approved_by"   => "Approved by",
-        "comments"      => "Comments"
+        "approved_by"   => "Inaprobahan ni",
+        "comments"      => "Mga komento"
     )
 );
