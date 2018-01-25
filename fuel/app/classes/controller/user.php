@@ -242,6 +242,9 @@ class Controller_User extends \Fuel\Core\Controller_Template {
             \Fuel\Core\Response::redirect("unauthorize", "refresh");
         }
 
+        // load language
+        lang::load("leave");
+
         // get pending leave
         $data['pending_leave'] = $this->get_latest_leave();
 
@@ -259,7 +262,11 @@ class Controller_User extends \Fuel\Core\Controller_Template {
 
         $data['leave_info'] = $leave_info;
 
-        $this->template->title = "Employees";
+        $data["lang"] = lang::get("add_leave_form");
+        $data["lingua"] = lang::get("recent_leave");
+        $data["langua"] = lang::get("leave_list");
+
+        $this->template->title = lang::get("title");
         $this->template->content = \Fuel\Core\View::forge("users/leave", $data);
     }
 
@@ -412,6 +419,9 @@ class Controller_User extends \Fuel\Core\Controller_Template {
     public function post_leave_apply(){
         $userid     = Session::get("username");
 
+        // load language file
+        lang::load("leave");
+
         $pending_leave = Model_Leave::find("all", array(
             "where" => array(
                 array('userid', "=", $userid),
@@ -466,7 +476,7 @@ class Controller_User extends \Fuel\Core\Controller_Template {
                                 // exceeds the days remaining allowed
                                 // on this type of leave
                                 // show error msg
-                                $msg[] = "The number of days you chose exceeds the number of days remaining for <strong>{$leave_cat}</strong>";
+                                $msg[] = lang::get("form_error.days_exceed")." <strong>{$leave_cat}</strong>";
                                 Session::set_flash("msg", $msg);
                                 \Fuel\Core\Response::redirect("user/leave_application", "refresh");
 
@@ -476,7 +486,7 @@ class Controller_User extends \Fuel\Core\Controller_Template {
 
                                 // the employee choose an end date
                                 // that is in the past. show error message
-                                $msg[] = "The date you choose for the <strong>End Date</strong> is a date of the past. Please choose a future date.";
+                                $msg[] = lang::get("form_error.end_date_error");
                                 Session::set_flash("msg", $msg);
                                 \Fuel\Core\Response::redirect("user/leave_application", "refresh");
 
@@ -535,12 +545,12 @@ class Controller_User extends \Fuel\Core\Controller_Template {
                                 //saved changes
                                 if($leave->save()){
                                     // successfull process of leave request
-                                    $msg[] = "<strong>{$leave_cat}</strong> request was submitted and is subject for evaluation.";
+                                    $msg[] = "<strong>{$leave_cat}</strong> ".lang::get("form_error.submitted_for_evaluation");
                                     Session::set_flash("smsg", $msg);
                                     \Fuel\Core\Response::redirect("user/leave_application", "refresh");
                                 }else {
                                     // not able to saved
-                                    $msg[] = "Unable to process leave request";
+                                    $msg[] = lang::get("form_error.unable_to_process");
                                     Session::set_flash("msg", $msg);
                                     \Fuel\Core\Response::redirect("user/leave_application", "refresh");
                                 }
@@ -562,12 +572,12 @@ class Controller_User extends \Fuel\Core\Controller_Template {
                                 // save changes
                                 if($leave->save()){
                                     // successfull process of leave request
-                                    $msg[] = "<strong>{$leave_cat}</strong> request was submitted and is subject for evaluation.";
+                                    $msg[] = "<strong>{$leave_cat}</strong> ".lang::get("form_error.submitted_for_evaluation");
                                     Session::set_flash("smsg", $msg);
                                     \Fuel\Core\Response::redirect("user/leave_application", "refresh");
                                 }else {
                                     // not able to saved
-                                    $msg[] = "Unable to process leave request";
+                                    $msg[] = lang::get("form_error.unable_to_process");
                                     Session::set_flash("msg", $msg);
                                     \Fuel\Core\Response::redirect("user/leave_application", "refresh");
                                 }
@@ -577,7 +587,7 @@ class Controller_User extends \Fuel\Core\Controller_Template {
                         }else {
 
                             // employee has used up all the days allotted for this leave
-                            $msg[] = "You have already consume the number of days given for ".$leave_cat." in a year";
+                            $msg[] = lang::get("form_error.consumed_leave").$leave_cat." in a year";
                             Session::set_flash("msg", $msg);
                             \Fuel\Core\Response::redirect("user/leave_application");
 
@@ -593,7 +603,7 @@ class Controller_User extends \Fuel\Core\Controller_Template {
                 }else{
 
                     // csrf token is no present
-                    $msg[] = "Illegal Operation";
+                    $msg[] = lang::get("token");
                     Session::set_flash("msg", $msg);
                     \Fuel\Core\Response::redirect("user/leave_application");
                 }
@@ -601,7 +611,7 @@ class Controller_User extends \Fuel\Core\Controller_Template {
             }else {
 
                 // on leave
-                $msg[] = "You're currently on leave.";
+                $msg[] = lang::get("form_error.on_leave");
                 Session::set_flash("msg", $msg);
                 \Fuel\Core\Response::redirect("user/leave_application", "refresh");
             }
@@ -609,7 +619,7 @@ class Controller_User extends \Fuel\Core\Controller_Template {
         }else {
 
             // you have a pending leave
-            $msg[] = "You currently have a pending leave request.";
+            $msg[] = lang::get("form_error.pending_leave");
             Session::set_flash("msg", $msg);
             \Fuel\Core\Response::redirect("user/leave_application", "refresh");
 
@@ -619,6 +629,9 @@ class Controller_User extends \Fuel\Core\Controller_Template {
      * Delete leave process
      */
     public function post_leave_delete(){
+
+        // load language
+        lang::load("leave");
 
         if(Security::check_token()){
 
@@ -635,27 +648,29 @@ class Controller_User extends \Fuel\Core\Controller_Template {
                     // delete attachments if any
                     $with_attachment = $result->attachments;
 
-                    $path = DOCROOT."files\\leave\\".$with_attachment;
-                    $path = str_replace("\\", "/", $path);
+                    if(!empty($with_attachment)){
+                        $path = DOCROOT."files\\leave\\".$with_attachment;
+                        $path = str_replace("\\", "/", $path);
 
-                    \Fuel\Core\File::delete($path);
+                        \Fuel\Core\File::delete($path);
+                    }
 
                     if($result->delete()){
 
                         // successfull cancel of leave
-                        $msg[] = "Leave request has been <strong>cancelled</strong>.!!";
+                        $msg[] = lang::get("delete_leave.leave_cancel");
                         Session::set_flash("smsg", $msg);
                         \Fuel\Core\Response::redirect("user/leave_application", "refresh");
 
                     }else{
-                        $msg[] = "Unable to cancel leave. Something went wrong pls contact your system administrator";
+                        $msg[] = lang::get("delete_leave.unable_to_cancel");
                         Session::set_flash("msg", $msg);
                         \Fuel\Core\Response::redirect("user/leave_application");
                     }
 
                 }else {// if it it in the database
 
-                    $msg[] = "This leave records cannot be found in the database, please check leave ID if correct or contact your system administrator";
+                    $msg[] = lang::get("delete_leave.leave_not_found");
                     Session::set_flash("msg", $msg);
                     \Fuel\Core\Response::redirect("user/leave_application");
 
@@ -669,7 +684,7 @@ class Controller_User extends \Fuel\Core\Controller_Template {
 
         }else{
             // csrf token is no present
-            $msg[] = "Illegal Operation";
+            $msg[] = lang::get("token");
             Session::set_flash("msg", $msg);
             \Fuel\Core\Response::redirect("user/leave_application");
         }
