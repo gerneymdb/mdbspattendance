@@ -40,7 +40,7 @@ return array(
     ),
 
     "leave_list" => array(
-        "leave_label"   => "Iwanan ang Kategorya",
+        "leave_label"   => "Kategorya ng pagliban",
         "days_allot"    => "Mga Araw na inilaan",
         "days_remain"   => "Natitirang mga Araw",
 
