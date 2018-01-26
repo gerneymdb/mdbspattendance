@@ -11,7 +11,7 @@
         ),
 
         "login_form" => array(
-            "id_placeholder"        => "ID",
+            "id_placeholder"        => "身元",
             "password_placeholder"  => "パスワード",
             "submit_btn"            => "ログイン",
             "form_heading"          => "エムデービー ソリューションフィリピン",
