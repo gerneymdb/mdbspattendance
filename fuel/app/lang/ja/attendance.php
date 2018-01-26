@@ -3,11 +3,11 @@ return array(
 
     "title"     => "従業員",
     "token"     => "トークンがないか、無効です。",
-    "timein_failed" => "??????",
-    "timein_successfull" => "?????",
+    "timein_failed" => "失敗した時間",
+    "timein_successfull" => "成功の時間",
 
     "attendance_info" => array(
-        "timein"    => "????",
+        "timein"    => "出勤時刻",
         "timeout"   => "????",
         "schedule_heading"  => "?????????",
         "activity_heading"  => "???????",
