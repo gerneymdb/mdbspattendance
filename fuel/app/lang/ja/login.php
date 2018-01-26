@@ -14,7 +14,7 @@
             "id_placeholder"        => "ID",
             "password_placeholder"  => "パスワード",
             "submit_btn"            => "ログイン",
-            "form_heading"          => "MDB Solution Philippines",
+            "form_heading"          => "エムデービー ソリューションフィリピン",
 
             "form_error" => array(
                 "empty_field"   => "フィールドに記入してください。",
