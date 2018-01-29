@@ -40,7 +40,14 @@ return array(
     "must"        => "must",
     "contain"     => "contain",
     "a"           => "a",
-
+    "record"       => "record",
+    "found"       => "found",
+    "cancel"       => "cancel",
+    "save"       => "save",
+    "delete"       => "delete",
+    "this"       => "this",
+    "processing"       => "processing",
+    
     // phrases use in this page
     "new holiday is set"     => "new holiday is set",
     "valentines day"         => "valentines day",
@@ -53,6 +60,9 @@ return array(
     "end of holiday"         => "end of holiday",
     "type of holiday"        => "type of holiday",
     "edit holiday"           => "edit holiday",
+    "no record found"        => "no record found",
+    "illegal operation"      => "illegal operation",
+    "delete this holiday"    => "delete this holiday",
     "illegal operation. missing token. hit refresh"                         => "illegal operation. missing token. hit refresh",
     "the field holiday name is required and must contain a value."          => "the field holiday name is required and must contain a value.",
     "The field Start of Holiday is required and must contain a value."      => "The field Start of Holiday is required and must contain a value.",
