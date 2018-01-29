@@ -42,6 +42,7 @@ return array(
     "error"     => "error",
     "system"    => "system",
     "processing"    => "processing",
+    "title"     => "system settings",
 
     // phrases use in this page
     "default password"  => "default password",
