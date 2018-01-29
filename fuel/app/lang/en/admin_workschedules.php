@@ -36,12 +36,12 @@ return array(
     "save" => "save",
     "no" => "no",
     "a" => "a",
-    "Delete" => "delete",
-    "Success" => "success",
+    "delete" => "delete",
+    "success" => "success",
     "record" => "record",
     "succesfully" => "succesfully",
     "deleted" => "deleted",
-    "error" => "error",
+    "error" => "sala",
     "Illegal" => "illegal",
     "Operation" => "operation",
     "Missing" => "missing",
@@ -61,8 +61,9 @@ return array(
     "must" => "must",
     "contain" => "contain",
     "value" => "value",
-    "title" => "title",
-
+    "title" => "work schedules",
+    "processing" => "processing",
+    "duplicate" => "duplicate",
 
     //phrases
     "logout" => "logout",
@@ -74,8 +75,8 @@ return array(
     "start of shift" => "start of shift",
     "end of shift" => "end of shift",
     "shift list" => "shift list",
-    "work  days" => "work days",
-    "day offs" => "day offs",
+    "work days" => "work days",
+    "day off" => "day off",
     "delete shift" => "delete shift",
     "morning shifts" => "morning shifts",
     "night shift" => "night shift",
@@ -89,6 +90,12 @@ return array(
     "the field Shift name is required and must contain a value" => "The field Shift Name is required and must contain a value",
     "the field Working days is required and must contain a value" => "The field Working Days is required and must contain a value",
     "the field day off is required and must contain a value" => "The field Day Off is required and must contain a value",
+    "no shift record found..!"  => "no shift record found..!",
+    "working days" => "working days",
+    "illegal operation. missing token. hit refresh" => "illegal operation. missing token. hit refresh",
+    "duplicate days, working days has the similar days on day off days!" => "duplicate days, working days has the similar days on day off days!",
+    "failed to save shift information" => "failed to save shift information",
+    "no shift record with this id" => "no shift record with this id",
 
 
 

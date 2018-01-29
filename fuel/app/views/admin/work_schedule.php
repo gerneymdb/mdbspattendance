@@ -35,11 +35,11 @@
             <form action="<?php echo $base_url.'administrator/add_shifts' ?>" class="clearfix" method="post">
                 <?php echo \Fuel\Core\Form::csrf()?>
                 <div class="form-group">
-                    <label for="shiftname" class="shift-title">Shift Name</label>
-                    <input type="text" name="shift_name" id="shiftname" placeholder="name of the shift" value="" class="form-control"/>
+                    <label for="shiftname" class="shift-title"><?php echo __("shift name")?></label>
+                    <input type="text" name="shift_name" id="shiftname" placeholder="<?php echo __("name of the shift")?>" value="" class="form-control"/>
                 </div>
                 <div class="working-days clearfix" id="working_days">
-                    <p class="title">Choose working days</p>
+                    <p class="title"><?php echo __("choose working days") ?></p>
                     <input type="hidden" name="work_days" id="work_days_input"/>
                     <div class="days-tile">
                         <input type="checkbox" id="w_sun" name="w_days[]" value="SUN" data-day="sun"/>
@@ -71,7 +71,7 @@
                     </div>
                 </div>
                 <div class="dayoff-days clearfix" id="dayoff-days">
-                    <p class="title">Choose day-off days</p>
+                    <p class="title"><?php echo __("choose day-off days")?></p>
                     <input type="hidden" name="day_off" id="day_off_input" />
                     <div class="days-tile">
                         <input type="checkbox" id="d_sun" name="d_days" value="SUN" data-day="sun"/>
@@ -103,9 +103,9 @@
                     </div>
                 </div>
                 <div class="shifts-schedule clearfix">
-                    <p class="title">Start of Shift</p>
+                    <p class="title"><?php echo __("start of shift") ?></p>
                     <div class="form-group">
-                        <label for="s_hr">Hour</label>
+                        <label for="s_hr"><?php echo __("hour") ?></label>
                         <select name="s_hr" id="s_hr" class="form-control">
                             <option value="00">00</option>
                             <option value="01">01</option>
@@ -134,7 +134,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="s_min">Minute</label>
+                        <label for="s_min"><?php echo __("minute") ?></label>
                         <select name="s_min" id="s_min" class="form-control">
                             <option value="00">00</option>
                             <option value="01">01</option>
@@ -198,7 +198,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="s_sec">Second</label>
+                        <label for="s_sec"><?php echo __("second") ?></label>
                         <select name="s_sec" id="s_sec" class="form-control">
                             <option value="00">00</option>
                             <option value="01">01</option>
@@ -263,9 +263,9 @@
                     </div>
                 </div>
                 <div class="shifts-schedule clearfix">
-                    <p class="title">End of Shift</p>
+                    <p class="title"><?php echo __("end of shift") ?></p>
                     <div class="form-group">
-                        <label for="e_hr">Hour</label>
+                        <label for="e_hr"><?php echo __("hour") ?></label>
                         <select name="e_hr" id="e_hr" class="form-control">
                             <option value="00">00</option>
                             <option value="01">01</option>
@@ -294,7 +294,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="e_min">Minute</label>
+                        <label for="e_min"><?php echo __("minute") ?></label>
                         <select name="e_min" id="e_min" class="form-control">
                             <option value="00">00</option>
                             <option value="01">01</option>
@@ -358,7 +358,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="e_sec">Second</label>
+                        <label for="e_sec"><?php echo __("second")?></label>
                         <select name="e_sec" id="e_sec" class="form-control">
                             <option value="00">00</option>
                             <option value="01">01</option>
@@ -422,7 +422,7 @@
                         </select>
                     </div>
                 </div>
-                <button class="btn btn-default pull-right"><i class="fa fa-plus-square-o"></i> Add</button>
+                <button class="btn btn-default pull-right"><i class="fa fa-plus-square-o"></i> <?php echo __("add") ?></button>
             </form>
         </div>
         <div class="col-md-8">
@@ -451,15 +451,15 @@
 
             <?php endif;?>
             <table class="table">
-                <caption><h3>Shift List</h3></caption>
+                <caption><h3><?php echo __("shift list")?></h3></caption>
                 <thead>
                     <tr>
-                        <th>Shift Name</th>
-                        <th>Work Days</th>
-                        <th>Day Offs</th>
-                        <th>Start of Shift</th>
-                        <th>End of Shift</th>
-                        <th>Actions</th>
+                        <th><?php echo __("shift name")?></th>
+                        <th><?php echo __("work days") ?></th>
+                        <th><?php echo __("day off") ?></th>
+                        <th><?php echo __("start of shift") ?></th>
+                        <th><?php echo __("end of shift") ?></th>
+                        <th><?php echo __("actions") ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -495,7 +495,7 @@
                         <tr>
                             <td colspan="6">
                                 <div class="alert alert-info">
-                                    <p class="text-center"><i class="fa fa-warning"></i> No shift record found..!</p>
+                                    <p class="text-center"><i class="fa fa-warning"></i> <?php echo __("no shift record found..!") ?></p>
                                 </div>
                             </td>
                         </tr>
@@ -510,12 +510,12 @@
 <div class="modal fade" id="edit_shift_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> processing</span></div>
+            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> <?php echo __("processing") ?></span></div>
             <div class="notification_msg hide" id="notification_msg"><span id="close_info" class="close_info"><i class="fa fa-close"></i></span><p class="message_title text-center"></p><p class="message_content text-center"></p></div>
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Edit Shift</h4>
+                <h4 class="modal-title" id="myModalLabel"><?php echo __("edit shift")?></h4>
             </div>
             <div class="modal-body">
                 <form action="#" id="save-shift-form">
@@ -523,21 +523,21 @@
                     <input type="hidden" name="shift_id" id="edit_shift_id" value="" />
                     <?php echo \Fuel\Core\Form::csrf(); ?>
                     <div class="form-group">
-                        <label for="eshiftname" class="title">Shift Name</label>
-                        <input type="text" class="form-control" name="shift_name" id="eshiftname" placeholder="shift name" />
+                        <label for="eshiftname" class="title"><?php echo __("shift name") ?></label>
+                        <input type="text" class="form-control" name="shift_name" id="eshiftname" placeholder="<?php echo __("shift name") ?>" />
                     </div>
                     <div class="form-group">
-                        <label for="workdays" class="title">Work Days</label>
-                        <input type="text" class="form-control" name="work_days" id="workdays" placeholder="working days" />
+                        <label for="workdays" class="title"><?php echo __("work days") ?></label>
+                        <input type="text" class="form-control" name="work_days" id="workdays" placeholder="<?php echo __("working days") ?>" />
                     </div>
                     <div class="form-group">
-                        <label for="dayoff" class="title">Day Off</label>
-                        <input type="text" class="form-control" name="day_off" id="dayoff" placeholder="day off" />
+                        <label for="dayoff" class="title"><?php echo __("day off") ?></label>
+                        <input type="text" class="form-control" name="day_off" id="dayoff" placeholder="<?php echo __("day off") ?>" />
                     </div>
                     <div class="shifts-schedule clearfix">
-                        <p class="title">Start of Shift</p>
+                        <p class="title"><?php echo __("start of shift") ?></p>
                         <div class="form-group">
-                            <label for="hr">Hour</label>
+                            <label for="hr"><?php echo __("hour") ?></label>
                             <select name="s_hr" id="sedit_hr" class="form-control">
                                 <option value="00">00</option>
                                 <option value="01">01</option>
@@ -566,7 +566,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="min">Minute</label>
+                            <label for="min"><?php echo __("minute") ?></label>
                             <select name="s_min" id="sedit_min" class="form-control">
                                 <option value="00">00</option>
                                 <option value="01">01</option>
@@ -630,7 +630,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="sec">Second</label>
+                            <label for="sec"><?php echo __("second") ?></label>
                             <select name="s_sec" id="sedit_sec" class="form-control">
                                 <option value="00">00</option>
                                 <option value="01">01</option>
@@ -695,9 +695,9 @@
                         </div>
                     </div>
                     <div class="shifts-schedule clearfix">
-                        <p class="title">End of Shift</p>
+                        <p class="title"><?php echo __("end of shift") ?></p>
                         <div class="form-group">
-                            <label for="hr">Hour</label>
+                            <label for="hr"><?php echo __("hour") ?></label>
                             <select name="e_hr" id="eedit_hr" class="form-control">
                                 <option value="00">00</option>
                                 <option value="01">01</option>
@@ -726,7 +726,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="min">Minute</label>
+                            <label for="min"><?php echo __("minute") ?></label>
                             <select name="e_min" id="eedit_min" class="form-control">
                                 <option value="00">00</option>
                                 <option value="01">01</option>
@@ -790,7 +790,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="sec">Second</label>
+                            <label for="sec"><?php echo __("second") ?></label>
                             <select name="e_sec" id="eedit_sec" class="form-control">
                                 <option value="00">00</option>
                                 <option value="01">01</option>
@@ -857,8 +857,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-primary" id="btn-save-shift"><i class="fa fa-save"></i> Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __("no")?></button>
+                <button type="button" class="btn btn-primary" id="btn-save-shift"><i class="fa fa-save"></i> <?php echo __("save")?></button>
             </div>
         </div>
     </div>
@@ -868,12 +868,12 @@
 <div class="modal fade" id="delete_shift_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> processing</span></div>
+            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> <?php echo __("processing") ?></span></div>
             <div class="notification_msg hide" id="notification_msg"><span id="close_info" class="close_info"><i class="fa fa-close"></i></span><p class="message_title text-center"></p><p class="message_content text-center"></p></div>
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Delete Shift</h4>
+                <h4 class="modal-title" id="myModalLabel"><?php echo __("delete shift") ?></h4>
             </div>
             <div class="modal-body">
                 <form action="#" id="delete-shift-form">
@@ -881,14 +881,14 @@
                     <input type="hidden" name="shift_id" id="delete_shift_id" value="" />
                     <?php echo \Fuel\Core\Form::csrf(); ?>
                     <div class="form-group">
-                        <label for="dshiftname" class="title">Shift Name</label>
-                        <input type="text" class="form-control" name="shift_name" id="dshiftname" placeholder="shift name" />
+                        <label for="dshiftname" class="title"><?php echo __("shift name") ?></label>
+                        <input type="text" class="form-control" name="shift_name" id="dshiftname" placeholder="<?php echo __("shift name") ?>" />
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-danger" id="btn-delete-shift"><i class="fa fa-trash-o"></i> Delete</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __("no") ?></button>
+                <button type="button" class="btn btn-danger" id="btn-delete-shift"><i class="fa fa-trash-o"></i> <?php echo __("delete") ?></button>
             </div>
         </div>
     </div>

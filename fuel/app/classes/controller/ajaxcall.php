@@ -745,11 +745,12 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
 
 
     public function post_update_shift(){
+        lang::load("admin_workschedules");
         try{
 
             if(!\Fuel\Core\Security::check_token()){
 
-                echo "Illegal Operation. Missing token. Hit refresh";
+                echo lang::get("illegal operation. missing token. hit refresh").":".lang::get("error");
 
             }else{
 
@@ -823,7 +824,7 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                     // wd and do;
                     foreach ($wd as $key => $day) {
                         if(in_array($day, $do)){
-                            echo "Duplicate days, Working Days has the similar days on Day Off days!";
+                            echo lang::get("duplicate days, working days has the similar days on day off days!").":".lang::get("error");
                             break;
                         }
                     }
@@ -849,6 +850,8 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                         if($result){
 
                             $record_info = [
+                                "title"       => lang::get("success"),
+                                "message"     => lang::get("information has been change"),
                                 "shift_id"    => $shift_id,
                                 "shift_name"  => $shift_name,
                                 "work_days"   => $work_days,
@@ -860,12 +863,12 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                             echo json_encode($record_info);
 
                         }else {
-                           echo "Failed to save shift information";
+                           echo lang::get("failed to save shift information").":".lang::get("error");
                         }
 
                     }else {
 
-                        echo "No shift record with this id";
+                        echo lang::get("no shift record with this id").":".lang::get("error");
 
                     }
                 }
@@ -877,11 +880,12 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
     }
 
     public function post_delete_shift(){
+        lang::load("admin_workschedules");
         try{
 
             if(!\Fuel\Core\Security::check_token()){
 
-                echo "Illegal Operation. Missing token. Hit refresh";
+                echo lang::get("illegal operation. missing token. hit refresh").":".lang::get("error");
 
             }else{
 
@@ -901,7 +905,12 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                         $msg .= "{$error}. ";
                     }
 
-                    echo $msg;
+                    $record_info = [
+                        "title"       => lang::get("success"),
+                        "message"     => $msg,
+                    ];
+
+                    echo json_encode($record_info);
 
                 }else{
 
@@ -923,12 +932,12 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                             echo json_encode($record_info);
 
                         }else {
-                            echo "Failed to delete shift information";
+                            echo lang::get("failed to save shift information").":".lang::get("error");
                         }
 
                     }else {
 
-                        echo "No shift record with this id";
+                        echo lang::get("no shift record with this id").":".lang::get("error");
 
                     }
                 }
