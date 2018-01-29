@@ -24,6 +24,9 @@ return array(
     "Successfully" => "successfully",
     "Success" => "success",
     "Added" => "added",
+    "Already" => "already",
+    "exist" => "exist",
+    "exists" => "exist",
 
 
     //phrases
@@ -38,6 +41,7 @@ return array(
     "The field Username is required and must contain a value." => "the field username is required and must contain a value.",
     "The field Email Address Name is required and must contain a value." => "the email address name is required and must contain a value.",
     "New administrator is successfully added." => "new administrator is successfully added.",
+    "Email address already exists." => "email address already exists.",
 
 
 
