@@ -103,12 +103,15 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             \Fuel\Core\Response::redirect("messages");
         }
 
+        // load language file
+        lang::load("admin_workschedules");
+
         // used to make determine which menu to put a class active
         Session::set_flash("page", "work schedule");
 
         $data['shifts'] = $this->fetch_shifts();
 
-        $this->template->title = "Work Schedule";
+        $this->template->title = __("title");
         $this->template->content = \Fuel\Core\View::forge("admin/work_schedule", $data);
 
     }

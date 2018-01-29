@@ -2,7 +2,7 @@
 <section class="container-fluid work-schedule">
     <div class="row">
         <div class="col-md-12">
-            <h3>Work Schedules (Shifts)</h3>
+            <h3><?php echo __("work schedules")?> (<?php echo __("shifts") ?>)</h3>
         </div>
     </div>
     <div class="row">
