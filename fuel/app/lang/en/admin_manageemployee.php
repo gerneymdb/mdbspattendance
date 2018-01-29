@@ -75,6 +75,6 @@ return array(
     "the field email address is required and must contain a value"  => "the field email address is required and must contain a value",
     "the field company position is required and must contain a value"   => "the field company position is required and mus contain a value",
     "the field birthdate is required and must contain a value"     => "the field birthdate is required and must contain a value",
-    "email does not exist"      => "email does not exist",
+    "email address already exist"  => "email address already exist",
     "exist"                     => "exist",
 );
