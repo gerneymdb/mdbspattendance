@@ -68,6 +68,7 @@ return array(
     "delete leave category"                     => "delete leave category",
     "token missing"                             => "token missing",
     "unable to save changes"                    => "unable to save changes",
-    "unable to delete"                          => "unable to delete"
+    "unable to delete"                          => "unable to delete",
+    "no leave category record found"            => "no leave category record found",
 
 );

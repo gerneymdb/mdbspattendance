@@ -144,7 +144,7 @@
                             <tr>
                                 <td colspan="2">
                                     <div class="alert alert-info">
-                                        <i class="fa fa-warning"></i> No leave category record found..
+                                        <i class="fa fa-warning"></i> <?php echo __('no leave category record found')?>
                                     </div>
                                 </td>
                             </tr>
