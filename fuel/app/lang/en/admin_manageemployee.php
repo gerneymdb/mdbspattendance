@@ -69,4 +69,12 @@ return array(
     "no"                        => "no",
     "user id already exist"     => "user id already exist",
     "manage employee"           => "manage employee",
+    "the field first name is required and must contain a value"    => "the field first name required and must contain a value",
+    "the field last name is required and must contain a value"     => "the field last name required and must contain a value",
+    "the field user id required and must contain a value"     => "the field user id required and must contain a value",
+    "the field email address is required and must contain a value"  => "the field email address is required and must contain a value",
+    "the field company position is required and must contain a value"   => "the field company position is required and mus contain a value",
+    "the field birthdate is required and must contain a value"     => "the field birthdate is required and must contain a value",
+    "email address already exist"  => "email address already exist",
+    "exist"                     => "exist",
 );
