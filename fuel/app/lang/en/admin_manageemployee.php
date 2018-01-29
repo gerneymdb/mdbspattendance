@@ -68,4 +68,5 @@ return array(
     "employee record deleted"   => "employee record deleted",
     "no"                        => "no",
     "user id already exist"     => "user id already exist",
+    "manage employee"           => "manage employee",
 );
