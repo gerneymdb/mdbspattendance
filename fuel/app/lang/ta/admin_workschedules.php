@@ -73,7 +73,7 @@ return array(
     "choose working days" => "pumili ng mga araw ng trabaho",
     "choose day-off days" => "pumili ng mga araw ng walang trabaho",
     "start of shift" => "simula ng shift",
-    "end of shift" => "dulo of shift",
+    "end of shift" => "dulo ng shift",
     "shift list" => "listahan ng shift",
     "work days" => "araw ng trabaho",
     "day off" => "araw ng walang trabaho",
