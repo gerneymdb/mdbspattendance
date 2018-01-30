@@ -1,15 +1,15 @@
 <section class="container-fluid attendance-history">
     <div class="row">
         <div class="col-md-12">
-            <p class="legend-title"><i class="fa fa-square-o"></i> LEGEND</p>
+            <p class="legend-title"><i class="fa fa-square-o"></i> <?php echo $lang["legend"]?></p>
             <ul class="legend clearfix">
-                <li class="present"><i>.</i> Present</li>
-                <li class="absent"><i>.</i> Absent</li>
-                <li class="regular-holiday"><i>.</i> Regular Holiday</li>
-                <li class="special-holiday"><i>.</i> Special Holiday</li>
-                <li class="leave"><i>.</i> Leave</li>
-                <li class="dayoff"><i>.</i> Day Off</li>
-                <li class="future"><i>.</i> Future Date</li>
+                <li class="present"><i>.</i> <?php echo $lang["present"] ?></li>
+                <li class="absent"><i>.</i> <?php echo $lang["absent"] ?></li>
+                <li class="regular-holiday"><i>.</i> <?php echo $lang["regular_holiday"]?></li>
+                <li class="special-holiday"><i>.</i> <?php echo $lang["special_holiday"]?></li>
+                <li class="leave"><i>.</i> <?php echo $lang["leave"] ?></li>
+                <li class="dayoff"><i>.</i> <?php echo $lang["day_off"] ?></li>
+                <li class="future"><i>.</i> <?php echo $lang["future_date"] ?></li>
             </ul>
         </div>
     </div>
@@ -23,7 +23,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th colspan="2"><p class="text-center"><?php echo $year?> Attendance</p></th>
+                        <th colspan="2"><p class="text-center"><?php echo $year?> <?php echo $lang["attendance_heading"]?></p></th>
                     </tr>
                 </thead>
                 <tbody>

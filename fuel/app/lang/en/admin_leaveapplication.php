@@ -1,0 +1,50 @@
+<?php
+return array(
+ //words
+    "employee" => "employee",
+    "leave" => "leave",
+    "application" => "application",
+    "applications" => "applications",
+    "reject" => "reject",
+    "approve" => "approve",
+    "status" => "status",
+    "pending" => "pending",
+    "sick"=> "sick",
+    "from" => "from",
+    "to" => "to",
+    "date" => "date",
+    "filed" => "filed",
+    "reason" => "reason",
+    "add" => "add",
+    "comments" => "comments",
+    "no" => "no",
+    "yes" => "yes",
+    "this" => "this",
+    "where" => "where",
+    "are" => "are",
+    "you" => "you",
+    "going" => "going",
+    "attachments" => "attachments",
+    "title" => "leave application",
+    "missing"   => "missing",
+    "refresh"   => "refresh",
+    "illegal"   => "operation",
+    "operation" => "operation",
+    "token"     => "token",
+    "hit"       => "hit",
+    "error"     => "error",
+    "processing"    => "processing",
+
+    //phrases use this page
+    "employee leave applications" => "employee leave applications",
+    "sick leave" => "sick leave",
+    "date filed" => "date filed",
+    "approve this leave application" => "approve this leave application",
+    "illegal operation. missing token. hit refresh" => "illegal operation. missing token. hit refresh",
+    "add comment" => "add comment",
+    "reject this leave application" => "reject this leave application",
+    "why are you going to reject this" => "why are you going to reject this",
+    "unable to process request" => "unable to process request"
+
+
+);

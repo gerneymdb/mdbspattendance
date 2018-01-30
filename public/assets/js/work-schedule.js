@@ -163,19 +163,19 @@ $(document).ready(function(){
                         btn_delete.attr("data-shift-name", response['shift_name']);
 
                         loader.addClass("hide");
-                        notification.find("p.message_title").addClass("text-success").text("Success");
-                        notification.find("p.message_content").text("Information has been change");
+                        notification.find("p.message_title").addClass("text-success").text(response["title"]);
+                        notification.find("p.message_content").text(response["message"]);
                         notification.removeClass("hide");
 
                     }
                 },
                 error: function(response){
 
-                    console.log(response);
+                    var info = response.responseText.split(":");
 
                     loader.addClass("hide");
-                    notification.find("p.message_title").addClass("text-danger").text("error");
-                    notification.find("p.message_content").text(response.responseText);
+                    notification.find("p.message_title").addClass("text-danger").text(info[1]);
+                    notification.find("p.message_content").text(info[0]);
                     notification.removeClass("hide");
 
                 }
@@ -234,8 +234,6 @@ $(document).ready(function(){
                 },
                 success: function (response) {
 
-                    console.log(response);
-
                     if(typeof response === "object"){
 
                         // row id
@@ -244,19 +242,19 @@ $(document).ready(function(){
                         row.remove();
 
                         loader.addClass("hide");
-                        notification.find("p.message_title").addClass("text-success").text("Success");
-                        notification.find("p.message_content").text("Shift record successfully deleted.");
+                        notification.find("p.message_title").addClass("text-success").text(response["title"]);
+                        notification.find("p.message_content").text(response["message"]);
                         notification.removeClass("hide");
 
                     }
                 },
                 error: function(response){
 
-                    console.log(response);
+                    var info = response.responseText.split(":");
 
                     loader.addClass("hide");
-                    notification.find("p.message_title").addClass("text-danger").text("error");
-                    notification.find("p.message_content").text(response.responseText);
+                    notification.find("p.message_title").addClass("text-danger").text(info[1]);
+                    notification.find("p.message_content").text(info[0]);
                     notification.removeClass("hide");
 
                 }
