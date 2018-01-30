@@ -131,6 +131,9 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             \Fuel\Core\Response::redirect("messages");
         }
 
+        //load language
+        lang::load("admin_leaveapplication");
+
         // used to make determine which menu to put a class active
         Session::set_flash("page", "leave applications");
 
@@ -140,7 +143,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
         // fetch employees
         $data["employees"] = $this->fetch_employees_fullname();
 
-        $this->template->title = "Leave Application";
+        $this->template->title = lang::get("title");
         $this->template->content = \Fuel\Core\View::forge("admin/leave_application", $data);
 
     }

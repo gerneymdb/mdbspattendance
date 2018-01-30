@@ -34,10 +34,16 @@ $(document).ready(function(){
 
         var formdata = $("#reject_form").serialize();
 
+        var modal_content = $("#reject_modal").find(".modal-content");
+        var loader = modal_content.find(".loader");
+
+        var notification = $("#reject_modal").find(".notification_msg");
+
         $.ajax({
             type: "post",
             url: url,
             data:formdata,
+            dataType: "JSON",
             async: true,
             beforeSend: function(){
                 // display loader
@@ -45,34 +51,45 @@ $(document).ready(function(){
                 loader.removeClass("hide")
             },
             success: function (response) {
-                if(response !== "0"){
-                    input_r.val("");
-                    text_r.val("");
 
-                    var $status = $("#"+response+" .status-holder .status");
+                input_r.val("");
+                text_r.val("");
 
-                    setTimeout(function(){
+                var $status = $("#"+response["leave_id"]+" .status-holder .status");
 
-                        $status.removeClass("status-approved");
-                        $status.addClass("status-rejected");
-                        $status.text("rejected");
 
-                        var loader = $(".loader");
-                        loader.addClass("hide");
 
-                        $("#reject_modal").modal("hide");
-                    });
-                }
+                $status.removeClass("status-approved");
+                $status.addClass("status-rejected");
+                $status.text("rejected");
+
+                var loader = $(".loader");
+                loader.addClass("hide");
+
+                $("#reject_modal").modal("hide");
+
+
             },
-            error: function(){
+            error: function(response){
+                var info = response.responseText.split(":");
 
+                loader.addClass("hide");
+                notification.find("p.message_title").addClass("text-danger").text(info[1]);
+                notification.find("p.message_content").text(info[0]);
+                notification.removeClass("hide");
             }
         });
 
 
     });
 
-
+    // close notification
+    var cls_mdl_reject = $("#reject_modal").find(".close_info");
+    cls_mdl_reject.on("click", function(){
+        var $this = $(this);
+        $this.parent().addClass("hide");
+        $("#reject_modal").modal("hide");
+    });
 
 
     // approve button
@@ -107,11 +124,19 @@ $(document).ready(function(){
         var url = $("#approve_url").val();
         // fetch data in the form
         var formdata = $("#approve_form").serialize();
+
+        var modal_content = $("#approve_modal").find(".modal-content");
+        var loader = modal_content.find(".loader");
+
+        var notification = $("#approve_modal").find(".notification_msg");
+
+
         // peform ajax request
         $.ajax({
             type: "post",
             url: url,
             data:formdata,
+            dataType: "JSON",
             async: true,
             beforeSend: function(){
                 // display loader
@@ -119,35 +144,43 @@ $(document).ready(function(){
                 loader.removeClass("hide")
             },
             success: function (response) {
-                if(response !== "0"){
-                    input_a.val("");
-                    text_a.val("");
 
-                    var $status = $("#"+response+" .status-holder .status");
+                input_a.val("");
+                text_a.val("");
 
-                    //remove loader
-                   setTimeout(function(){
+                var $status = $("#"+response["leave_id"]+" .status-holder .status");
 
-                       $status.removeClass("status-rejected");
-                       $status.addClass("status-approved");
-                       $status.text("approved");
+               $status.removeClass("status-rejected");
+               $status.addClass("status-approved");
+               $status.text("approved");
 
-                       var loader = $(".loader");
-                       loader.addClass("hide");
+               var loader = $(".loader");
+               loader.addClass("hide");
 
-                       // hide modal
-                       $("#approve_modal").modal("hide");
-                   });
+               // hide modal
+               $("#approve_modal").modal("hide");
 
-
-                }
             },
-            error: function(){
+            error: function(response){
+
+                var info = response.responseText.split(":");
+
+                loader.addClass("hide");
+                notification.find("p.message_title").addClass("text-danger").text(info[1]);
+                notification.find("p.message_content").text(info[0]);
+                notification.removeClass("hide");
 
             }
         });
     });
 
+    // close notification
+    var cls_mdl_dlte_shift = $("#approve_modal").find(".close_info");
+    cls_mdl_dlte_shift.on("click", function(){
+        var $this = $(this);
+        $this.parent().addClass("hide");
+        $("#approve_modal").modal("hide");
+    });
 
     if($(".leave-app").length === 1){
         var comments = $(".leave-app").find(".comment-icon");

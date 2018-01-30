@@ -94,22 +94,25 @@
 <div class="modal fade" id="reject_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> processing</span></div>
+            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> <?php echo __("processing")?></span></div>
+            <div class="notification_msg hide" id="notification_msg"><span id="close_info" class="close_info"><i class="fa fa-close"></i></span><p class="message_title text-center"></p><p class="message_content text-center"></p></div>
+
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Reject this leave application?</h4>
+                <h4 class="modal-title" id="myModalLabel"><?php echo __("reject this leave application") ?>?</h4>
             </div>
             <div class="modal-body">
                 <form action="#" id="reject_form">
-                    <p>Why are you going to reject this?</p>
+                    <p><?php echo __("why are you going to reject this") ?>?</p>
+                    <?php echo \Fuel\Core\Form::csrf(); ?>
                     <input type="hidden" name="leave_id" value="" />
                     <input type="hidden" value="<?php echo $base_url . 'ajaxcall/reject'?>" id="reject_url">
                     <textarea name="comment" class="form-control" rows="5"></textarea>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="no_reject">No</button>
-                <button type="button" class="btn btn-primary" id="yes_reject">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="no_reject"><?php echo __("no")?></button>
+                <button type="button" class="btn btn-primary" id="yes_reject"><?php echo __("yes") ?></button>
             </div>
         </div>
     </div>
@@ -119,22 +122,25 @@
 <div class="modal fade" id="approve_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> processing</span></div>
+            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> <?php echo __("processing")?></span></div>
+            <div class="notification_msg hide" id="notification_msg"><span id="close_info" class="close_info"><i class="fa fa-close"></i></span><p class="message_title text-center"></p><p class="message_content text-center"></p></div>
+
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Approve this leave application?</h4>
+                <h4 class="modal-title" id="myModalLabel"><?php echo __("approve this leave application") ?></h4>
             </div>
             <div class="modal-body">
                 <form action="#" id="approve_form">
-                    <p>Add comment?</p>
+                    <p><?php echo __("add comment") ?>?</p>
+                    <?php echo \Fuel\Core\Form::csrf(); ?>
                     <input type="hidden" name="leave_id" value="" />
                     <input type="hidden" value="<?php echo $base_url . 'ajaxcall/approve'?>" id="approve_url">
                     <textarea name="comment" class="form-control" rows="5"></textarea>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" id="no_approve">No</button>
-                <button type="button" class="btn btn-primary" id="yes_approve">Yes</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="no_approve"><?php echo __("no") ?></button>
+                <button type="button" class="btn btn-primary" id="yes_approve"><?php echo __("yes") ?></button>
             </div>
         </div>
     </div>

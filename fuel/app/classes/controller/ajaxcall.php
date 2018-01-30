@@ -73,32 +73,58 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
      * Updates the leave application status to rejected
      */
     public function post_reject(){
+        lang::load("admin_leaveapplication");
         try{
 
-            $leave_id = \Fuel\Core\Input::post("leave_id");
-            $comment  = \Fuel\Core\Input::post("comment");
+            if(!\Fuel\Core\Security::check_token()){
+                return lang::get("illegal operation. missing token. hit refresh").":".lang::get("error");
+            }
 
-            $position = \Auth\Auth::get_profile_fields("position");
-            $fname    = \Auth\Auth::get_profile_fields("fname");
-            $lname    = \Auth\Auth::get_profile_fields("lname");
+            // validate form input
+            $val = \Fuel\Core\Validation::forge("approve_leave");
 
+            $val->add_field("leave_id", "Leave ID", "required");
 
-            $record = Model_Leave::find($leave_id);
-            $record->comments = $comment;
-            $record->status = "rejected";
+            if(!$val->run()){
 
-            $record->approved_by = $position.": ".$fname." ".$lname;
+                $errors = $val->error_message();
 
-            $result = $record->save();
+                $msg = "";
+                foreach ($errors as $key => $error){
+                    $msg .= "{$error}. ";
+                }
 
-            if($result){
-                echo $leave_id;
+                return $msg.":".lang::get("error");
+
             }else {
-                echo 0;
+
+                $leave_id = \Fuel\Core\Input::post("leave_id");
+                $comment  = \Fuel\Core\Input::post("comment");
+
+                $position = \Auth\Auth::get_profile_fields("position");
+                $fname    = \Auth\Auth::get_profile_fields("fname");
+                $lname    = \Auth\Auth::get_profile_fields("lname");
+
+
+                $record = Model_Leave::find($leave_id);
+                $record->comments = $comment;
+                $record->status = "rejected";
+
+                $record->approved_by = $position.": ".$fname." ".$lname;
+
+                $result = $record->save();
+
+                if($result){
+                    $data = ["leave_id" => $leave_id];
+                    return json_encode($data);
+                }else {
+                    return lang::get("unable to process request").":".lang::get("error");
+                }
+
             }
 
         }catch (Exception $e) {
-            die($e->getMessage());
+            return ($e->getMessage()).":error";
         }
     }
 
@@ -106,31 +132,57 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
      * Updates the leave application status to approved
      */
     public function post_approve(){
+        lang::load("admin_leaveapplication");
         try{
 
-            $leave_id = \Fuel\Core\Input::post("leave_id");
-            $comment  = \Fuel\Core\Input::post("comment");
+            if(!\Fuel\Core\Security::check_token()){
+                return lang::get("illegal operation. missing token. hit refresh").":".lang::get("error");
+            }
 
-            $position = \Auth\Auth::get_profile_fields("position");
-            $fname    = \Auth\Auth::get_profile_fields("fname");
-            $lname    = \Auth\Auth::get_profile_fields("lname");
+            // validate form input
+            $val = \Fuel\Core\Validation::forge("approve_leave");
 
-            $record = Model_Leave::find($leave_id);
-            $record->comments = $comment;
-            $record->status = "approved";
-            $record->approved_by = $position.": ".$fname." ".$lname;
+            $val->add_field("leave_id", "Leave ID", "required");
 
-            $result = $record->save();
+            if(!$val->run()){
 
-            if($result){
-                echo $leave_id;
-            }else {
-                echo 0;
+                $errors = $val->error_message();
+
+                $msg = "";
+                foreach ($errors as $key => $error){
+                    $msg .= "{$error}. ";
+                }
+
+                return $msg.":".lang::get("error");
+
+            }else{
+
+                $leave_id = \Fuel\Core\Input::post("leave_id");
+                $comment  = \Fuel\Core\Input::post("comment");
+
+                $position = \Auth\Auth::get_profile_fields("position");
+                $fname    = \Auth\Auth::get_profile_fields("fname");
+                $lname    = \Auth\Auth::get_profile_fields("lname");
+
+                $record = Model_Leave::find($leave_id);
+                $record->comments = $comment;
+                $record->status = "approved";
+                $record->approved_by = $position.": ".$fname." ".$lname;
+
+                $result = $record->save();
+
+                if($result){
+                    $data = ["leave_id" => $leave_id];
+                    return json_encode($data);
+                }else {
+                    return lang::get("unable to process request").":".lang::get("error");
+                }
+
             }
 
         }catch (Exception $e) {
 
-            die($e->getMessage());
+            return ($e->getMessage()).":error";
 
         }
     }
