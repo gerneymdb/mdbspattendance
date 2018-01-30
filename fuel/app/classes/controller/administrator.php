@@ -152,7 +152,8 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
      * Holidays Page
      */
     public function action_holidays($year = null){
-
+        // load language
+        lang::load("admin_holiday");
         // redirect if not login
         if(!Model_Login::is_user_logged_session_valid()){
             \Fuel\Core\Response::redirect("login", "refresh");
@@ -171,7 +172,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
         // get holidays
         $data["holidays"] = $this->fetch_holidays($year);
 
-        $this->template->title = "Holidays";
+        $this->template->title = __("title");
         $this->template->content = \Fuel\Core\View::forge("admin/holidays", $data);
 
     }

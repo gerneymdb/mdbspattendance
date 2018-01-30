@@ -191,11 +191,12 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
      * Update holidays information
      */
     public function post_update_holiday(){
+        lang::load("admin_holiday");
         try{
 
             if(!\Fuel\Core\Security::check_token()){
 
-                return "Illegal Operation. Missing token. Hit refresh";
+                return __("illegal operation. missing token. hit refresh").":".__("error");
 
             }else{
 
@@ -219,7 +220,7 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                         $msg .= "{$error}. ";
                     }
 
-                    return $msg;
+                    return $msg.":".__("error");
 
                 }else{
 
@@ -250,7 +251,7 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                         return $data;
                     }else {
 
-                        return "Unable to save changes";
+                        return __("Unable to save changes").":".__("error");
                     }
 
                 }// validate Input
@@ -275,9 +276,10 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
             $result = $record->delete();
 
             if($result){
-                echo 1;
+                $data = ["result" => "1"];
+                return json_encode($data);
             }else {
-                echo 0;
+                echo __("unable to save changes").":"._("error");
             }
 
         }catch (Exception $e){
