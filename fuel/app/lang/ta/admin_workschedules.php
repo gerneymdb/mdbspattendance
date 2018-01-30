@@ -21,7 +21,7 @@ return array(
     "start" => "magsimula",
     "hour" => "oras",
     "minute" => "minuto",
-    "second" => "pangalawa",
+    "second" => "segundo",
     "end" => "wakas",
     "morning" => "umaga",
     "night" => "gabe",
