@@ -3,7 +3,7 @@ return array(
     //words
     "work" => "trabaho",
     "schedules" => "iskedyul",
-    "shifts" => "nagbabago",
+    "shifts" => "shifts",
     "shift" => "pagbago",
     "name" => "pangalan",
     "of" => "ng",
