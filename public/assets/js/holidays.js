@@ -88,7 +88,6 @@ $(document).ready(function(){
                 async: true,
                 beforeSend: function(){
                     // display loader
-                    var loader = $(".loader");
                     loader.removeClass("hide")
                 },
                 success: function (response) {
@@ -124,9 +123,11 @@ $(document).ready(function(){
                 },
                 error: function(response){
 
+                    var info = response.responseText.split(":");
+
                     loader.addClass("hide");
-                    notification.find("p.message_title").addClass("text-danger").text("error");
-                    notification.find("p.message_content").text(response.responseText);
+                    notification.find("p.message_title").addClass("text-danger").text(info[1]);
+                    notification.find("p.message_content").text(info[0]);
                     notification.removeClass("hide");
 
                 }
@@ -174,28 +175,37 @@ $(document).ready(function(){
             var formdata = $("#delete_form").serialize();
             var holiday_id = $("#id_holiday").val();
 
+            var modal_content = $("#delete").find(".modal-content");
+            var loader = modal_content.find(".loader");
+
+            var notification = $("#delete").find(".notification_msg");
+
             $.ajax({
                 type: "post",
                 url: url,
                 data:formdata,
+                dataType: "JSON",
                 async: true,
                 beforeSend: function(){
                     // display loader
-                    var loader = $(".loader");
                     loader.removeClass("hide")
                 },
                 success: function (response) {
-                    if(response !== "0"){
 
-                        var loader = $(".loader");
-                        loader.addClass("hide");
+                    loader.addClass("hide");
 
-                        $("#"+holiday_id).remove();
+                    $("#"+holiday_id).remove();
 
-                        $("#delete").modal("hide");
-                    }
+                    $("#delete").modal("hide");
                 },
-                error: function(){
+                error: function(response){
+
+                    var info = response.responseText.split(":");
+
+                    loader.addClass("hide");
+                    notification.find("p.message_title").addClass("text-danger").text(info[1]);
+                    notification.find("p.message_content").text(info[0]);
+                    notification.removeClass("hide");
 
                 }
             });

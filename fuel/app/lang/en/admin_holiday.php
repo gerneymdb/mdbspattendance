@@ -47,7 +47,9 @@ return array(
     "delete"      => "delete",
     "this"        => "this",
     "processing"  => "processing",
-    
+    "value"       => "value",
+    "title"       => "Holidays",
+
     // phrases use in this page
     "new holiday is set"     => "new holiday is set",
     "valentines day"         => "valentines day",
@@ -68,4 +70,6 @@ return array(
     "The field Start of Holiday is required and must contain a value."      => "The field Start of Holiday is required and must contain a value.",
     "The field End of Holiday is required and must contain a value."        => "The field End of Holiday is required and must contain a value.",
     "The field Holiday Description is required and must contain a value."   => "The field Holiday Description is required and must contain a value.",
+    "set holiday"            => "set holiday",
+    "unable to save changes" => "unable to save changes",
 );
