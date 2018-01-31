@@ -43,6 +43,7 @@ return array(
     "no"         => "wala",
     "records"    => "mga tala",
     "for"        => "para",
+    "title"      => "manage_attendance",
 
 
     //phrases use in this page
