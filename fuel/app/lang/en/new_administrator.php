@@ -30,10 +30,10 @@ return array(
 
     //phrases
     "Add a new administrator" => "add a new administrator",
-    "Administrator's username" => "administrator's username",
-    "Administrator's email" => "administrator's email",
-    "Admin's first name" => "admin's first name",
-    "Admin's middle name" => "admin's middle name",
+    "administrator's username" => "administrator's username",
+    "administrator's email" => "administrator's email",
+    "admin's first name" => "admin's first name",
+    "admin's middle name" => "admin's middle name",
     "admin's last name" => "admin's last name",
     "The field First Name is required and must contain a value." => "the field first name is required and must contain a value.",
     "The field Last Name is required and must contain a value." => "the field last name is required and must contain a value.",
