@@ -2,7 +2,6 @@
 return array(
     //words
     "Add" => "add",
-    "A" => "a",
     "New" => "new",
     "Administrator" => "administrator",
     "User"  => "user",
@@ -42,6 +41,8 @@ return array(
     "The field Email Address Name is required and must contain a value." => "the email address name is required and must contain a value.",
     "New administrator is successfully added." => "new administrator is successfully added.",
     "Email address already exists." => "email address already exists.",
+    "New admin successfully added"  => "New admin successfully added",
+    "Something went wrong in adding new administrator!" => "Something went wrong in adding new administrator!"
 
 
 

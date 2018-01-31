@@ -44,6 +44,7 @@ return array(
     "records"    => "mga tala",
     "for"        => "para",
     "title"      => "manage_attendance",
+    "close"      => "isara",
 
 
     //phrases use in this page
@@ -55,5 +56,10 @@ return array(
     "full name"                     => "buong pangalan",
     "attendance report"             => "ulat ng pagdalo",
     "view attendance"               => "tingnan ang pagdalo",
+    "this month's attendance"      => "pagdalo sa buwang ito",
+    "daily attendance count"       => "Bilang ng araw-araw na pagdalo",
+    "attendance information updated" => "update ang impormasyon ng pagdalo",
+    "illegal operation. missing token. hit refresh" => "iligal na operasyon. nawawala ang token. pindutin ang pag-refresh"
+
 
 );
