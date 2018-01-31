@@ -61,7 +61,7 @@ return array(
     "must" => "dapat",
     "contain" => "naglalaman",
     "value" => "halaga",
-    "title" => "work schedules",
+    "title" => "iskedyul ng trabaho",
     "processing" => "pagpoproseso",
     "duplicate" => "kopyahin",
 
