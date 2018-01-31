@@ -2,7 +2,7 @@
 <section class="container-fluid system_settings">
     <div class="row">
         <div class="col-md-12">
-            <h3><?php echo __("system settings")?></h3>
+            <h3><?php echo __("title")?></h3>
         </div>
     </div>
     <div class="row">
