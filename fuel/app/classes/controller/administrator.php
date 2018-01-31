@@ -222,6 +222,8 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             \Fuel\Core\Response::redirect("messages");
         }
 
+        // load language
+        lang::load("admin_manageattendance");
         // used to make determine which menu to put a class active
         Session::set_flash("page", "attendance");
 
@@ -243,7 +245,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
         // special holiday
         $data['special_holiday'] = $this->get_special_holiday($data_record['year']);
 
-        $this->template->title = "Attendance";
+        $this->template->title = __("attendance");
         $this->template->content = \Fuel\Core\View::forge("admin/manage_attendance", $data);
 
     }
@@ -338,6 +340,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             }
 
             $month = \Fuel\Core\Input::post("month");
+
             $year  = \Fuel\Core\Input::post("year");
 
             $days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
