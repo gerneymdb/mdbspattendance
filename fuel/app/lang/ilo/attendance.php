@@ -2,7 +2,7 @@
 return array(
 
     "title"     => "Empleyado",
-    "token"     => "Nadula ang Token ukon sala.",
+    "token"     => "Nadula ang Token ukon sala",
     "timein_failed" => "Sala nga pag-sulod",
     "timein_successfull" => "Chakto nga pag-sulod",
 
@@ -10,7 +10,7 @@ return array(
         "timein"    => "Pagsulod",
         "timeout"   => "Pag-gwa",
         "schedule_heading"  => "Pagliwat sang Skedyol",
-        "activity_heading"  => "Hpilimu.on",
+        "activity_heading"  => "Hilimu-on",
         "total_work"        => "Suma sang oras sang ubra sini ng aadlaw",
         "work_days"         => "Mga adlaw sang ubra",
         "day_off"           => "Wala Ubra nga adlaw",
