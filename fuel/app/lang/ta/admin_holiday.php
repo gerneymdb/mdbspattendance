@@ -48,7 +48,7 @@ return array(
     "this"        => "ito",
     "processing"  => "pagpoproseso",
     "value"       => "halaga",
-    "title"       => "Holidays",
+    "title"       => "Pista Opisyal",
 
     // phrases use in this page
     "new holiday is set"     => "Itakda ang bagong holiday",
