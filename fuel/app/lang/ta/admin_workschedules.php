@@ -61,7 +61,7 @@ return array(
     "must" => "dapat",
     "contain" => "naglalaman",
     "value" => "halaga",
-    "title" => "pamagat",
+    "title" => "work schedules",
     "processing" => "pagpoproseso",
     "duplicate" => "kopyahin",
 
