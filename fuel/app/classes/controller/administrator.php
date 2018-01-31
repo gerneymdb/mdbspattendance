@@ -181,7 +181,8 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
      * Manage Employees Page
      */
     public function action_manage_employees(){
-
+        //load language
+        lang::load("admin_manageemployee");
         // redirect if not login
         if(!Model_Login::is_user_logged_session_valid()){
             \Fuel\Core\Response::redirect("login", "refresh");
@@ -201,7 +202,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
         // used to make determine which menu to put a class active
         Session::set_flash("page", "employees");
 
-        $this->template->title = "Manage Employees";
+        $this->template->title = lang::get("title");
         $this->template->content = \Fuel\Core\View::forge("admin/manage_employees", $data);
 
     }
