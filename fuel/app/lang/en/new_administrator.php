@@ -25,7 +25,8 @@ return array(
     "Added" => "added",
     "Already" => "already",
     "exist" => "exist",
-    "exists" => "exist",
+    "username" => "username",
+
 
 
     //phrases
@@ -42,7 +43,10 @@ return array(
     "New administrator is successfully added." => "new administrator is successfully added.",
     "Email address already exists." => "email address already exists.",
     "New admin successfully added"  => "New admin successfully added",
-    "Something went wrong in adding new administrator!" => "Something went wrong in adding new administrator!"
+    "Something went wrong in adding new administrator!" => "Something went wrong in adding new administrator!",
+    "First Name" => "First Name",
+    "Middle Name" => "Middle Name",
+    "Last Name" => "Last Name"
 
 
 

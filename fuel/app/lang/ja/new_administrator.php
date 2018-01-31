@@ -26,14 +26,15 @@ return array(
     "Already" => "既に",
     "exist" => "存在する",
     "exists" => "存在する",
+    "title" => "新しい管理者",
 
 
     //phrases used in this page
-    "Add a new administrator" => "新しい管理者を追加する",
-    "Administrator's username" => "管理者のユーザー名",
-    "Administrator's email" => "管理者の電子メール",
-    "Admin's first name" => "管理者の名",
-    "Admin's middle name" => "管理者のミドルネーム",
+    "add a new administrator" => "新しい管理者を追加する",
+    "administrator's username" => "管理者のユーザー名",
+    "administrator's email" => "管理者の電子メール",
+    "admin's first name" => "管理者の名",
+    "admin's middle name" => "管理者のミドルネーム",
     "admin's last name" => "管理者の姓",
     "The field First Name is required and must contain a value." => "フィールドに名を記入してください。",
     "The field Last Name is required and must contain a value." => "フィールドに姓を記入してください。",

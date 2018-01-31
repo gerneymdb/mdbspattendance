@@ -36,7 +36,7 @@
                 <?php echo \Fuel\Core\Form::csrf()?>
 
                 <div class="form-group">
-                    <label for="username"><?php echo __("Username") ?></label>
+                    <label for="username"><?php echo __("username") ?></label>
                     <input type="text" name="username" placeholder="<?php echo __("administrator's username") ?>" class="form-control"/>
                 </div>
 

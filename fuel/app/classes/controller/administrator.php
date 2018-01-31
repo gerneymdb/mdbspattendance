@@ -77,10 +77,12 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
                 \Fuel\Core\Response::redirect("messages");
             }
 
+            // load language file
+            lang::load("new_administrator");
             // used to make determine which menu to put a class active
             Session::set_flash("page", "new admin");
 
-            $this->template->title = "System Settings";
+            $this->template->title = __("title") ;
             $this->template->content = \Fuel\Core\View::forge("admin/new_admin");
 
         }catch (Exception $e) {
