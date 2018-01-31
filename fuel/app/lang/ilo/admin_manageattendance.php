@@ -49,7 +49,7 @@ return array(
     "close"      => "sarado",
     "save"       => "pagsave",
     "error"      => "sala",
-    "success"    => "madinalag-on",
+    "success"    => "kadalag-an",
 
 
     //phrases use in this page
