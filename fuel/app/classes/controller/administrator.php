@@ -554,6 +554,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
     }
 
     public function post_add_admin(){
+        lang::load("new_administrator.php");
         try{
 
             // csrf token is missing
@@ -605,13 +606,13 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
 
             if($result2 != false){
 
-                $msg[] = "New admin successfully added.!";
+                $msg[] = __("New admin successfully added");
                 Session::set_flash("a_smsg", $msg);
                 \Fuel\Core\Response::redirect("administrator/new_admin", "refresh");
 
             }else {
 
-                $msg[] = "Something went wrong in adding new administrator!";
+                $msg[] = __("Something went wrong in adding new administrator!");
                 Session::set_flash("a_msg", $msg);
                 \Fuel\Core\Response::redirect("administrator/new_admin", "refresh");
 
