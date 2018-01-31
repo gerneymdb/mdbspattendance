@@ -1,8 +1,8 @@
 <?php
 return array(
     // words
-    "days"      => "adlaw",
-    "hours"     => "oras",
+    "days"      => "ka adlaw",
+    "hours"     => "ka oras",
     "saved"     => "saved",
     "add"       => "idugang",
     "actions"   => "",

@@ -60,7 +60,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
         $data["default_setting"] = $this->fetch_settings();
         $data['leave_settings']  = $this->fetch_leave_settings();
 
-        $this->template->title = "System Settings";
+        $this->template->title = __("title");
         $this->template->content = \Fuel\Core\View::forge("admin/system_settings", $data);
     }
 
