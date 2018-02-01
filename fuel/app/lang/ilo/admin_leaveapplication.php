@@ -28,7 +28,7 @@ return array(
     "title" => "paghalin sang aplikasyon",
     "missing"   => "nadula",
     "refresh"   => "refresh",
-    "illegal"   => "operasyon",
+    "illegal"   => "ilegal",
     "operation" => "operasyon",
     "token"     => "pahahumdum",
     "hit"       => "tum-okon",
