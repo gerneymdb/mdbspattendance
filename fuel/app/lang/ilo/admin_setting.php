@@ -15,7 +15,7 @@ return array(
     "information"   => "impormasyon",
     "changes"   => "pagbalhin",
     "no"        => "indi",
-    "delete"    => "panas",
+    "delete"    => "kuhaon",
     "set"       => "set",
     "default"   => "duna",
     "password"  => "password",
