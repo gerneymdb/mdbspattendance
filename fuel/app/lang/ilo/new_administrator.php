@@ -29,14 +29,15 @@ return array(
     "Exists" => "gatuhaw",
     "Something" => "isa ka butang",
     "Wrong" => "sala",
+    "username" => "username",
 
 
     //phrases
     "Add a new administrator" => "dugang isa ka bag-o nga manugdumala",
-    "Administrator's username" => "username sang manugdumala",
-    "Administrator's email" => "email sang manugdumala",
-    "Admin's first name" => "una nga ngalan sang admin",
-    "Admin's middle name" => "ika-tunga nga ngalan sang admin",
+    "administrator's username" => "username sang manugdumala",
+    "administrator's email" => "email sang manugdumala",
+    "admin's first name" => "una nga ngalan sang admin",
+    "admin's middle name" => "ika-tunga nga ngalan sang admin",
     "admin's last name" => "ulihi nga ngalan sang admin",
     "The field First Name is required and must contain a value." => "ang ulumhan sa una nga ngalan gina require kag kinahanglan may kaundan nga bili.",
     "The field Last Name is required and must contain a value." => "ang ulumhan sa ulihi nga ngalan gina require kag kinahanglan may kaundan nga bili.",
@@ -45,7 +46,10 @@ return array(
     "New administrator is successfully added." => "bg-o nga manugdumala ang kadalag-an nga nadugang.",
     "Email address already exists." => "may email address na gatuhaw.",
     "New admin successfully added"  => "bag-o nga admin ang mahi-agumon nga nadugang",
-    "Something went wrong in adding new administrator!" => "may isa ka butang nga nagsala sa pagdugang sang bag-o nga manugdumala!"
+    "Something went wrong in adding new administrator!" => "may isa ka butang nga nagsala sa pagdugang sang bag-o nga manugdumala!",
+    "First Name" => "una nga ngalan",
+    "Middle Name" => "tunga nga ngalan",
+    "Last Name" => "ulihi nga ngalan",
 
 
 
