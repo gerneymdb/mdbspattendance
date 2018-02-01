@@ -34,6 +34,7 @@ return array(
     "hit"       => "ヒット",
     "error"     => "エラー",
     "processing"    => "処理",
+    "days"      => "日々",
 
     //phrases use this page
     "employee leave applications" => "従業員休暇申請",
@@ -44,7 +45,8 @@ return array(
     "add comment" => "コメントを追加",
     "reject this leave application" => "この休暇申請を拒否する",
     "why are you going to reject this" => "なぜこれを拒否しようとしていますか？",
-    "unable to process request" => "リクエストを処理できません"
+    "unable to process request" => "リクエストを処理できません",
+    "no record found"   => "レコードが見つかりません"
 
 
 );

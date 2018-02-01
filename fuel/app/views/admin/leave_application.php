@@ -2,7 +2,7 @@
 <section class="container-fluid leave-app">
     <div class="row">
         <div class="col-md-8 col-md-offset-2 pix">
-            <h3>Employee Leave Applications</h3>
+            <h3><?php echo __("employee leave applications") ?></h3>
             <?php if(count($leaves) > 0):?>
 
                 <?php foreach ($leaves as $info):?>
@@ -17,13 +17,13 @@
                                         "rejected" => "status-rejected"
                                     ];
                                 ?>
-                                <p>Status: <span class="status <?php echo $status[$info->status];?>"><?php echo $info->status?></span></p>
+                                <p><?php echo __("status") ?>: <span class="status <?php echo $status[$info->status];?>"><?php echo $info->status?></span></p>
                             </div>
                             <div class="btn-group action-approve">
-                                <button type="button" class="btn btn-danger <?php echo ($info->status != "approved")? 'status-btn-approve' : '' ?>" data-leave="<?php echo $info->leave_id ?>">Approved</button>
+                                <button type="button" class="btn btn-danger <?php echo ($info->status != "approved")? 'status-btn-approve' : '' ?>" data-leave="<?php echo $info->leave_id ?>"><?php echo __("approve")?></button>
                             </div>
                             <div class="btn-group action-reject">
-                                <button type="button" class="btn btn-success <?php echo ($info->status != "rejected")? 'status-btn-reject' : '' ?>" data-leave="<?php echo $info->leave_id ?>" >Reject</button>
+                                <button type="button" class="btn btn-success <?php echo ($info->status != "rejected")? 'status-btn-reject' : '' ?>" data-leave="<?php echo $info->leave_id ?>" ><?php echo __("reject") ?></button>
                             </div>
                         </div>
                         <div class = "groups clearfix">
@@ -41,23 +41,23 @@
                                             echo ceil((($end - $start) / 86400));
                                         ?>
                                     </span>
-                                    <span>Days</span>
-                                    <span class="frm-form">From:</span>
+                                    <span><?php echo __("days") ?></span>
+                                    <span class="frm-form"><?php echo __("from") ?>:</span>
                                     <span><?php echo $info->start_leave ?></span>
-                                    <span class="t-bold">To:</span>
+                                    <span class="t-bold"><?php echo __("to") ?>:</span>
                                     <span><?php echo $info->end_leave ?></span>
-                                    <span class="filed">Date Filed:</span>
+                                    <span class="filed"><?php echo __("date filed") ?>:</span>
                                     <span><?php echo $info->date_filed ?></span>
                                 </p>
                             </div>
                             <div class="son">
-                                <p><span class="rea">Reason:</span> <?php echo $info->reason ?></p>
+                                <p><span class="rea"><?php echo __("reason") ?>:</span> <?php echo $info->reason ?></p>
                             </div>
                             <div class="attach">
                                 <p>
                                     <?php
                                         if(!empty($info->attachments)){
-                                            echo "Attachments: <a href='".$base_url."files/leave/".$info->attachments."' target='_blank'><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span></a>";
+                                            echo __("attachments").": <a href='".$base_url."files/leave/".$info->attachments."' target='_blank'><span class=\"glyphicon glyphicon-paperclip\" aria-hidden=\"true\"></span></a>";
                                         }
                                     ?>
                                 </p>
@@ -66,7 +66,7 @@
                                 <p id="<?php echo $info->leave_id ?>" class="comment-icon">
                                     <?php
                                         if(!empty($info->comments)){
-                                            echo "Comments:<i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i>";
+                                            echo __("comments").":<i class=\"fa fa-commenting-o\" aria-hidden=\"true\"></i>";
                                         }
                                     ?>
                                 </p>
@@ -81,7 +81,7 @@
 
             <?php else:?>
                 <div class="alert alert-info">
-                    <p class="text-center"><i class='glyphicon glyphicon-exclamation-sign'></i> <strong>No Record Found</strong></p>
+                    <p class="text-center"><i class='glyphicon glyphicon-exclamation-sign'></i> <strong><?php echo __("no record found") ?></strong></p>
                 </div>
             <?php endif;?>
 

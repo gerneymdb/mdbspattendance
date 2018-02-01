@@ -34,6 +34,7 @@ return array(
     "hit"       => "tum-okon",
     "error"     => "sala",
     "processing"    => "paagi",
+    "days"      => "mga adlaw",
 
     //phrases use this page
     "employee leave applications" => "ang aplikasyon sang paghalin sang empleyado",
@@ -44,7 +45,7 @@ return array(
     "add comment" => "tingob nga komentar",
     "reject this leave application" => "pagsikway sang sini nga pag-halin sang aplikasyon",
     "why are you going to reject this" => "ngaa gusto mo nga sikwayon ini",
-    "unable to process request" => "walay ikasarang sa pagproseso para sa sini nga pangabay".
-
+    "unable to process request" => "walay ikasarang sa pagproseso para sa sini nga pangabay",
+    "no record found"   => "wala sang record nga nakita"
 
 );
