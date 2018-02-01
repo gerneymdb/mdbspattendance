@@ -32,7 +32,7 @@ return array(
 
 
     //phrases used in this page
-    "add a new administrator" => "新しい管理者を追加する",
+    "Add a new administrator" => "新しい管理者を追加する",
     "administrator's username" => "管理者のユーザー名",
     "administrator's email" => "管理者の電子メール",
     "admin's first name" => "管理者の名",
