@@ -6,5 +6,7 @@ return array(
     "leave applications"    =>  "去る",
     "work schedule"         =>  "仕事のスケジュール",
     "system settings"       => "システム設定",
-    "new administrator"     => "新しい管理者"
+    "new administrator"     => "新しい管理者",
+    "hello"                 => "こんにちは",
+    "logout"                => "ログアウト"
 );
