@@ -1,9 +1,9 @@
 <?php
 return array(
     // words
-    "days"       => "日々",
+    "days"      => "日々",
     "hours"     => "時間",
-    "saved"     => "保存された",
+    "saved"     => "セーブ",
     "add"       => "追加する",
     "actions"   => "行動",
     "leave"     => "離れる",

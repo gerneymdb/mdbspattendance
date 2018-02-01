@@ -2,10 +2,10 @@
 .admin-side-menu {
     display: block;
     height: 100%;
-    width: 220px;
+    width: 265px;
     position: fixed;
     top: 0;
-    left: -183px;
+    left: -227px;
     z-index: 999;
     border-top: 0;
     border-right: 1px solid #e6e4e4;
@@ -73,7 +73,7 @@
     left: 0;
 }
 .admin-side-menu:hover + .admin-content {
-    padding: 0 0 0 220px;
+    padding: 0 0 0 265px;
 }
 
 

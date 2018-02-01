@@ -56,8 +56,8 @@ lang::load("admin_menu");
 <section class="admin-content">
     <div class="admin-top-menu">
         <ul class="clearfix">
-            <li><a href="<?php echo $base_url ."login/logout"?>">logout <i class="fa fa-sign-out"></i></a></li>
-            <li><a href="#">hello <?php echo \Auth\Auth::get_profile_fields('fname');?> <i class="fa fa-user-secret"></i></a></li>
+            <li><a href="<?php echo $base_url ."login/logout"?>"><?php echo __("logout") ?> <i class="fa fa-sign-out"></i></a></li>
+            <li><a href="#"><?php echo __("hello")?> <?php echo \Auth\Auth::get_profile_fields('fname');?> <i class="fa fa-user-secret"></i></a></li>
         </ul>
     </div>
     <?php echo (isset($content)? $content : "no-content")?>
