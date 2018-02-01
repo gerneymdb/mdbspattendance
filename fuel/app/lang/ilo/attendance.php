@@ -2,7 +2,7 @@
 return array(
 
     "title"     => "Empleyado",
-    "token"     => "Nadula ang Token ukon sala",
+    "token"     => "Nadula ang pahahumdum ukon sala",
     "timein_failed" => "Sala nga pag-sulod",
     "timein_successfull" => "Chakto nga pag-sulod",
 
@@ -16,7 +16,7 @@ return array(
         "day_off"           => "Wala Ubra nga adlaw",
         "starts_at"         => "Pag-sugod",
         "ends_at"           => "Pag-tapos",
-        "work_done"         => "Mga na-ubra sini nga adlaw.!",
+        "work_done"         => "Mga na-obra sini nga adlaw.!",
         "regular_holiday"   => "Regolar nga adlaw nga may okasyon",
         "special_holiday"   => "Espesyal nga adlaw nga may okasyon",
         "on_leave"          => "Ikaw ara sa",
@@ -29,7 +29,7 @@ return array(
         "absent"                => "Wala presensya",
         "regular_holiday"       => "Regolar nga okasyon",
         "special_holiday"       => "Espesyal nga okasyon",
-        "leave"                 => "Nag-lisensya",
+        "leave"                 => "Nag-halin",
         "day_off"               => "Wala ubra",
         "future_date"           => "Sumunod nga inadlaw",
         "attendance_heading"    => "Lista sang presensya"
