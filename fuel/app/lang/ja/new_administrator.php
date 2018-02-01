@@ -10,6 +10,7 @@ return array(
     "Address" => "住所",
     "First" => "最初",
     "Middle" => "中間",
+    "Last" => "最終",
     "The" => "その",
     "Field" =>"フィールド",
     "Is" => "は",
@@ -26,6 +27,7 @@ return array(
     "Already" => "既に",
     "exist" => "存在する",
     "exists" => "存在する",
+    "username" => "ユーザー名",
     "title" => "新しい管理者",
 
 
@@ -43,7 +45,10 @@ return array(
     "New administrator is successfully added." => "新しい管理者が追加されました。",
     "Email address already exists." => "メールアドレスはすでに存在します。",
     "New admin successfully added"  => "新しい管理者が追加されました",
-    "Something went wrong in adding new administrator!" => "新しい管理者を追加する際に問題が発生しました。"
+    "Something went wrong in adding new administrator!" => "新しい管理者を追加する際に問題が発生しました。",
+    "First Name" => "ファーストネーム",
+    "Middle Name" => "ドルネーム",
+    "Last Name" => "苗字"
 
 
 
