@@ -172,21 +172,23 @@ $(document).ready(function(){
                         }
 
                         loader.addClass("hide");
-                        notification.find("p.message_title").addClass("text-success").text("Success");
-                        notification.find("p.message_content").text("Attendance information updated");
+                        notification.find("p.message_title").addClass("text-success").text(response["success"]);
+                        notification.find("p.message_content").text(response["attendance information updated"]);
                         notification.removeClass("hide");
+
+                        console.log(response);
                     }
 
 
                 },
                 error: function(response){
+                    var info = response.responseText.split(":");
 
                     loader.addClass("hide");
-                    notification.find("p.message_title").addClass("text-danger").text("error");
-                    notification.find("p.message_content").text(response.responseText);
+                    notification.find("p.message_title").addClass("text-danger").text(info[1]);
+                    notification.find("p.message_content").text(info[0]);
                     notification.removeClass("hide");
-
-                    console.log(response);
+                    console.log(info)
                 }
             });
 

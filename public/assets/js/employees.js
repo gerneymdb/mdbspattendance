@@ -177,20 +177,22 @@ $(document).ready(function(){
                         $record.find(".last_login").text(response["last_login"]);
 
                         loader.addClass("hide");
-                        notification.find("p.message_title").addClass("text-success").text("Success");
-                        notification.find("p.message_content").text("Employee information updated");
+                        notification.find("p.message_title").addClass("text-success").text(response["success"]);
+                        notification.find("p.message_content").text(response["employee information updated"]);
                         notification.removeClass("hide");
                     }else{
                         console.log(response);
                     }
                 },
                 error: function(response){
+
+                    var info = response.responseText.split(":");
+
                     loader.addClass("hide");
-                    notification.find("p.message_title").addClass("text-danger").text("error");
-                    notification.find("p.message_content").text(response);
+                    notification.find("p.message_title").addClass("text-danger").text(info[1]);
+                    notification.find("p.message_content").text(info[0]);
                     notification.removeClass("hide");
 
-                    console.log(response);
                 }
             });
 

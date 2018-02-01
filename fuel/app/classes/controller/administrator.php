@@ -60,7 +60,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
         $data["default_setting"] = $this->fetch_settings();
         $data['leave_settings']  = $this->fetch_leave_settings();
 
-        $this->template->title = "System Settings";
+        $this->template->title = __("title");
         $this->template->content = \Fuel\Core\View::forge("admin/system_settings", $data);
     }
 
@@ -77,10 +77,12 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
                 \Fuel\Core\Response::redirect("messages");
             }
 
+            // load language file
+            lang::load("new_administrator");
             // used to make determine which menu to put a class active
             Session::set_flash("page", "new admin");
 
-            $this->template->title = "System Settings";
+            $this->template->title = __("title") ;
             $this->template->content = \Fuel\Core\View::forge("admin/new_admin");
 
         }catch (Exception $e) {
@@ -181,7 +183,8 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
      * Manage Employees Page
      */
     public function action_manage_employees(){
-
+        //load language
+        lang::load("admin_manageemployee");
         // redirect if not login
         if(!Model_Login::is_user_logged_session_valid()){
             \Fuel\Core\Response::redirect("login", "refresh");
@@ -201,7 +204,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
         // used to make determine which menu to put a class active
         Session::set_flash("page", "employees");
 
-        $this->template->title = "Manage Employees";
+        $this->template->title = lang::get("title");
         $this->template->content = \Fuel\Core\View::forge("admin/manage_employees", $data);
 
     }
@@ -221,6 +224,8 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             \Fuel\Core\Response::redirect("messages");
         }
 
+        // load language
+        lang::load("admin_manageattendance");
         // used to make determine which menu to put a class active
         Session::set_flash("page", "attendance");
 
@@ -242,7 +247,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
         // special holiday
         $data['special_holiday'] = $this->get_special_holiday($data_record['year']);
 
-        $this->template->title = "Attendance";
+        $this->template->title = __("attendance");
         $this->template->content = \Fuel\Core\View::forge("admin/manage_attendance", $data);
 
     }
@@ -337,6 +342,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
             }
 
             $month = \Fuel\Core\Input::post("month");
+
             $year  = \Fuel\Core\Input::post("year");
 
             $days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
@@ -550,6 +556,7 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
     }
 
     public function post_add_admin(){
+        lang::load("new_administrator.php");
         try{
 
             // csrf token is missing
@@ -601,13 +608,13 @@ class Controller_Administrator extends \Fuel\Core\Controller_Template {
 
             if($result2 != false){
 
-                $msg[] = "New admin successfully added.!";
+                $msg[] = __("New admin successfully added");
                 Session::set_flash("a_smsg", $msg);
                 \Fuel\Core\Response::redirect("administrator/new_admin", "refresh");
 
             }else {
 
-                $msg[] = "Something went wrong in adding new administrator!";
+                $msg[] = __("Something went wrong in adding new administrator!");
                 Session::set_flash("a_msg", $msg);
                 \Fuel\Core\Response::redirect("administrator/new_admin", "refresh");
 

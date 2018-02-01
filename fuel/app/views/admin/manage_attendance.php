@@ -41,18 +41,18 @@
 
     // array of months
     $months = array(
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
+        __("january"),
+        __("february"),
+        __("march"),
+        __("april"),
+        __("may"),
+        __("june"),
+        __("july"),
+        __("august"),
+        __("september"),
+        __("october"),
+        __("november"),
+        __("december")
     );
 
     $no_days = 0;
@@ -66,9 +66,9 @@
             // get no of days in a month in a given year
             $no_days = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 
-            $days .= "<tr><th></th><th colspan={$no_days}>{$months[ltrim($month, '0') - 1]} {$year} Attendance</th></tr>";
+            $days .= "<tr><th></th><th colspan={$no_days}>{$months[ltrim($month, '0') - 1]} {$year} ".__("attendance")."</th></tr>";
 
-            $days .= "<tr><th>Name</th>";
+            $days .= "<tr><th>".__("name")."</th>";
             for ($x = 1; $x <= $no_days; $x++) {
                 $day = ($x < 10) ? "0".$x : $x;
                 $days .= "<th>$day</th>";
@@ -86,7 +86,7 @@
 
     <div class="row form-row">
         <div class="col-md-12">
-            <h4 class="text-center"><i class="fa fa-calendar-check-o"></i> View Attendance</h4>
+            <h4 class="text-center"><i class="fa fa-calendar-check-o"></i> <?php echo __("view attendance") ?></h4>
             <form action="<?php echo $base_url . 'administrator/fetch_attendance'?>" class="form-inline" method="post" id="search_attendance">
                 <?php echo \Fuel\Core\Form::csrf(); ?>
                 <div class="form-group">
@@ -94,30 +94,35 @@
                     <select name="month" id="month" class="form-control">
                         <?php
                            if($month_selected != "" & $year_selected != ""){
-                               $month_num = ($month_selected < 10)? '0'.$month_selected : $month_selected;
+                               //remove leading zeros first
+//                               $month_selected = ltrim($month_selected, "0");
+                               // format string
+                               $format = '%d'.$month_selected;
+                               $month_num = ($month_selected < 10)? sprintf($format,"0") : $month_selected;
+
                                echo "<option value='".$month_num."' selected>{$months[ltrim($month_selected, '0') - 1]}</option>";
                            }
                         ?>
-                        <option value="01">January</option>
-                        <option value="02">February</option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
+                        <option value="01"><?php echo __("january") ?></option>
+                        <option value="02"><?php echo __("february") ?></option>
+                        <option value="03"><?php echo __("march") ?></option>
+                        <option value="04"><?php echo __("april") ?></option>
+                        <option value="05"><?php echo __("may") ?></option>
+                        <option value="06"><?php echo __("june") ?></option>
+                        <option value="07"><?php echo __("july") ?></option>
+                        <option value="08"><?php echo __("august") ?></option>
+                        <option value="09"><?php echo __("september") ?></option>
+                        <option value="10"><?php echo __("october") ?></option>
+                        <option value="11"><?php echo __("november") ?></option>
+                        <option value="12"><?php echo __("december") ?></option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="year">Year</label>
+                    <label for="year"><?php echo __("year") ?></label>
                     <input type="number" class="form-control" name="year" id="year" value="<?php echo (isset($year_selected) && $year_selected != "")? $year_selected : strftime('%Y', time())?>" />
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-                <button type="button" class="btn btn-default pull-right" id="attendance_count"><i class="fa fa-calendar"></i> Attendance Report</button>
+                <button type="submit" class="btn btn-default"><?php echo __("submit") ?></button>
+                <button type="button" class="btn btn-default pull-right" id="attendance_count"><i class="fa fa-calendar"></i> <?php echo __("attendance report") ?></button>
             </form>
         </div>
     </div>
@@ -211,7 +216,7 @@
 
                                                 <a href="#" class="btn btn-off" id="<?php echo $employee."_".$attendance_date."do"?>">
                                                     <?php
-                                                        echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>Day off</small></span>";
+                                                        echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>".__("day off")."</small></span>";
                                                     ?>
                                                 </a>
 
@@ -219,7 +224,7 @@
 
                                                 <a href="#" class="btn btn-rh" id="<?php echo $employee."_".$attendance_date."rh"?>">
                                                     <?php
-                                                        echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>Regular Holiday</small></span>";
+                                                        echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>".__("regular holiday")."</small></span>";
                                                     ?>
                                                 </a>
 
@@ -227,7 +232,7 @@
 
                                                 <a href="#" class="btn btn-sh" id="<?php echo $employee."_".$attendance_date."sh" ?>">
                                                     <?php
-                                                    echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>Special Holiday</small></span>";
+                                                    echo "<span class='a_date'>".strftime("%a", $time)." ".strftime("%d", $time)."</span><span class='a_date'><small>".__("special holiday")."</small></span>";
                                                     ?>
                                                 </a>
 
@@ -265,7 +270,7 @@
                         <tr>
                             <td>
                                 <div class="alert alert-danger">
-                                    <p class="text-center"><i class="fa fa-warning"></i> No records for this date</p>
+                                    <p class="text-center"><i class="fa fa-warning"></i> <?php echo __("no records for this date") ?></p>
                                 </div>
                             </td>
                         </tr>
@@ -278,7 +283,7 @@
             <?php else:?>
                 <!-- without records -->
                 <div class="alert alert-info">
-                    <p class="text-center"><i class="fa fa-warning"></i> <strong> No records for this date</strong></p>
+                    <p class="text-center"><i class="fa fa-warning"></i> <strong> <?php echo __("no records for this date") ?></strong></p>
                 </div>
             <?php endif; ?>
         </div>
@@ -289,12 +294,12 @@
 <div class="modal fade" id="edt_present" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> processing</span></div>
+            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> <?php echo __("processing") ?></span></div>
             <div class="notification_msg hide" id="notification_msg"><span id="close_info" class="close_info"><i class="fa fa-close"></i></span><p class="message_title text-center"></p><p class="message_content text-center"></p></div>
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Present Edit</h4>
+                <h4 class="modal-title" id="myModalLabel"><?php echo __("present edit") ?></h4>
             </div>
             <div class="modal-body">
                 <form action="" class="present_edit" id="present_edit">
@@ -305,12 +310,12 @@
                         <?php echo \Fuel\Core\Form::csrf() ?>
                     </div>
                     <div class="form-group">
-                        <label for="fullname">Fullname</label>
+                        <label for="fullname"><?php echo __("full name") ?></label>
                         <input type="text" id="fullname_timein" value="" class="form-inline"/>
                     </div>
                     <div class="form-group">
-                        <label for="datetimein">Time In</label>
-                        <input type="text" id="datetimein" value="" name="datetimein" class="form-inline"/>
+                        <label for="datetimein"><?php echo __("time in") ?></label>
+                        <input type="text" id="datetimein" value="" name="<?php echo __("date time in") ?>" class="form-inline"/>
                         <select name="hrtimein" id="hrtimein" class="form-inline">
                             <option value="00">00</option>
                             <option value="01">01</option>
@@ -463,7 +468,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="datetimeout">Time Out</label>
+                        <label for="datetimeout"><?php echo __("time out")?></label>
                         <input type="text" id="datetimeout" value="" name="datetimeout" class="form-inline"/>
                         <select name="hrtimeout" id="hrtimeout" class="form-inline">
                             <option value="00">00</option>
@@ -617,17 +622,17 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="timeinstatus">Status</label>
+                        <label for="timeinstatus"><?php echo __("status") ?></label>
                         <select name="status" id="timeinstatus" class="form-inline">
-                            <option value="Present">Present</option>
-                            <option value="Absent">Absent</option>
+                            <option value="Present"><?php echo __("present") ?></option>
+                            <option value="Absent"><?php echo __("absent") ?></option>
                         </select>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="edit_present_btn"><i class="fa fa-save"></i> Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __("close") ?></button>
+                <button type="button" class="btn btn-primary" id="edit_present_btn"><i class="fa fa-save"></i> <?php echo __("save") ?></button>
             </div>
         </div>
     </div>
@@ -637,23 +642,23 @@
 <div class="modal fade" id="edt_absent" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> processing</span></div>
+            <div class="loader hide"><span class="spin-holder"><i class="fa fa-spinner fa-pulse"></i> <?php echo __("processing") ?></span></div>
             <div class="notification_msg hide" id="notification_msg"><span id="close_info" class="close_info"><i class="fa fa-close"></i></span><p class="message_title text-center"></p><p class="message_content text-center"></p></div>
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Absent Edit</h4>
+                <h4 class="modal-title" id="myModalLabel"><?php echo __("absent edit") ?></h4>
             </div>
             <div class="modal-body">
                 <form action="" class="absent_edit" id="absent_edit">
                     <input type="hidden" id="userid" name="userid" value="" />
                     <input type="hidden" id="absent_url" value="<?php echo $base_url . 'ajaxcall/update_absent'?>" />
                     <div class="form-group">
-                        <label for="fullname">Fullname</label>
+                        <label for="fullname"><?php echo __("full name") ?></label>
                         <input type="text" id="absent_fullname" value="" class="form-inline"/>
                     </div>
                     <div class="form-group">
-                        <label for="datetimein">Time In</label>
+                        <label for="datetimein"><?php echo __("time in") ?></label>
                         <input type="text" id="a_datetimein" value="" name="a_datetimein" class="form-inline"/>
                         <select name="a_hrtimein" id="a_hrtimein" class="form-inline">
                             <option value="00">00</option>
@@ -807,7 +812,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="a_datetimeout">Time Out</label>
+                        <label for="a_datetimeout"><?php echo __("time out") ?></label>
                         <input type="text" id="a_datetimeout" value="" name="a_datetimeout" class="form-inline"/>
                         <select name="a_hrtimeout" id="a_hrtimeout" class="form-inline">
                             <option value="00">00</option>
@@ -961,18 +966,18 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="a_timeinstatus">Status</label>
+                        <label for="a_timeinstatus"><?php echo __("status") ?></label>
                         <select name="status" id="a_timeinstatus" class="form-inline">
                             <option value=""></option>
-                            <option value="Absent">Absent</option>
-                            <option value="Present">Present</option>
+                            <option value="Absent"><?php echo __("absent") ?></option>
+                            <option value="Present"><?php echo __("present") ?></option>
                         </select>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="edt_btn_absent"><i class="fa fa-save"></i> Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __("close") ?></button>
+                <button type="button" class="btn btn-primary" id="edt_btn_absent"><i class="fa fa-save"></i> <?php echo __("save") ?></button>
             </div>
         </div>
     </div>
@@ -984,11 +989,11 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">This Month's Attendance</h4>
+                <h4 class="modal-title" id="myModalLabel"><?php echo __("this month's attendance") ?></h4>
             </div>
             <div class="modal-body">
                 <table class="table table-bordered">
-                    <caption><h4>Daily Attendance Count</h4></caption>
+                    <caption><h4><?php echo __("daily attendance count") ?></h4></caption>
                     <tbody>
                         <?php  $total_monthly_attendance = 0; ?>
                         <?php if(is_array($attendance) && count($attendance) > 0): ?>
@@ -1049,7 +1054,7 @@
                             <tr>
                                 <td>
                                     <div class="alert alert-danger">
-                                        <p class="text-center"><i class="fa fa-warning"></i> No records for this date</p>
+                                        <p class="text-center"><i class="fa fa-warning"></i> <?php echo __("no records for this date") ?></p>
                                     </div>
                                 </td>
                             </tr>
@@ -1058,11 +1063,11 @@
                     </tbody>
                 </table>
                 <div class="alert alert-info">
-                    <p><strong>This Month's Attendance:</strong> <?php echo $total_monthly_attendance; ?></p>
+                    <p><strong><?php echo __("this month's attendance") ?>:</strong> <?php echo $total_monthly_attendance; ?></p>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo __("close") ?></button>
             </div>
         </div>
     </div>

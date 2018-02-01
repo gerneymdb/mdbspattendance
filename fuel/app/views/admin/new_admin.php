@@ -30,37 +30,37 @@
 
             <?php endif;?>
 
-            <h3>Add a new administrator</h3>
+            <h3><?php echo __("Add a new administrator") ?></h3>
             <form action="<?php echo $base_url .'administrator/add_admin'?>" method="post">
 
                 <?php echo \Fuel\Core\Form::csrf()?>
 
                 <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" name="username" placeholder="administrator's username" class="form-control"/>
+                    <label for="username"><?php echo __("username") ?></label>
+                    <input type="text" name="username" placeholder="<?php echo __("administrator's username") ?>" class="form-control"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="username">Email</label>
-                    <input type="email" name="email" placeholder="administrator's email" class="form-control"/>
+                    <label for="username"><?php echo __("Email") ?></label>
+                    <input type="email" name="email" placeholder="<?php echo __("administrator's email") ?>" class="form-control"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="fname">First Name</label>
-                    <input type="text" name="fname" id="fname" placeholder="admin's first name" class="form-control"/>
+                    <label for="fname"><?php echo __("First Name") ?></label>
+                    <input type="text" name="fname" id="fname" placeholder="<?php echo __("admin's first name") ?>" class="form-control"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="mname">Middle Name</label>
-                    <input type="text" name="mname" id="mname" placeholder="admin's middle name" class="form-control"/>
+                    <label for="mname"><?php echo __("Middle Name") ?></label>
+                    <input type="text" name="mname" id="mname" placeholder="<?php echo __("admin's middle name") ?>" class="form-control"/>
                 </div>
 
                 <div class="form-group">
-                    <label for="fname">Last Name</label>
-                    <input type="text" name="lname" id="lname" placeholder="admin's last name" class="form-control"/>
+                    <label for="fname"><?php echo __("Last Name") ?></label>
+                    <input type="text" name="lname" id="lname" placeholder="<?php echo __("admin's last name") ?>" class="form-control"/>
                 </div>
 
-                <button type="submit" class="btn btn-default pull-right"><i class="fa fa-plus-square-o"></i> Add</button>
+                <button type="submit" class="btn btn-default pull-right"><i class="fa fa-plus-square-o"></i> <?php echo __("Add") ?></button>
 
             </form>
 

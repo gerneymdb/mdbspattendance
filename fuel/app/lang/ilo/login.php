@@ -1,8 +1,8 @@
 <?php
     return array(
-        "title" => "Mag-sulod",
+        "title" => "Log in",
 
-        "token" => "Nadula ang Token ukon sala.",
+        "token" => "Nadula ang pahahumdum ukon sala.",
 
         "lang_form" => array(
 
@@ -42,7 +42,7 @@
             "new_pwd"       => "bag-o nga password",
             "confirm_pwd"   => "kompermaha ang password",
             "save_btn"      => "pagtago",
-            "form_heading"  => "ekspayrd ang daan nga password. isli imu password",
+            "form_heading"  => "mahunos ang daan nga password. isli imu password",
             "success"       => "natago na ang bag.o nga password",
 
             "form_error" => array(

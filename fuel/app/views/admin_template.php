@@ -1,8 +1,24 @@
 <?php
-    $base_url = \Fuel\Core\Config::get("base_url");
-    $page = \Fuel\Core\Session::get_flash("page");
+use Fuel\Core\Lang as lang;
+use Fuel\Core\Cookie as cookie;
 
-    $year = strftime("%Y", time());
+$base_url = \Fuel\Core\Config::get("base_url");
+$page = \Fuel\Core\Session::get_flash("page");
+
+$year = strftime("%Y", time());
+
+// check if there are lang cookies set
+$language = cookie::get("lang");
+if(empty(trim($language))){
+    // lang cookie is not set, set to default
+    lang::set_lang("en", true);
+
+}else{
+    // lang cookie is set, use it to change the language
+    lang::set_lang($language, true);
+}
+
+lang::load("admin_menu");
 ?>
 <!doctype html>
 <html lang="en">
@@ -28,20 +44,20 @@
 <body>
 <section class="admin-side-menu">
     <ul>
-        <li class = "<?php echo ($page == 'attendance')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/manage_attendance"?>">Manage Attendance <i class="fa fa-calendar pull-right"></i></a></li>
-        <li class = "<?php echo ($page == 'employees')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/manage_employees"?>">Manage Employee <i class="fa fa-users pull-right"></i></a></li>
-        <li class = "<?php echo ($page == 'holidays')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/holidays/".$year ?>">Holidays <i class="fa fa-calendar-times-o pull-right"></i></a></li>
-        <li class = "<?php echo ($page == 'leave applications')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/leave_application"?>">Leave Applications <i class="fa fa-wpforms pull-right"></i></a></li>
-        <li class = "<?php echo ($page == 'work schedule')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/work_schedule"?>">Work Schedule <i class="fa fa-tasks pull-right"></i></a></li>
-        <li class = "<?php echo ($page == 'system settings')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/system_settings"?>">System Settings <i class="fa fa-cog pull-right"></i></a></li>
-        <li class = "<?php echo ($page == 'new admin')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/new_admin"?>">New Administrator <i class="fa fa-user-secret pull-right"></i></a></li>
+        <li class = "<?php echo ($page == 'attendance')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/manage_attendance"?>"><?php echo __("manage attendance") ?> <i class="fa fa-calendar pull-right"></i></a></li>
+        <li class = "<?php echo ($page == 'employees')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/manage_employees"?>"><?php echo __("manage employee") ?> <i class="fa fa-users pull-right"></i></a></li>
+        <li class = "<?php echo ($page == 'holidays')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/holidays/".$year ?>"><?php echo __("holidays") ?> <i class="fa fa-calendar-times-o pull-right"></i></a></li>
+        <li class = "<?php echo ($page == 'leave applications')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/leave_application"?>"><?php echo __("leave applications") ?> <i class="fa fa-wpforms pull-right"></i></a></li>
+        <li class = "<?php echo ($page == 'work schedule')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/work_schedule"?>"><?php echo __("work schedule") ?> <i class="fa fa-tasks pull-right"></i></a></li>
+        <li class = "<?php echo ($page == 'system settings')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/system_settings"?>"><?php echo __("system settings") ?> <i class="fa fa-cog pull-right"></i></a></li>
+        <li class = "<?php echo ($page == 'new admin')? 'active' : '' ?>"><a href="<?php echo $base_url ."administrator/new_admin"?>"><?php echo __("new administrator") ?> <i class="fa fa-user-secret pull-right"></i></a></li>
     </ul>
 </section>
 <section class="admin-content">
     <div class="admin-top-menu">
         <ul class="clearfix">
-            <li><a href="<?php echo $base_url ."login/logout"?>">logout <i class="fa fa-sign-out"></i></a></li>
-            <li><a href="#">hello <?php echo \Auth\Auth::get_profile_fields('fname');?> <i class="fa fa-user-secret"></i></a></li>
+            <li><a href="<?php echo $base_url ."login/logout"?>"><?php echo __("logout") ?> <i class="fa fa-sign-out"></i></a></li>
+            <li><a href="#"><?php echo __("hello")?> <?php echo \Auth\Auth::get_profile_fields('fname');?> <i class="fa fa-user-secret"></i></a></li>
         </ul>
     </div>
     <?php echo (isset($content)? $content : "no-content")?>

@@ -304,11 +304,12 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
      *  save employee info
      */
     public function post_save_employee_info(){
+        lang::load("admin_manageemployee");
         try{
 
             if(!\Fuel\Core\Security::check_token()){
 
-                return "Illegal Operation. Missing token. Hit refresh";
+                return __("illegal operation. missing token. hit refresh").":".__("error");
 
             }else{
                 // validate form input
@@ -333,7 +334,7 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                         $msg .= "{$error}. ";
                     }
 
-                    return $msg;
+                    return $msg.":".__("error");
 
                 }else {
 
@@ -394,6 +395,8 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                     }
 
                     $new_info = array(
+                        "success"   => __("success"),
+                        "message"   => __("employee information updated"),
                         "userid" => $userid,
                         "fname"  => $fname,
                         "mname"  => $mname,
@@ -477,11 +480,12 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
      *
      */
     public function post_update_present(){
+        lang::load("admin_manageattendance");
         try{
 
             if(!\Fuel\Core\Security::check_token()) {
 
-                echo "Illegal Operation. Missing token. Hit refresh";
+                echo __("illegal operation. missing token. hit refresh").":".__("error");
 
             }else{
 
@@ -509,7 +513,7 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                         $msg .= "{$error}. ";
                     }
 
-                    echo $msg;
+                    echo $msg.":".__("error");
 
                 }else{
 
@@ -554,6 +558,8 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                             $new_token = \Fuel\Core\Form::csrf();
 
                             $info = array(
+                                "success" => __("success"),
+                                "message" => __("attendance information updated"),
                                 "id" => $date,
                                 "timein"  => $timein,
                                 "timeout" => $timeout,
@@ -573,7 +579,11 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                         $date = substr($date, 0, -2);
                         $date = $date."ab";
 
-                        return json_encode(["id"=>$date]);
+                        return json_encode([
+                            "id"=>$date,
+                            "success" => __("success"),
+                            "message" => __("attendance information updated"),
+                        ]);
                     }else{
 
 
@@ -593,6 +603,8 @@ class Controller_Ajaxcall extends \Fuel\Core\Controller {
                             $new_token = \Fuel\Core\Form::csrf();
 
                             $info = array(
+                                "success" => __("success"),
+                                "message" => __("attendance information updated"),
                                 "id" => $date,
                                 "timein"  => $timein,
                                 "timeout" => $timeout,
