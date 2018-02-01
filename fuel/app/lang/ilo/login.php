@@ -14,7 +14,7 @@
             "id_placeholder"        => "ID",
             "password_placeholder"  => "password",
             "submit_btn"            => "Pag-hatag",
-            "form_heading"          => "MDB Solution Philippines INC.",
+            "form_heading"          => "MDB Solution Philippines Inc.",
 
             "form_error" => array(
                 "empty_field"   => "palihog butangi ang wala unod nga lugar ",
