@@ -26,7 +26,7 @@ return array(
     "Added" => "nadugang",
     "Already" => "na",
     "Exist" => "tuhaw",
-    "Exists" => "gatuhaw",
+    "Exists" => "nagatuhaw",
     "Something" => "isa ka butang",
     "Wrong" => "sala",
     "username" => "username",
