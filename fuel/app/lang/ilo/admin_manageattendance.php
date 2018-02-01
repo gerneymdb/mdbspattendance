@@ -41,7 +41,7 @@ return array(
     "december"   => "decembre",
     "year"       => "tuig",
     "no"         => "wala",
-    "records"    => "record",
+    "records"    => "records",
     "for"        => "para",
     "title"      => "lista sang presensya",
     "processing" => "prosseso",
