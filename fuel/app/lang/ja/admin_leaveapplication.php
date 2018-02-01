@@ -1,0 +1,52 @@
+<?php
+return array(
+    //words
+    "employee" => "従業員",
+    "leave" => "離れる",
+    "application" => "申請",
+    "applications" => "アプリケーション",
+    "reject" => "拒絶する",
+    "approve" => "承認する",
+    "status" => "身分",
+    "pending" => "ペンディング",
+    "sick"=> "病気",
+    "from" => "自",
+    "to" => "至",
+    "date" => "年月日",
+    "filed" => "綴じ込む",
+    "reason" => "理由",
+    "add" => "加える",
+    "comments" => "コメント",
+    "no" => " いいえ",
+    "yes" => "はい",
+    "this" => "この",
+    "where" => "どこで",
+    "are" => " は",
+    "you" => "君",
+    "going" => "行き",
+    "attachments" => "添付ファイル",
+    "title" => "休暇申請",
+    "missing"   => "不明",
+    "refresh"   => "リフレシュ",
+    "illegal"   => "不正",
+    "operation" => "操作",
+    "token"     => "トークン",
+    "hit"       => "ヒット",
+    "error"     => "エラー",
+    "processing"    => "処理",
+    "days"      => "日々",
+
+    //phrases use this page
+    "employee leave applications" => "従業員休暇申請",
+    "sick leave" => "病気",
+    "date filed" => "出願日",
+    "approve this leave application" => "この休暇申請を承認する",
+    "illegal operation. missing token. hit refresh" => "不正な操作でトークンがありません。画面を更新してください。",
+    "add comment" => "コメントを追加",
+    "reject this leave application" => "この休暇申請を拒否する",
+    "why are you going to reject this" => "なぜこれを拒否しようとしていますか？",
+    "unable to process request" => "リクエストを処理できません",
+    "no record found"   => "レコードが見つかりません"
+
+
+);

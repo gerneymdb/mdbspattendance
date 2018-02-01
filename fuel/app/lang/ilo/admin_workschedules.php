@@ -36,7 +36,7 @@ return array(
     "save" => "tago",
     "no" => "indi",
     "a" => "isa",
-    "delete" => "panas",
+    "delete" => "kuhaon",
     "success" => "kadalag-an",
     "record" => "record",
     "succesfully" => "mahiagumon",
@@ -77,7 +77,7 @@ return array(
     "shift list" => "listahan sang pagbaylo",
     "work days" => "adlaw sang obra",
     "day off" => "adlaw sang malayo",
-    "delete shift" => "pagpanas sang pagbaylo",
+    "delete shift" => "pagkuha sang pagbaylo",
     "morning shifts" => "aga sang pagbaylo",
     "night shift" => "gab-i sang pagbaylo",
     "shift record successfully deleted" => "ang record sang pagbaylo mahiagumon nga napasan",
@@ -99,6 +99,28 @@ return array(
 
 
 
-
+    "weekdays" => array(
+        "sun" => "sun",
+        "mon" => "mon",
+        "tue" => "tue",
+        "wed" => "wed",
+        "thu" => "thu",
+        "fri" => "fri",
+        "sat" => "sat",
+        "Sun" => "Sun",
+        "Mon" => "Mon",
+        "Tue" => "Tue",
+        "Wed" => "Wed",
+        "Thu" => "Thu",
+        "Fri" => "Fri",
+        "Sat" => "Sat",
+        "SUN" => "SUN",
+        "MON" => "MON",
+        "TUE" => "TUE",
+        "WED" => "WED",
+        "THU" => "THU",
+        "FRI" => "FRI",
+        "SAT" => "SAT",
+    )
 
 );

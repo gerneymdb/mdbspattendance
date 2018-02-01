@@ -1,7 +1,7 @@
 <?php
 return array(
     //words
-    "employee" => "empleado",
+    "employee" => "empleyado",
     "leave" => "pagliban",
     "application" => "application",
     "applications" => "applications",
@@ -24,7 +24,7 @@ return array(
     "are" => "sila",
     "you" => "ikaw",
     "going" => "pupunta",
-    "attachments" => "attachments",
+    "attachments" => "mga nakalakip",
     "title" => "pamagat",
     "missing"   => "nawawala",
     "refresh"   => "refresh",
@@ -34,9 +34,10 @@ return array(
     "hit"       => "pindutin",
     "error"     => "error",
     "processing"    => "pagpoproseso",
+    "days"      => "araw",
 
     //phrases use this page
-    "employee leave applications" => "mga application ng mga empleado sa pagliban",
+    "employee leave applications" => "mga application ng mga empleyado sa pagliban",
     "sick leave" => "paaliban dahil may sakit",
     "date filed" => "araw ng pagsumiti",
     "approve this leave application" => "aprubahan na ang leave application na ito",
@@ -44,7 +45,8 @@ return array(
     "add comment" => "magdagdag ng komento",
     "reject this leave application" => "tanggihan ang application na ito ng bakasyon",
     "why are you going to reject this" => "bakit mo itatanggi ito?",
-    "unable to process request" => "hindi nagawang iproseso ang kahilingan"
+    "unable to process request" => "hindi nagawang iproseso ang kahilingan",
+    "no record found"   => "walang nakitang record"
 );
 /**
  * Created by PhpStorm.

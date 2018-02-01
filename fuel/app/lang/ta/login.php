@@ -14,7 +14,7 @@
             "id_placeholder"        => "ID",
             "password_placeholder"  => "password",
             "submit_btn"            => "Ipasa",
-            "form_heading"          => "Mag log in",
+            "form_heading"          => "MDB Solution Philippines Inc.",
 
             "form_error" => array(
                 "empty_field"   => "Mangyaring punan ang mga patlang.",

@@ -97,6 +97,29 @@ return array(
     "failed to save shift information" => "failed to save shift information",
     "no shift record with this id" => "no shift record with this id",
 
+    "weekdays" => array(
+        "sun" => "sun",
+        "mon" => "mon",
+        "tue" => "tue",
+        "wed" => "wed",
+        "thu" => "thu",
+        "fri" => "fri",
+        "sat" => "sat",
+        "Sun" => "Sun",
+        "Mon" => "Mon",
+        "Tue" => "Tue",
+        "Wed" => "Wed",
+        "Thu" => "Thu",
+        "Fri" => "Fri",
+        "Sat" => "Sat",
+        "SUN" => "SUN",
+        "MON" => "MON",
+        "TUE" => "TUE",
+        "WED" => "WED",
+        "THU" => "THU",
+        "FRI" => "FRI",
+        "SAT" => "SAT",
+    )
 
 
 

@@ -33,7 +33,8 @@ return array(
     "token"     => "token",
     "hit"       => "hit",
     "error"     => "error",
-    "processing"    => "processing",
+    "processing" => "processing",
+    "days"      => "days",
 
     //phrases use this page
     "employee leave applications" => "employee leave applications",
@@ -44,7 +45,8 @@ return array(
     "add comment" => "add comment",
     "reject this leave application" => "reject this leave application",
     "why are you going to reject this" => "why are you going to reject this",
-    "unable to process request" => "unable to process request"
+    "unable to process request" => "unable to process request",
+    "no record found"   => "no record found"
 
 
 );
