@@ -1,7 +1,7 @@
 <?php
 return array(
     //words
-    "employee" => "empleado",
+    "employee" => "empleyado",
     "leave" => "pagliban",
     "application" => "application",
     "applications" => "applications",
@@ -36,7 +36,7 @@ return array(
     "processing"    => "pagpoproseso",
 
     //phrases use this page
-    "employee leave applications" => "mga application ng mga empleado sa pagliban",
+    "employee leave applications" => "mga application ng mga empleyado sa pagliban",
     "sick leave" => "paaliban dahil may sakit",
     "date filed" => "araw ng pagsumiti",
     "approve this leave application" => "aprubahan na ang leave application na ito",
