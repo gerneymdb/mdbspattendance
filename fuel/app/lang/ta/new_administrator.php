@@ -26,6 +26,7 @@ return array(
     "Already" => "handa",
     "exist" => "umiiral",
     "exists" =>"umiiral",
+    "username" => "username",
 
 
     //phrases
@@ -42,8 +43,10 @@ return array(
     "New administrator is successfully added." => "Matagumpay na naidagdag ang bagong administrator.",
     "Email address already exists." => "umiiral ang email address.",
     "New admin successfully added"  => "Matagumpay na idinagdag ang bagong admin",
-    "Something went wrong in adding new administrator!" => "May naging mali sa pagdaragdag ng bagong administrator!"
-
+    "Something went wrong in adding new administrator!" => "May naging mali sa pagdaragdag ng bagong administrator!",
+    "First Name" => "unang pangalan",
+    "Middle Name" => "gitnang pangalan",
+    "Last Name" => "huling pangalan",
 
 
 

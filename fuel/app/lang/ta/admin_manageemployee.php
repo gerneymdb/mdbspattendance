@@ -61,10 +61,10 @@ return array(
 
     // phrases
     "user id already exist" => "id ng user na exist",
-    "manage employee"       => "pamahalaan ang empleyado",
+    "manage employee"       => "pinapamahalaan ang empleyado",
     "employee information updated"  => "na-update ang impormasyon ng empleyado",
     "illegal operation. missing token. hit refresh"         => "iligal na operasyon. nawawala ang token. pindutin ang pag-refresh",
-    "the field first name is required and must contain a value"         => "kinakailangan ang unang pangalan ng patlang at dapat maglaman ng halaga",
+    "the field first name is required and must contain a value"         => "kinakailangan ang unang pangalan ng patlang at dapat maglaman ng halagang",
     "the field last name is required and must contain a value"          => "Kinakailangan ang huling pangalan ng patlang at dapat maglaman ng halaga",
     "the field user id required and must contain a value"               => "kailangan ang user id ng patlang at dapat maglaman ng isang halaga",
     "the field email address is required and must contain a value"      => "ang email address ng patlang ay kinakailangan at dapat maglaman ng isang halaga",
