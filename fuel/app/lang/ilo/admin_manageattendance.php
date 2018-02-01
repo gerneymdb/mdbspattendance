@@ -41,7 +41,7 @@ return array(
     "december"   => "decembre",
     "year"       => "tuig",
     "no"         => "wala",
-    "records"    => "listahan",
+    "records"    => "record",
     "for"        => "para",
     "title"      => "lista sang presensya",
     "processing" => "prosseso",
@@ -70,6 +70,6 @@ return array(
     "this month's attendance"      => "presensya sang sini nga bulan",
     "daily attendance count"       => "kada-adlaw nga pag-isip sang presensya ",
     "attendance information updated" => "pag update sang presensya nga inpormation",
-    "illegal operation. missing token. hit refresh" => "illegal nga operation. kg pagkadula sang token. tum-okon ang refresh",
+    "illegal operation. missing token. hit refresh" => "illegal nga operation. kg pagkadula sang pahahumdum. tum-okon ang refresh",
 
 );
