@@ -24,7 +24,7 @@ return array(
     "are" => "sila",
     "you" => "ikaw",
     "going" => "pupunta",
-    "attachments" => "attachments",
+    "attachments" => "mga nakalakip",
     "title" => "pamagat",
     "missing"   => "nawawala",
     "refresh"   => "refresh",
