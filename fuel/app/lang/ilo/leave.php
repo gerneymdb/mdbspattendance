@@ -26,7 +26,7 @@ return array(
     "recent_leave" => array(
         "recent"    => "pinakabag.o nga lisensya",
         "cancel"    => "kanselado",
-        "from"      => "gin-halinan",
+        "from"      => "gikan sa",
         "to"        => "padulungan",
         "reason"    => "rason",
         "attachment_label"  => "konektado nga label",
