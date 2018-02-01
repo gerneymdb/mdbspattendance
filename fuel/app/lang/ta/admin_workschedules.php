@@ -99,6 +99,28 @@ return array(
 
 
 
-
+    "weekdays" => array(
+        "sun" => "sun",
+        "mon" => "mon",
+        "tue" => "tue",
+        "wed" => "wed",
+        "thu" => "thu",
+        "fri" => "fri",
+        "sat" => "sat",
+        "Sun" => "Sun",
+        "Mon" => "Mon",
+        "Tue" => "Tue",
+        "Wed" => "Wed",
+        "Thu" => "Thu",
+        "Fri" => "Fri",
+        "Sat" => "Sat",
+        "SUN" => "SUN",
+        "MON" => "MON",
+        "TUE" => "TUE",
+        "WED" => "WED",
+        "THU" => "THU",
+        "FRI" => "FRI",
+        "SAT" => "SAT",
+    )
 
 );

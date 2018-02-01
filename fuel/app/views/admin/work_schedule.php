@@ -43,31 +43,31 @@
                     <input type="hidden" name="work_days" id="work_days_input"/>
                     <div class="days-tile">
                         <input type="checkbox" id="w_sun" name="w_days[]" value="SUN" data-day="sun"/>
-                        <label for="w_sun" class="w_label" data-input="sun">Sun</label>
+                        <label for="w_sun" class="w_label" data-input="sun"><?php echo __("weekdays.Sun")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="w_mon" name="w_days[]" value="MON" data-day="mon"/>
-                        <label for="w_mon" class="w_label" data-input="mon">Mon</label>
+                        <label for="w_mon" class="w_label" data-input="mon"><?php echo __("weekdays.Mon")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="w_tue" name="w_days[]" value="TUE" data-day="tue"/>
-                        <label for="w_tue" class="w_label" data-input="tue">Tue</label>
+                        <label for="w_tue" class="w_label" data-input="tue"><?php echo __("weekdays.Tue")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="w_wed" name="w_days[]" value="WED" data-day="wed"/>
-                        <label for="w_wed" class="w_label" data-input="wed">Wed</label>
+                        <label for="w_wed" class="w_label" data-input="wed"><?php echo __("weekdays.Wed")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="w_thu" name="w_days[]" value="THU" data-day="thu"/>
-                        <label for="w_thu" class="w_label" data-input="thu">Thu</label>
+                        <label for="w_thu" class="w_label" data-input="thu"><?php echo __("weekdays.Thu")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="w_fri" name="w_days[]" value="FRI" data-day="fri"/>
-                        <label for="w_fri" class="w_label" data-input="fri">Fri</label>
+                        <label for="w_fri" class="w_label" data-input="fri"><?php echo __("weekdays.Fri")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="w_sat" name="w_days[]" value="SAT" data-day="sat"/>
-                        <label for="w_sat" class="w_label" data-input="sat">Sat</label>
+                        <label for="w_sat" class="w_label" data-input="sat"><?php echo __("weekdays.Sat")?></label>
                     </div>
                 </div>
                 <div class="dayoff-days clearfix" id="dayoff-days">
@@ -75,31 +75,31 @@
                     <input type="hidden" name="day_off" id="day_off_input" />
                     <div class="days-tile">
                         <input type="checkbox" id="d_sun" name="d_days" value="SUN" data-day="sun"/>
-                        <label for="d_sun" class="d_label" data-input="sun">Sun</label>
+                        <label for="d_sun" class="d_label" data-input="sun"><?php echo __("weekdays.Sun")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="d_mon" name="d_days" value="MON" data-day="mon"/>
-                        <label for="d_mon" class="d_label" data-input="mon">Mon</label>
+                        <label for="d_mon" class="d_label" data-input="mon"><?php echo __("weekdays.Mon")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="d_tue" name="d_days" value="TUE" data-day="tue"/>
-                        <label for="d_tue" class="d_label" data-input="tue">Tue</label>
+                        <label for="d_tue" class="d_label" data-input="tue"><?php echo __("weekdays.Tue")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="d_wed" name="d_days" value="WED" data-day="wed"/>
-                        <label for="d_wed" class="d_label" data-input="wed">Wed</label>
+                        <label for="d_wed" class="d_label" data-input="wed"><?php echo __("weekdays.Wed")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="d_thu" name="d_days" value="THU" data-day="thu"/>
-                        <label for="d_thu" class="d_label" data-input="thu">Thu</label>
+                        <label for="d_thu" class="d_label" data-input="thu"><?php echo __("weekdays.Thu")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="d_fri" name="d_days" value="FRI" data-day="fri"/>
-                        <label for="d_fri" class="d_label" data-input="fri">Fri</label>
+                        <label for="d_fri" class="d_label" data-input="fri"><?php echo __("weekdays.Fri")?></label>
                     </div>
                     <div class="days-tile">
                         <input type="checkbox" id="d_sat" name="d_days" value="SAT" data-day="sat"/>
-                        <label for="d_sat" class="d_label" data-input="sat">Sat</label>
+                        <label for="d_sat" class="d_label" data-input="sat"><?php echo __("weekdays.Sat")?></label>
                     </div>
                 </div>
                 <div class="shifts-schedule clearfix">
@@ -467,8 +467,28 @@
                         <?php foreach($shifts as $shift):?>
                             <tr id="<?php echo $shift->shift_id?>">
                                 <td class="shift_name"><?php echo $shift->shift_name; ?></td>
-                                <td class="work_days"><?php echo $shift->work_days; ?></td>
-                                <td class="day_off"><?php echo $shift->day_off; ?></td>
+                                <td class="work_days">
+                                    <?php
+                                        $days = explode(",", $shift->work_days);
+                                        $wkday = [];
+                                        foreach ($days as $day) {
+                                            $wkday[] = __("weekdays.".$day);
+                                        }
+                                        $days = implode(",", $wkday);
+                                        echo $days;
+                                    ?>
+                                </td>
+                                <td class="day_off">
+                                    <?php
+                                        $days = explode(",", $shift->day_off);
+                                        $wkday = [];
+                                        foreach ($days as $day) {
+                                            $wkday[] = __("weekdays.".$day);
+                                        }
+                                        $days = implode(",", $wkday);
+                                        echo $days;
+                                    ?>
+                                </td>
                                 <td class="start_shift"><?php echo $shift->start_shift; ?></td>
                                 <td class="end_shift"><?php echo $shift->end_shift; ?></td>
                                 <td>
