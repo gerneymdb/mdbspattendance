@@ -6,5 +6,7 @@ return array(
     "leave applications"    =>  "mga application nang leave",
     "work schedule"         =>  "iskedyul nang trabaho",
     "system settings"       => "setting nang sistema",
-    "new administrator"     => "bagong tagapamahala"
+    "new administrator"     => "bagong tagapamahala",
+    "hello"                 => "hello",
+    "logout"                => "mag log-out"
 );

@@ -6,5 +6,7 @@ return array(
     "leave applications"    =>  "leave applications",
     "work schedule"         =>  "work schedule",
     "system settings"       => "system settings",
-    "new administrator"     => "new administrator"
+    "new administrator"     => "new administrator",
+    "hello"                 => "hello",
+    "logout"                => "logout"
 );
