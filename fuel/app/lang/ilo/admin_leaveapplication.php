@@ -30,7 +30,7 @@ return array(
     "refresh"   => "refresh",
     "illegal"   => "operasyon",
     "operation" => "operasyon",
-    "token"     => "token",
+    "token"     => "pahanumdum",
     "hit"       => "tum-okon",
     "error"     => "sala",
     "processing"    => "paagi",
@@ -40,11 +40,11 @@ return array(
     "sick leave" => "paghalin sang may-sakit",
     "date filed" => "petsa sang hantalon",
     "approve this leave application" => "approval sang pag-halin sang aplikasyon",
-    "illegal operation. missing token. hit refresh" => "illegal nga operation. kag pagkadula sang token.tum-okon ang refresh",
+    "illegal operation. missing token. hit refresh" => "illegal nga operation. kag pagkadula sang pahanumdum.tum-okon ang refresh",
     "add comment" => "tingob nga komentar",
     "reject this leave application" => "pagsikway sang sini nga pag-halin sang aplikasyon",
     "why are you going to reject this" => "ngaa gusto mo nga sikwayon ini",
-    "unable to process request" => "walay ikasarang sa pagproseso para sa sini nga pangabay"
+    "unable to process request" => "walay ikasarang sa pagproseso para sa sini nga pangabay".
 
 
 );
