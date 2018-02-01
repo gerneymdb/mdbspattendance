@@ -55,8 +55,8 @@ return array(
     //phrases use in this page
     "day off"    => "adlaw sang pagpahuway",
     "present edit" => "presensya sang pag edit",
-    "regular holiday" => "regular nga okasyon",
-    "special holiday" => "espesyal nga okasyon",
+    "regular holiday" => "regular nga bakasyon",
+    "special holiday" => "espesyal nga bakasyon",
     "this months attendance"       => "presensya sang sini nga bulan",
     "daily attendance counts"      => "presensya sang pag isip adlaw adlaw",
     "no records for this date"     => "wala sa listahan para sa sini nga petsa ",
