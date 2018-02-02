@@ -24,7 +24,7 @@ return array(
     ),
 
     "recent_leave" => array(
-        "recent"    => "pinakabagong pag-alis",
+        "recent"    => "pinakabagong pag-liban",
         "cancel"    => "kanselahin",
         "from"      => "mula sa",
         "to"        => "sa",
