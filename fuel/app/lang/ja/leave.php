@@ -4,13 +4,13 @@ return array(
     "token"         => "トークンが見つからない、または無効です.",
 
     "add_leave_form" => array(
-        "leave_input"   => "カテゴリを出る",
+        "leave_input"   => "有給休暇選択",
         "date_start"    => "開始日",
         "date_end"      => "終了日",
         "attach_file"   => "添付ファイル",
         "attach_description" => "病気休暇等の医療証明書...",
         "leave_reason"  => "理由",
-        "submit_btn"    => "提出する"
+        "submit_btn"    => "送信"
     ),
 
     "form_error" => array(
@@ -40,21 +40,22 @@ return array(
     ),
 
     "leave_list" => array(
-        "leave_label"   => "カテゴリを出る",
-        "days_allot"    => "割り当てられた日数",
-        "days_remain"   => "残存日数",
+        "leave_label"   => "有給休暇",
+        "days_allot"    => "有給休暇の日数",
+        "days_remain"   => "残日数",
 
     ),
 
     "leave_history" => array(
-        "leave_label"   => "離れる",
-        "request_date"  => "リクエスト",
-        "from"          => "から",
-        "to"            => "に",
+        "leave_label"   => "有給休暇",
+        "request_date"  => "申請日",
+        "from"          => "有給休暇開始日",
+        "to"            => "有給休暇終了日",
         "reason"        => "理由",
-        "status"        => "地位",
+        "status"        => "経過",
         "attachment"    => "添付ファイル",
-        "approved_by"   => "によって承認された",
-        "comments"      => "コメント"
+        "approved_by"   => "承認者",
+        "comments"      => "コメント",
+        "leave records" => "有給休暇の履歴"
     )
 );
