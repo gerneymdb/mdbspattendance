@@ -114,14 +114,17 @@
     margin: 7px 0 7px 0;
     z-index:1;
 }
+.admin-user-menu label {
+    font-weight: normal;
+}
 .btn-translate {
-    color: #a7a7a7;
-    background-color: #171717;
-    border-color: #636363;
+    color: #233240;
+    background-color: #95c7da;
+    border-color: #3c8dad;
 }
 .language-select {
-    color: #a7a7a7;
-    background-color: #171717;
+    color: #233240;
+    background-color: #95c7da;
     background-image: none;
-    border: 1px solid #636363;
+    border: 1px solid #3c8dad;
 }
