@@ -1,12 +1,12 @@
 <?php
 return array(
     //words
-    "Add" => "追加する",
+    "Add" => "追加",
     "New" => "新しい",
     "Administrator" => "管理者",
     "User"  => "ユーザー",
     "Name" => "名",
-    "Email" => "電子メール",
+    "Email" => "メールアドレス",
     "Address" => "住所",
     "First" => "最初",
     "Middle" => "中間",
@@ -34,7 +34,7 @@ return array(
     //phrases used in this page
     "Add a new administrator" => "新しい管理者を追加する",
     "administrator's username" => "管理者のユーザー名",
-    "administrator's email" => "管理者の電子メール",
+    "administrator's email" => "管理者のメールアドレス",
     "admin's first name" => "管理者の名",
     "admin's middle name" => "管理者のミドルネーム",
     "admin's last name" => "管理者の姓",
@@ -46,9 +46,9 @@ return array(
     "Email address already exists." => "メールアドレスはすでに存在します。",
     "New admin successfully added"  => "新しい管理者が追加されました",
     "Something went wrong in adding new administrator!" => "新しい管理者を追加する際に問題が発生しました。",
-    "First Name" => "ファーストネーム",
-    "Middle Name" => "ドルネーム",
-    "Last Name" => "苗字"
+    "First Name" => "名",
+    "Middle Name" => "ミドルネーム",
+    "Last Name" => "姓"
 
 
 

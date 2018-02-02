@@ -2,9 +2,9 @@
 return array(
     //words
     "month"      => "月",
-    "submit"     => "提出する",
+    "submit"     => "送信",
     "view"       => "見る",
-    "attendance" => "出勤",
+    "attendance" => "勤怠",
     "report"     => "報告する",
     "day"        => "日",
     "of"         => "の",
@@ -64,12 +64,36 @@ return array(
     "time out"                     => "タイムアウト",
     "time in"                      => "の時間",
     "full name"                    => "フルネーム",
-    "attendance report"            => "出勤報告",
-    "view attendance"              => "出勤を見る",
+    "attendance report"            => "勤怠報告",
+    "view attendance"              => "勤怠を見る",
     "date time in"                 => "日時",
     "this month's attendance"      => "今月の出勤　",
     "daily attendance count"       => "毎日の出勤者数",
     "attendance information updated" => "出勤者情報が更新されました",
-    "illegal operation. missing token. hit refresh" => "不正な操作でトークンがありません。画面を更新してください。"
+    "illegal operation. missing token. hit refresh" => "不正な操作でトークンがありません。画面を更新してください。",
+
+    "days"  => array(
+        "sun"   => "日",
+        "mon"   => "月",
+        "tue"   => "火",
+        "wed"   => "水",
+        "thu"   => "木",
+        "fri"   => "金",
+        "sat"   => "土",
+        "Sun"   => "日",
+        "Mon"   => "月",
+        "Tue"   => "火",
+        "Wed"   => "水",
+        "Thu"   => "木",
+        "Fri"   => "金",
+        "Sat"   => "土",
+        "SUN"   => "日",
+        "MON"   => "月",
+        "TUE"   => "火",
+        "WED"   => "水",
+        "THU"   => "木",
+        "FRI"   => "金",
+        "SAT"   => "土",
+    )
 
 );

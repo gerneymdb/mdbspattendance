@@ -9,7 +9,7 @@
                 <li class="special-holiday"><i>.</i> <?php echo $lang["special_holiday"]?></li>
                 <li class="leave"><i>.</i> <?php echo $lang["leave"] ?></li>
                 <li class="dayoff"><i>.</i> <?php echo $lang["day_off"] ?></li>
-                <li class="future"><i>.</i> <?php echo $lang["future_date"] ?></li>
+<!--                <li class="future"><i>.</i> --><?php //echo $lang["future_date"] ?><!--</li>-->
             </ul>
         </div>
     </div>
@@ -48,7 +48,7 @@
                     ?>
                     <?php foreach ($attendance as $month => $days): ?>
                        <tr>
-                           <td><?php echo $month?></td>
+                           <td><?php echo __("months.".$month)?></td>
                            <td>
                                <?php foreach($days as $key => $record): ?>
                                    <?php
@@ -142,7 +142,7 @@
                                    ?>
                                    <button class="btn btn-days <?php echo $status; ?> ">
                                        <span class="in_no"><?php echo $key?></span>
-                                       <span class="in_name"><?php echo $name_of_day; ?></span>
+                                       <span class="in_name"><?php echo __("days.".$name_of_day) ; ?></span>
                                    </button>
                                <?php endforeach; ?>
                            </td>

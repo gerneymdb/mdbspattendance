@@ -7,7 +7,7 @@
             <h3 class="text-center">
                 <?php
                     $yr = (empty($year) || $year == null || $year == 0 || (!is_numeric($year)))? "" : $year;
-                    echo  $yr . " Leave Records";
+                    echo  $yr . " ".$lang["leave records"];
                 ?>
             </h3>
             <table class="table table-responsive">

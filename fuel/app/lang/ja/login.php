@@ -7,14 +7,14 @@
         "lang_form" => array(
 
             "select_lang"   => "言語を選択",
-            "translate"     => "翻訳",
+            "translate"     => "決定",
         ),
 
         "login_form" => array(
-            "id_placeholder"        => "身分証",
+            "id_placeholder"        => "ID", //"身分証",
             "password_placeholder"  => "パスワード",
             "submit_btn"            => "ログイン",
-            "form_heading"          => "エムデービー ソリューションフィリピン",
+            "form_heading"          => "MDB ソリューションフィリピン",
 
             "form_error" => array(
                 "empty_field"   => "フィールドに記入してください。",
