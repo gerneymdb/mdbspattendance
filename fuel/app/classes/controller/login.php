@@ -468,16 +468,16 @@ class Controller_Login extends \Fuel\Core\Controller_Template {
 
                 \Fuel\Core\Cookie::delete("lang");
                 \Fuel\Core\Cookie::set("lang", $language, 60*60*24);
-                \Fuel\Core\Response::redirect("login/index", "refresh");
+                \Fuel\Core\Response::redirect_back("", "refresh");
 
             }else{
 
                 // fields are empty or has errors
                 // base on the validation errors by the
                 // validation class
-                $msg = $val->error_message();
-                Session::set_flash("msg", $msg);
-                \Fuel\Core\Response::redirect("login/index", "refresh");
+//                $msg = $val->error_message();
+//                Session::set_flash("msg", $msg);
+                \Fuel\Core\Response::redirect_back("", "refresh");
             }
 
 //        }else {

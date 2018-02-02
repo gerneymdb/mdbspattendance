@@ -25,6 +25,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <?php echo \Fuel\Core\Asset::css("bootstrap.min.css");?>
+    <?php echo \Fuel\Core\Asset::css("menu.css");?>
 <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
     <?php echo \Fuel\Core\Asset::css("font-awesome.css")?>
     <?php echo \Fuel\Core\Asset::css("attendance.css");?>
@@ -57,6 +58,31 @@
                         <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"></a>
                         </li>
                     </ul>
+                    <?php echo \Fuel\Core\Form::open(array('action'=>'login'.DIRECTORY_SEPARATOR.'changeLanguage', 'class'=>'navbar-form navbar-left  user-menu', 'method'=>'post', 'id'=>''))?>
+                        <!--                --><?php //echo \Fuel\Core\Form::csrf()?>
+                        <div class="form-group">
+                            <label for="lang"><?php echo __("select lang")?></label>
+                            <select name="lang" id="lang" class="form-control">
+                                <?php
+                                $lang_list = [
+                                    "en"    => "English",
+                                    "ja"    => "Japanese",
+                                    "ta"    => "Tagalog",
+                                    "ilo"   => "Ilonggo"
+                                ];
+
+                                if(!empty($language)){
+                                    echo "<option value='".$language."' selected>".$lang_list[$language]."</option>";
+                                }
+                                ?>
+                                <option value="en">English</option>
+                                <option value="ja">Japanese</option>
+                                <option value="ta">Tagalog</option>
+                                <option value="ilo">Ilonggo</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-default"><?php echo __("translate")?></button>
+                    <?php echo \Fuel\Core\Form::close()?>
                 </div>
             </nav>
         </div>

@@ -54,7 +54,34 @@ lang::load("admin_menu");
     </ul>
 </section>
 <section class="admin-content">
-    <div class="admin-top-menu">
+    <div class="admin-top-menu clearfix">
+
+        <?php echo \Fuel\Core\Form::open(array('action'=>'login'.DIRECTORY_SEPARATOR.'changeLanguage', 'class'=>'navbar-form navbar-left  admin-user-menu', 'method'=>'post', 'id'=>''))?>
+        <!--                --><?php //echo \Fuel\Core\Form::csrf()?>
+        <div class="form-group">
+            <label for="lang"><?php echo __("select lang")?></label>
+            <select name="lang" id="lang" class="form-control">
+                <?php
+                    $lang_list = [
+                        "en"    => "English",
+                        "ja"    => "Japanese",
+                        "ta"    => "Tagalog",
+                        "ilo"   => "Ilonggo"
+                    ];
+
+                    if(!empty($language)){
+                        echo "<option value='".$language."' selected>".$lang_list[$language]."</option>";
+                    }
+                ?>
+                <option value="en">English</option>
+                <option value="ja">Japanese</option>
+                <option value="ta">Tagalog</option>
+                <option value="ilo">Ilonggo</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-default"><?php echo __("translate")?></button>
+        <?php echo \Fuel\Core\Form::close()?>
+
         <ul class="clearfix">
             <li><a href="<?php echo $base_url ."login/logout"?>"><?php echo __("logout") ?> <i class="fa fa-sign-out"></i></a></li>
             <li><a href="#"><?php echo __("hello")?> <?php echo \Auth\Auth::get_profile_fields('fname');?> <i class="fa fa-user-secret"></i></a></li>
