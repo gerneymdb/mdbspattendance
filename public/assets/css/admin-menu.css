@@ -108,8 +108,20 @@
 }
 .admin-user-menu {
     color: #233240;
+    font-weight: normal;
 
     position: relative;
     margin: 7px 0 7px 0;
     z-index:1;
+}
+.btn-translate {
+    color: #a7a7a7;
+    background-color: #171717;
+    border-color: #636363;
+}
+.language-select {
+    color: #a7a7a7;
+    background-color: #171717;
+    background-image: none;
+    border: 1px solid #636363;
 }

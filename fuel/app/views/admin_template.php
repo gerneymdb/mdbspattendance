@@ -60,7 +60,7 @@ lang::load("admin_menu");
         <!--                --><?php //echo \Fuel\Core\Form::csrf()?>
         <div class="form-group">
             <label for="lang"><?php echo __("select lang")?></label>
-            <select name="lang" id="lang" class="form-control">
+            <select name="lang" id="lang" class="form-control language-select">
                 <?php
                     $lang_list = [
                         "en"    => "English",
@@ -79,7 +79,7 @@ lang::load("admin_menu");
                 <option value="ilo">Ilonggo</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-default"><?php echo __("translate")?></button>
+        <button type="submit" class="btn btn-default btn-translate"><?php echo __("translate")?></button>
         <?php echo \Fuel\Core\Form::close()?>
 
         <ul class="clearfix">
