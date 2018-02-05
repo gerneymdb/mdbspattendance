@@ -55,6 +55,7 @@ return array(
         "status"        => "istado",
         "attachment"    => "konekta",
         "approved_by"   => "gin-aprobahan ni",
-        "comments"      => "komento"
+        "comments"      => "komento",
+        "leave records" => "nga listahan sang gin applyan na leave"
     )
 );

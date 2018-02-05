@@ -55,6 +55,7 @@ return array(
         "status"        => "Katayuan",
         "attachment"    => "Attachment",
         "approved_by"   => "Inaprobahan ni",
-        "comments"      => "Mga komento"
+        "comments"      => "Mga komento",
+        "leave records" => "listahan nang mga nakaraang leave"
     )
 );

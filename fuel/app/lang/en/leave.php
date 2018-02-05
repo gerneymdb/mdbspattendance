@@ -55,6 +55,7 @@ return array(
         "status"        => "Status",
         "attachment"    => "Attachment",
         "approved_by"   => "Approved by",
-        "comments"      => "Comments"
+        "comments"      => "Comments",
+        "leave records" => "nga listahan sang gin applyan na leave"
     )
 );
