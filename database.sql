@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `webattendances` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `webattendances`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: webattendances
@@ -31,7 +29,7 @@ CREATE TABLE `attendance` (
   `timeout` datetime DEFAULT NULL,
   `status` varchar(50) NOT NULL,
   PRIMARY KEY (`attendance_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -62,7 +60,7 @@ CREATE TABLE `employee` (
   `civil_status` varchar(45) NOT NULL,
   PRIMARY KEY (`employee_id`),
   UNIQUE KEY `userid_UNIQUE` (`userid`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,7 +88,7 @@ CREATE TABLE `holidays` (
   `type` varchar(50) NOT NULL,
   `with_work` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`holiday_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -99,6 +97,7 @@ CREATE TABLE `holidays` (
 
 LOCK TABLES `holidays` WRITE;
 /*!40000 ALTER TABLE `holidays` DISABLE KEYS */;
+INSERT INTO `holidays` VALUES (1,'Test holiday','2018-02-02 00:00:00','2018-02-02 23:59:59','Test description','Regular Holiday',0);
 /*!40000 ALTER TABLE `holidays` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +121,7 @@ CREATE TABLE `leave` (
   `date_filed` datetime NOT NULL,
   `comments` varchar(3000) NOT NULL,
   PRIMARY KEY (`leave_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +154,7 @@ CREATE TABLE `leave_settings` (
 
 LOCK TABLES `leave_settings` WRITE;
 /*!40000 ALTER TABLE `leave_settings` DISABLE KEYS */;
-INSERT INTO `leave_settings` VALUES (1,'Sick Leave',16),(2,'Vacation Leave',15),(3,'Maternity Leave',60),(4,'Paternity Leave',7);
+INSERT INTO `leave_settings` VALUES (1,'Sick Leaves',16),(2,'Vacation Leave',15),(3,'Maternity Leave',60),(4,'Paternity Leave',7);
 /*!40000 ALTER TABLE `leave_settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +181,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,'admin_settings','mdbmdbsys',2592000,7200);
+INSERT INTO `settings` VALUES (1,'admin_settings','mdbmdbsys',2622600,14400);
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,7 +208,7 @@ CREATE TABLE `users` (
   `time_last_pwd_change` int(25) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`,`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,7 +217,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (9,'administrator','8sJQtvVXxpE/g8pOfi/7o33rl+wcJ04OFurIIwx3osQ=',2,'administrator@gmail.com','1516349132','173d42cd98f5e2bdd18885cd93f37f7da82ad152','a:4:{s:5:\"fname\";s:6:\"Gerney\";s:5:\"mname\";s:6:\"Cangas\";s:5:\"lname\";s:5:\"Nalda\";s:9:\"poisition\";s:13:\"Administrator\";}',1513919812,1513920122,0,0,1513920122);
+INSERT INTO `users` VALUES (9,'administrator','NtgTF8q6Z9UyyUwQS7Ma5Bvj+uTrK/F66iMji9su1XY=',2,'administrator@gmail.com','1518578099','59533ec7273963ccc872e6d2696426b79bbcac42','a:4:{s:5:\"fname\";s:6:\"Gerney\";s:5:\"mname\";s:6:\"Cangas\";s:5:\"lname\";s:5:\"Nalda\";s:9:\"poisition\";s:13:\"Administrator\";}',1513919812,1516585888,0,0,1516585888);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -259,4 +258,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-01-19 16:05:50
+-- Dump completed on 2018-02-14 11:19:14
